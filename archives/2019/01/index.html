@@ -6,17 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.wchhlbt.cn">
-  <title>SPF协议的RFC-7208文档阅读记录 | 王楚涵-个人小站</title>
+  <title>Archives: 2019/1 | 王楚涵-个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这篇文章系统记录了我对于SPF协议的RFC-7208文档的阅读，记录一些我认为重要的关键点和相关问题。">
-<meta name="keywords" content="网络安全">
-<meta property="og:type" content="article">
-<meta property="og:title" content="SPF协议的RFC-7208文档阅读记录">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2018&#x2F;12&#x2F;17&#x2F;SPF%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-7208%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95&#x2F;index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="王楚涵-个人小站">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;archives&#x2F;2019&#x2F;01&#x2F;index.html">
 <meta property="og:site_name" content="王楚涵-个人小站">
-<meta property="og:description" content="这篇文章系统记录了我对于SPF协议的RFC-7208文档的阅读，记录一些我认为重要的关键点和相关问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-16T06:29:39.120Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="王楚涵-个人小站" type="application/atom+xml">
@@ -159,293 +155,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SPF协议的RFC-7208文档阅读记录" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      SPF协议的RFC-7208文档阅读记录
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/01/01/2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2019-01-01T06:14:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-01</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/01/01/2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/">2018年度总结</a>
     </h1>
   
 
-        
-        <a href="/2018/12/17/SPF%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-7208%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2018-12-17T02:50:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-17</time>
-</a>
-        
-        <!-- 添加代码 -->
-        
-          <span class="archive-article-date">
-              阅读量 <span id="busuanzi_value_page_pv"></span>
-          </span>
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这篇文章系统记录了我对于SPF协议的RFC-7208文档的阅读，记录一些我认为重要的关键点和相关问题。</p>
-<a id="more"></a> 
-
-<h2 id="使用spf记录的意义"><a href="#使用spf记录的意义" class="headerlink" title="使用spf记录的意义"></a>使用spf记录的意义</h2><ul>
-<li>可以对发件方声称来自的域名进行验证防止伪造</li>
-<li>在验证身份使用之后，可以根据发送方的域(而不是主机的IP地址)对邮件进行本地策略决策。这样可以参考域名的声誉来做决定。</li>
-</ul>
-<h2 id="rfc文档要点"><a href="#rfc文档要点" class="headerlink" title="rfc文档要点"></a>rfc文档要点</h2><ul>
-<li><p>2.1 如果ADMDs选择发布SPF记录，并且希望支持做出负面授权决定的接收者，则有必要发布以“-all”结尾的记录，或者重定向到具有此功能的其他记录;</p>
-</li>
-<li><p>2.1 修改SPF记录时要有过渡期 确保旧邮件的交付 [RFC5321], Section 4.5.4.1 讨论了消息的传递时长</p>
-</li>
-<li><p>2.2 spf检查不一定进行 取决于收件方MTA的检查配置 例如配置发信方ip白名单</p>
-</li>
-<li><p>2.3 建议同时检查HELO和MAIL FROM的标识，（It is <font color=red>RECOMMENDED</font> that SPF verifiers not only check the “MAIL FROM” identity but also separately check the “HELO” identity by applying the check_host() function (Section 4) to the “HELO” identity as the <sender>.）</p>
-</li>
-<li><p>2.3 同时检查HELO和MAIL FROM的话，建议先检查HELO。Checking “HELO” before “MAIL FROM” is the RECOMMENDED sequence if both are checked.只有当“HELO”字符串是一个有效的多标签域名时，才能执行此SPF检查。</p>
-</li>
-<li><p>2.4 允许MAIL FROM标识为空。allows the reverse-path to be null (see Section 4.5.5 in [RFC5321]).在这种情况下，没有显式的发件人邮箱，并且可以假定这样的消息是来自邮件系统本身的通知消息。本文档将“MAIL FROM”标识定义为由本地部分的“postmaster”和“HELO”标识(之前可能单独检查过，也可能没有)组成的邮箱。</p>
-</li>
-<li><p>2.5 应该在接收邮件的SMTP事务的处理过程中执行授权检查。也就是对话过程中进行检查，稍后检查带来安全问题。</p>
-</li>
-<li><p>2.6 有七种结果的说明</p>
-</li>
-<li><p>3.0 明确指出不能有多条SPF记录 multiple SPF records are not permitted for the same owner name.</p>
-</li>
-<li><p>3.1 记录的字符内容编码为[US-ASCII]。</p>
-</li>
-<li><p>3.3 spf记录是可以由多个引号字符串组成的</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IN TXT <span class="string">"v=spf1 .... first"</span> <span class="string">"second string..."</span> </span><br><span class="line">    is equivalent to:</span><br><span class="line">IN TXT <span class="string">"v=spf1 .... firstsecond string..."</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3.4 对spf记录大小的描述 （涉及dns协议与其它rfc文档 暂未完全理解） 给定域名的已发布SPF记录应保持足够小，以便查询结果符合512个字节</p>
-</li>
-<li><p>4.6 如果结果记录集包含多个记录，check_host()将生成“permerror”结果。</p>
-</li>
-<li><p>4.6 首先验证记录的语法，如果记录中的任何地方有任何语法错误，check_host()将立即返回结果“permerror”，无需进一步解释或计算。</p>
-</li>
-<li><p>4.6.4 以下术语引起DNS查询:“include”、“a”、“mx”、“ptr”和“exists”机制，以及“redirect”修饰符。SPF实现<font color=red>必须</font>在SPF评估期间将这些术语的总数限制为10，以避免DNS上不合理的负载。</p>
-</li>
-<li><p>4.6.4 the evaluation of each “MX” record <font color=red>MUST</font> NOT result in querying more than 10 address records.  If this limit is exceeded, the “mx” mechanism <font color=red>MUST</font> produce a “permerror” result.</p>
-</li>
-<li><p>4.6.4 mta或其他处理器应该对计算check_host()的最大消耗时间进行限制。这样的限制应该至少允许20秒。如果超过了这个限制，授权的结果应该是“temperror”。</p>
-</li>
-<li><p>4.7 如果所有机制都不匹配，并且没有“重定向”修饰符，那么check_host()将返回“中性”的结果，就像“?all”</p>
-</li>
-<li><p>5 ip地址比较的说明 如果指令中没有给出CIDR前缀长度，则比较<ip>和ip地址是否相等。如果指定了CIDR前缀长度，则只比较<ip>的指定高阶位数和ip地址是否相等。</p>
-</li>
-<li><p>5 当任何机制获取主机地址与<ip>进行比较时，当<ip>为IPv4时，获取“A”记录;当<ip>是IPv6地址时，获取“AAAA”记录。</p>
-</li>
-<li><p>5.1 Mechanisms listed after “all” <font color=red>MUST</font> be ignored. 当记录中存在“all”机制时，必须忽略任何“redirect”修饰符。</p>
-</li>
-<li><p>5.2 include机制不影响发送方策略   发送方策略的确定仍然是由原始域的SPF记录的all机制决定 </p>
-</li>
-<li><p>5.5 ptr机制不建议使用，但是check_host函数<font color=red>必须</font>要支持检查，可以放在最后检查</p>
-</li>
-<li><p>5.6 If ip4-cidr-length is omitted, it is taken to be “/32”. If ip6-cidr-length is omitted, it is taken to be “/128”. 但是ip地址<font color=red>必须</font>完整，不可省略。</p>
-</li>
-<li><p>6.0 在这个文档中定义的修饰符(“redirect”和“exp”)应该出现在记录的末尾</p>
-</li>
-<li><p>6.1 redirect 修饰符不能和 all 机制共存。（Any “redirect” modifier MUST be ignored if there is an “all” mechanism anywhere in the record.）</p>
-</li>
-<li><p>7 宏定义字符串相关说明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s = &lt;sender&gt;</span><br><span class="line">l = local-part of &lt;sender&gt; </span><br><span class="line">o = domain of &lt;sender&gt; </span><br><span class="line">d = &lt;domain&gt; </span><br><span class="line">i = &lt;ip&gt;</span><br><span class="line">p = the validated domain name of &lt;ip&gt; (do not use) </span><br><span class="line">v = the string &quot;in-addr&quot; if &lt;ip&gt; is ipv4, or &quot;ip6&quot; if &lt;ip&gt; is ipv6 </span><br><span class="line">h = HELO/EHLO domain</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>8 两种处理决策 </p>
-<p>允许消息传递(成功的SMTP应答代码)并添加一个额外的头字段，该字段指示check_host()返回的结果和其他重要细节;</p>
-<p>在SMTP会话中进行处理，返回一个永久SMTP错误(拒绝)或临时SMTP错误(“稍后重试”);</p>
-</li>
-<li><p>8.2 A “neutral” result <font color=red>MUST</font> be treated exactly like the “none” result;</p>
-</li>
-<li><p>8.5 接收方的MUA可以突出显示“softfail”状态，或者接收方的MTA可以使用greylisting 并在第一次接收到消息时发出通知，但是根据接收方策略在稍后的尝试中接受该消息。</p>
-</li>
-<li><p>8.6 “temperror”结果表示SPF验证器在执行检查时遇到了暂时的(通常是DNS)错误。SMTP reply code of 451。</p>
-</li>
-<li><p>8.7 “permerror”结果意味着域发布的记录不能被正确解释。 SMTP reply code of 550。</p>
-</li>
-<li><p>9 it is <font color=red>RECOMMENDED</font> that SMTP receivers record the result of SPF processing in the message header. 建议SMTP接收者在消息头中记录SPF处理的结果。Received-SPF 包含全部spf消息，可以重建spf查询。Authentication-Results主要传递结果本身。</p>
-</li>
-<li><p>10.3 邮件传递中介  需要关注邮件地址的变化  [RFC5321], Section 3.9.</p>
-</li>
-<li><p>11 这一节介绍了一些可能由SPF带来的安全问题</p>
-</li>
-<li><p>11.1 通过SPF验证器来创建DoS攻击，恶意的一方可能会创建一个SPF记录，其中会引用受害者的域名，并向不同的SPF验证者发送许多电子邮件;这样攻击者可以隐藏攻击的真正来源。</p>
-</li>
-<li><p>11.1 恶意者可能会把伪造大量声称来自目标的邮件，传送到各式各样的合法邮件主机。通过spf查询给目标DNS服务器带来大量负载。</p>
-</li>
-<li><p>11.6 宏机制允许发送方将任意文本(任何非空 [US-ASCII]字符)注入接收方DNS查询。</p>
-</li>
-<li><p>12 这一节用ABNF表示法定义了spf记录的格式。其中文本字符串(引号中的字符串)不区分大小写。Hence, “mx” matches “mx”, “MX”, “mX”, and “Mx”. </p>
-</li>
-</ul>
-<h2 id="查看SPF记录的方法"><a href="#查看SPF记录的方法" class="headerlink" title="查看SPF记录的方法"></a>查看SPF记录的方法</h2><p><a href="http://www.zzbaike.com/wiki/Windows" target="_blank" rel="noopener">Windows</a>下，在命令行下输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nslookup -type=txt 域名</span><br></pre></td></tr></table></figure>
-
-<p><a href="http://www.zzbaike.com/wiki/Unix" target="_blank" rel="noopener">Unix</a>操作系统下用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig -t txt 域名</span><br></pre></td></tr></table></figure>
-
-<h2 id="相关思考"><a href="#相关思考" class="headerlink" title="相关思考"></a>相关思考</h2><ol>
-<li><p><del>记录更新是否会带来旧邮件丢失的问题  是否只增不删</del></p>
-</li>
-<li><p>邮件转发服务 是否有可能导致邮件通过低安全性的邮箱进入高安全性的邮箱</p>
-</li>
-<li><p>灰名单技术</p>
-<p>greylist（灰名单）的设计大体上是基于一种重试的原则，即第一次看到某个IP要想给某个收件人发信，那么它将简单的返回一个临时错误（4xx），并拒绝此请求，正常的邮件服务器都会在一段时间内（如5-10分钟左右）重发一次邮件。greylist（灰名单）发现还是刚才同样的ip地址和收件人，认为此ip是来自合法服务器的，予以放行。如果是非正常的邮件，那么或者将永远也不再进行重试，或者会疯狂重试，但由于间隔太近，而遭拒绝。</p>
-</li>
-<li><p>[RFC5598] describes the Internet email architecture.</p>
-</li>
-<li><p>4.6.4的限制是不是对递归依旧有效</p>
-</li>
-</ol>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">网络安全</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
 	</div>
 
+          
 
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2018/12/17/SPF%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-7208%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/01/01/2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          2018年度总结
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/11/27/%E5%88%A9%E7%94%A8postfix%E6%90%AD%E5%BB%BA%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">利用postfix搭建邮件服务器</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -481,8 +244,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

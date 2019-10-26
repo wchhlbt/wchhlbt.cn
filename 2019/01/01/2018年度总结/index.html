@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.wchhlbt.cn">
-  <title>SPF协议的RFC-7208文档阅读记录 | 王楚涵-个人小站</title>
+  <title>2018年度总结 | 王楚涵-个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这篇文章系统记录了我对于SPF协议的RFC-7208文档的阅读，记录一些我认为重要的关键点和相关问题。">
-<meta name="keywords" content="网络安全">
+  <meta name="description" content="以这篇文章对我过去的2018年画一个句号。">
+<meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SPF协议的RFC-7208文档阅读记录">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2018&#x2F;12&#x2F;17&#x2F;SPF%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-7208%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95&#x2F;index.html">
+<meta property="og:title" content="2018年度总结">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2019&#x2F;01&#x2F;01&#x2F;2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93&#x2F;index.html">
 <meta property="og:site_name" content="王楚涵-个人小站">
-<meta property="og:description" content="这篇文章系统记录了我对于SPF协议的RFC-7208文档的阅读，记录一些我认为重要的关键点和相关问题。">
+<meta property="og:description" content="以这篇文章对我过去的2018年画一个句号。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-16T06:29:39.120Z">
+<meta property="og:updated_time" content="2019-10-26T12:56:14.957Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="王楚涵-个人小站" type="application/atom+xml">
@@ -159,20 +159,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SPF协议的RFC-7208文档阅读记录" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-2018年度总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      SPF协议的RFC-7208文档阅读记录
+      2018年度总结
     </h1>
   
 
         
-        <a href="/2018/12/17/SPF%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-7208%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2018-12-17T02:50:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-17</time>
+        <a href="/2019/01/01/2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2019-01-01T06:14:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-01</time>
 </a>
         
         <!-- 添加代码 -->
@@ -186,116 +186,54 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这篇文章系统记录了我对于SPF协议的RFC-7208文档的阅读，记录一些我认为重要的关键点和相关问题。</p>
+        <p>以这篇文章对我过去的2018年画一个句号。</p>
 <a id="more"></a> 
 
-<h2 id="使用spf记录的意义"><a href="#使用spf记录的意义" class="headerlink" title="使用spf记录的意义"></a>使用spf记录的意义</h2><ul>
-<li>可以对发件方声称来自的域名进行验证防止伪造</li>
-<li>在验证身份使用之后，可以根据发送方的域(而不是主机的IP地址)对邮件进行本地策略决策。这样可以参考域名的声誉来做决定。</li>
-</ul>
-<h2 id="rfc文档要点"><a href="#rfc文档要点" class="headerlink" title="rfc文档要点"></a>rfc文档要点</h2><ul>
-<li><p>2.1 如果ADMDs选择发布SPF记录，并且希望支持做出负面授权决定的接收者，则有必要发布以“-all”结尾的记录，或者重定向到具有此功能的其他记录;</p>
-</li>
-<li><p>2.1 修改SPF记录时要有过渡期 确保旧邮件的交付 [RFC5321], Section 4.5.4.1 讨论了消息的传递时长</p>
-</li>
-<li><p>2.2 spf检查不一定进行 取决于收件方MTA的检查配置 例如配置发信方ip白名单</p>
-</li>
-<li><p>2.3 建议同时检查HELO和MAIL FROM的标识，（It is <font color=red>RECOMMENDED</font> that SPF verifiers not only check the “MAIL FROM” identity but also separately check the “HELO” identity by applying the check_host() function (Section 4) to the “HELO” identity as the <sender>.）</p>
-</li>
-<li><p>2.3 同时检查HELO和MAIL FROM的话，建议先检查HELO。Checking “HELO” before “MAIL FROM” is the RECOMMENDED sequence if both are checked.只有当“HELO”字符串是一个有效的多标签域名时，才能执行此SPF检查。</p>
-</li>
-<li><p>2.4 允许MAIL FROM标识为空。allows the reverse-path to be null (see Section 4.5.5 in [RFC5321]).在这种情况下，没有显式的发件人邮箱，并且可以假定这样的消息是来自邮件系统本身的通知消息。本文档将“MAIL FROM”标识定义为由本地部分的“postmaster”和“HELO”标识(之前可能单独检查过，也可能没有)组成的邮箱。</p>
-</li>
-<li><p>2.5 应该在接收邮件的SMTP事务的处理过程中执行授权检查。也就是对话过程中进行检查，稍后检查带来安全问题。</p>
-</li>
-<li><p>2.6 有七种结果的说明</p>
-</li>
-<li><p>3.0 明确指出不能有多条SPF记录 multiple SPF records are not permitted for the same owner name.</p>
-</li>
-<li><p>3.1 记录的字符内容编码为[US-ASCII]。</p>
-</li>
-<li><p>3.3 spf记录是可以由多个引号字符串组成的</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IN TXT <span class="string">"v=spf1 .... first"</span> <span class="string">"second string..."</span> </span><br><span class="line">    is equivalent to:</span><br><span class="line">IN TXT <span class="string">"v=spf1 .... firstsecond string..."</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3.4 对spf记录大小的描述 （涉及dns协议与其它rfc文档 暂未完全理解） 给定域名的已发布SPF记录应保持足够小，以便查询结果符合512个字节</p>
-</li>
-<li><p>4.6 如果结果记录集包含多个记录，check_host()将生成“permerror”结果。</p>
-</li>
-<li><p>4.6 首先验证记录的语法，如果记录中的任何地方有任何语法错误，check_host()将立即返回结果“permerror”，无需进一步解释或计算。</p>
-</li>
-<li><p>4.6.4 以下术语引起DNS查询:“include”、“a”、“mx”、“ptr”和“exists”机制，以及“redirect”修饰符。SPF实现<font color=red>必须</font>在SPF评估期间将这些术语的总数限制为10，以避免DNS上不合理的负载。</p>
-</li>
-<li><p>4.6.4 the evaluation of each “MX” record <font color=red>MUST</font> NOT result in querying more than 10 address records.  If this limit is exceeded, the “mx” mechanism <font color=red>MUST</font> produce a “permerror” result.</p>
-</li>
-<li><p>4.6.4 mta或其他处理器应该对计算check_host()的最大消耗时间进行限制。这样的限制应该至少允许20秒。如果超过了这个限制，授权的结果应该是“temperror”。</p>
-</li>
-<li><p>4.7 如果所有机制都不匹配，并且没有“重定向”修饰符，那么check_host()将返回“中性”的结果，就像“?all”</p>
-</li>
-<li><p>5 ip地址比较的说明 如果指令中没有给出CIDR前缀长度，则比较<ip>和ip地址是否相等。如果指定了CIDR前缀长度，则只比较<ip>的指定高阶位数和ip地址是否相等。</p>
-</li>
-<li><p>5 当任何机制获取主机地址与<ip>进行比较时，当<ip>为IPv4时，获取“A”记录;当<ip>是IPv6地址时，获取“AAAA”记录。</p>
-</li>
-<li><p>5.1 Mechanisms listed after “all” <font color=red>MUST</font> be ignored. 当记录中存在“all”机制时，必须忽略任何“redirect”修饰符。</p>
-</li>
-<li><p>5.2 include机制不影响发送方策略   发送方策略的确定仍然是由原始域的SPF记录的all机制决定 </p>
-</li>
-<li><p>5.5 ptr机制不建议使用，但是check_host函数<font color=red>必须</font>要支持检查，可以放在最后检查</p>
-</li>
-<li><p>5.6 If ip4-cidr-length is omitted, it is taken to be “/32”. If ip6-cidr-length is omitted, it is taken to be “/128”. 但是ip地址<font color=red>必须</font>完整，不可省略。</p>
-</li>
-<li><p>6.0 在这个文档中定义的修饰符(“redirect”和“exp”)应该出现在记录的末尾</p>
-</li>
-<li><p>6.1 redirect 修饰符不能和 all 机制共存。（Any “redirect” modifier MUST be ignored if there is an “all” mechanism anywhere in the record.）</p>
-</li>
-<li><p>7 宏定义字符串相关说明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s = &lt;sender&gt;</span><br><span class="line">l = local-part of &lt;sender&gt; </span><br><span class="line">o = domain of &lt;sender&gt; </span><br><span class="line">d = &lt;domain&gt; </span><br><span class="line">i = &lt;ip&gt;</span><br><span class="line">p = the validated domain name of &lt;ip&gt; (do not use) </span><br><span class="line">v = the string &quot;in-addr&quot; if &lt;ip&gt; is ipv4, or &quot;ip6&quot; if &lt;ip&gt; is ipv6 </span><br><span class="line">h = HELO/EHLO domain</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>8 两种处理决策 </p>
-<p>允许消息传递(成功的SMTP应答代码)并添加一个额外的头字段，该字段指示check_host()返回的结果和其他重要细节;</p>
-<p>在SMTP会话中进行处理，返回一个永久SMTP错误(拒绝)或临时SMTP错误(“稍后重试”);</p>
-</li>
-<li><p>8.2 A “neutral” result <font color=red>MUST</font> be treated exactly like the “none” result;</p>
-</li>
-<li><p>8.5 接收方的MUA可以突出显示“softfail”状态，或者接收方的MTA可以使用greylisting 并在第一次接收到消息时发出通知，但是根据接收方策略在稍后的尝试中接受该消息。</p>
-</li>
-<li><p>8.6 “temperror”结果表示SPF验证器在执行检查时遇到了暂时的(通常是DNS)错误。SMTP reply code of 451。</p>
-</li>
-<li><p>8.7 “permerror”结果意味着域发布的记录不能被正确解释。 SMTP reply code of 550。</p>
-</li>
-<li><p>9 it is <font color=red>RECOMMENDED</font> that SMTP receivers record the result of SPF processing in the message header. 建议SMTP接收者在消息头中记录SPF处理的结果。Received-SPF 包含全部spf消息，可以重建spf查询。Authentication-Results主要传递结果本身。</p>
-</li>
-<li><p>10.3 邮件传递中介  需要关注邮件地址的变化  [RFC5321], Section 3.9.</p>
-</li>
-<li><p>11 这一节介绍了一些可能由SPF带来的安全问题</p>
-</li>
-<li><p>11.1 通过SPF验证器来创建DoS攻击，恶意的一方可能会创建一个SPF记录，其中会引用受害者的域名，并向不同的SPF验证者发送许多电子邮件;这样攻击者可以隐藏攻击的真正来源。</p>
-</li>
-<li><p>11.1 恶意者可能会把伪造大量声称来自目标的邮件，传送到各式各样的合法邮件主机。通过spf查询给目标DNS服务器带来大量负载。</p>
-</li>
-<li><p>11.6 宏机制允许发送方将任意文本(任何非空 [US-ASCII]字符)注入接收方DNS查询。</p>
-</li>
-<li><p>12 这一节用ABNF表示法定义了spf记录的格式。其中文本字符串(引号中的字符串)不区分大小写。Hence, “mx” matches “mx”, “MX”, “mX”, and “Mx”. </p>
-</li>
-</ul>
-<h2 id="查看SPF记录的方法"><a href="#查看SPF记录的方法" class="headerlink" title="查看SPF记录的方法"></a>查看SPF记录的方法</h2><p><a href="http://www.zzbaike.com/wiki/Windows" target="_blank" rel="noopener">Windows</a>下，在命令行下输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nslookup -type=txt 域名</span><br></pre></td></tr></table></figure>
+<h2 id="2018大事月表"><a href="#2018大事月表" class="headerlink" title="2018大事月表"></a>2018大事月表</h2><p>2018.1 联系李清勇老师 加入实验室参与相关项目</p>
+<p>2018.2 美国大学生数学建模大赛（二等奖）</p>
+<p>2018.3-6 主要专业课学习 编译原理 体系结构 操作系统  </p>
+<pre><code>保研前期准备 简历 推荐信 各种申请表 异常忙碌
 
-<p><a href="http://www.zzbaike.com/wiki/Unix" target="_blank" rel="noopener">Unix</a>操作系统下用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig -t txt 域名</span><br></pre></td></tr></table></figure>
-
-<h2 id="相关思考"><a href="#相关思考" class="headerlink" title="相关思考"></a>相关思考</h2><ol>
-<li><p><del>记录更新是否会带来旧邮件丢失的问题  是否只增不删</del></p>
-</li>
-<li><p>邮件转发服务 是否有可能导致邮件通过低安全性的邮箱进入高安全性的邮箱</p>
-</li>
-<li><p>灰名单技术</p>
-<p>greylist（灰名单）的设计大体上是基于一种重试的原则，即第一次看到某个IP要想给某个收件人发信，那么它将简单的返回一个临时错误（4xx），并拒绝此请求，正常的邮件服务器都会在一段时间内（如5-10分钟左右）重发一次邮件。greylist（灰名单）发现还是刚才同样的ip地址和收件人，认为此ip是来自合法服务器的，予以放行。如果是非正常的邮件，那么或者将永远也不再进行重试，或者会疯狂重试，但由于间隔太近，而遭拒绝。</p>
-</li>
-<li><p>[RFC5598] describes the Internet email architecture.</p>
-</li>
-<li><p>4.6.4的限制是不是对递归依旧有效</p>
-</li>
-</ol>
+最后一段参加算法竞赛的时光  蓝桥杯北京市一等奖 全国三等奖</code></pre><p>2018.7-8 参加各处夏令营 奶奶手术 清华DNS分片攻击项目</p>
+<p>2018.9 九推面试（排名2/200） 疯狂投简历 确定被清华网研院录取为硕士研究生</p>
+<p>2018.10 基于龙芯平台及MIPS指令集的汇编器实验  受益匪浅</p>
+<pre><code>软件综合实践课程作业 with 王子泰</code></pre><p>2018.11 结束大学全部专业课程</p>
+<p>2018.12 进入360网络研究院实习 开展邮件伪造攻击项目 </p>
+<pre><code>大学全部课程结束</code></pre><h2 id="回响"><a href="#回响" class="headerlink" title="回响"></a>回响</h2><p>生活就像一曲乐章，于平静中而起，中间或有跌宕起伏，波澜壮阔，当帷幕落下的一刻，一起又将重归平静。</p>
+<h3 id="程序设计竞赛"><a href="#程序设计竞赛" class="headerlink" title="程序设计竞赛"></a>程序设计竞赛</h3><p>似乎一切就这样悄悄结束了，这项占据了我大学生活六成以上精力的活动，没能以一篇退役帖说一声再见，大概是我一直以来的遗憾。</p>
+<p>最开始是不愿意接受这样的结果惨淡收场，希冀着自己还可以再拼一年证明自己，但站在通往未来的十字路口上，面对保研出国等抉择的时候，最终还是选择了放弃……</p>
+<p>可能还是怕了吧，拼上了大二一年，最终两块铜牌惨淡收场，自己的努力在那片需要天赋、勤奋、运气并存的赛场上是如此的不值一提……</p>
+<p>有时常常会想再打一年，再努力一点，幸运女神是不是就会站在我这边了呢？可惜生活没有如果，这份未知只能成为永久的遗憾。</p>
+<p>大一新生赛的意气风发，校赛的小失利，大二区域赛的一无所获，大三的两铜惨淡收尾。</p>
+<p>蓝桥杯又进了全国决赛，这次只有三等奖，退役后果然还是变菜了。</p>
+<p>北大校赛又一次被虐的体无完肤，拉着东学大佬，琦宝宝三个人五小时做了一道题，看着旁边清华队伍11题顺利AK… 百感交集。。。。。。。。。。。。</p>
+<p>就到这里吧。</p>
+<h3 id="保研"><a href="#保研" class="headerlink" title="保研"></a>保研</h3><p>一波三折，结果得偿所愿。</p>
+<p>高考竞赛失利后，再也没有奢望过top 2，大概可以接受自己的能力本就不属于那个圈子了吧。</p>
+<p>夏令营投简历的时候，其实更盼望能够获得北大的入营通知，清华其实只是看着很方便，随手一投碰碰运气，得知自己可以入营还是有一些意外的，毕竟北大的两个夏令营都把我拒之门外。（大概要感谢我们学校的学长或是老师在清华那里留下了还不错的印象？）</p>
+<p>报名夏令营：清华计算机系 北大信科 北大交叉信息学院 </p>
+<pre><code>中科院自动化所 中科院计算所 南京大学</code></pre><p>通过夏令营：清华计算系 自动化所 计算所 南京大学</p>
+<p>清华计算系的夏令营只有一天，机试，宣讲会，晚宴，退役之后还是有些手生，机试打的其实并不好，如果不是最后找到了一个致命的小bug，估计只有可怜的30多分。好在成功入选前50%，拿到了九推清华的通行证，但是清华还需要九月推免统一面试来确定录取结果，而我这时还没有联系好的导师，清华依旧遥不可及。</p>
+<p>导师见面日，并没有多少老师出现在办公室，最后也仅仅递出了2份简历，只见了一位老师。</p>
+<p>随后同时参加了自动化所和计算所的夏令营，之前通过徐金安老师推荐拿到了自动化所赵军刘康老师组的口头offer，所以计算所只象征性的报名了计算机视觉大佬山世光老师，不过没想到机缘巧合之下两处都挂了5555555</p>
+<p>本来是要去南大夏令营的，但是当时以为自动化所已经十拿九稳，再加上段老师约我见面，就直接鸽掉了南大的夏令营，想来跟南大大概是没什么缘分吧，三年前自主招生初审就没通过。（这次算报一拒之仇？）</p>
+<p>其实九推还是去面了很多地方，中科院人工智能学院，计算所其他实验室，还获得了浙大的面试资格，但是清华面试结束之后基本已经确定下来了，就没有再折腾，累了。</p>
+<p>从3、4月份开始准备，到九月底尘埃落定，这个过程中几乎就一直在准备材料，找老师签字盖章，发邮件投简历，面试等待结果的焦虑中度过的，尤其是8月份的时候，我依旧是0offer，还拒绝了中科院软件所的单独面试机会，又要一边跑医院照顾奶奶，还要做清华老师提出的论文攻击复现，还想着给自己留一条后路。有时甚至想干脆留在学校就没这么多烦恼了吧。</p>
+<p>回想起来这应该是大学以来最难熬的一段时光了吧，承受着前几个月的努力一无所获，面临着前方未知的风险，无形压力可能来自任何一个地方，同学老师家人还有自己，前途未卜，道阻且长……</p>
+<p>很幸运，站在21岁的门口，我如愿获得了清华的拟录取。这是最初不曾想甚至不敢想的地方，我也有机会真的走进那个有着无数光环的地方。如梦一般难以置信，我过去三年的付出和成绩得到了认可。有机会和全国最优秀的同龄人在最高学府一起聆听大师学者的讲座课程。我觉得那将是人生一段非常美好的经历。</p>
+<p>希望当有一天我从那个园子里走出来的时候，我不仅仅因在那里就读而自豪，而是因在那里收获到的知识能力，开拓的视野而自信，到时我可以骄傲的说出我毕业于那里！</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>其实还有很多事情可以单独拿出来说一说的，写不动了23333</p>
+<p>和王子泰一起连续奋战三个星期，查资料，读代码，写代码，朝9晚12，最终将汇编器写出来的兴奋是难以用言语形容的，大概就是研究攻坚问题的乐趣，这个过程确实收获非常大，对一些编程语言的实现细节有了不一样的理解，如果有机会一定要争取将链接器部分完成，将一份代码的前世今生搞清楚。</p>
+<p>每当课程结课时的手忙脚乱，没想到大学的全部课程就在不经意间结束了，最后一堂课居然是一堂负伤的体育课。</p>
+<p>工作真的好累啊…每天要在路上那么久….这就是我以后的生活么？？？</p>
+<h2 id="2019的小目标"><a href="#2019的小目标" class="headerlink" title="2019的小目标"></a>2019的小目标</h2><ul>
+<li>也许时间允许可以记个日记 不至于像现在这样什么都靠大脑存储检索2333</li>
+<li>大概是真的需要好好学英语了 不然大概会被虐成渣儿T^T</li>
+<li>更具极客精神，钻研技术，不畏“麻烦”，不怕“折腾”，用技术让生活更美好~</li>
+</ul>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>不记得从哪里看到，生活有10%的精彩，10%的痛苦，80%的平淡组成，我们享受那十分之一的精彩，承受另十分之一的痛苦，在其余的日子里平淡的走过。</p>
+<p>最终时间还是不以人的意志为转移的来到了新的一年，无论你是否期待，2019已经开始了~</p>
+<p>希望自己的2019可以过得精彩，周围的家人和朋友可以健康快乐，愿每一段光阴都不被虚度~</p>
 
       
 
@@ -330,7 +268,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">网络安全</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -387,7 +325,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2018/12/17/SPF%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-7208%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2019/01/01/2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -401,18 +339,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/01/01/2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/25/SMTP%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-5321%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          2018年度总结
+          SMTP协议的RFC-5321文档阅读记录
         
       </div>
     </a>
   
   
-    <a href="/2018/11/27/%E5%88%A9%E7%94%A8postfix%E6%90%AD%E5%BB%BA%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">利用postfix搭建邮件服务器</div>
+    <a href="/2018/12/17/SPF%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-7208%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SPF协议的RFC-7208文档阅读记录</div>
       <i class="icon-circle-right"></i>
     </a>
   
