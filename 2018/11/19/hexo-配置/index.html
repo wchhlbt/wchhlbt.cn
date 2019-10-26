@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="王楚涵-个人小站">
 <meta property="og:description" content="这里简要记录一下配置这个博客的过程，和这个过程中遇到的一些问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-27T15:22:48.851Z">
+<meta property="og:updated_time" content="2019-10-26T10:34:44.850Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="王楚涵-个人小站" type="application/atom+xml">
@@ -194,15 +194,20 @@
 <li><p>在根目录下的_config.yml 文件中修改url项</p>
 </li>
 <li><p>然后安装对应插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-cname --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-cname --save</span><br><span class="line">npm install hexo-generator-json-content --save</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在_config.yml 文件中修改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Plugins:</span><br><span class="line">- hexo-generator-cname</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Plugins:</span><br><span class="line">- hexo-generator-cname</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <p>2、markdown标题#后面要有空格</p>
+<p>3、博客迁移过程</p>
+<ul>
+<li>在新环境中重新配置git、node.js、hexo环境</li>
+<li>将必要的文件拷贝到当前环境下 scaffolds source themes文件夹 以及 _config.yml配置文件</li>
+<li>安装对应的插件</li>
+</ul>
 
       
 
@@ -458,15 +463,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">网络安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">ACM-ICPC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -474,7 +471,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">ACM-ICPC</a>
               </li>
             
             <div class="clearfix"></div>
