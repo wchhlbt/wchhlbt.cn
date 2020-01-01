@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.wchhlbt.cn">
-  <title>SMTP协议的RFC-5321文档阅读记录 | 王楚涵-个人小站</title>
+  <title>pwn入门 | 王楚涵-个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这篇文章系统记录了我对于SMTP协议的RFC-5321文档的阅读，记录一些我认为重要的关键点和相关问题。">
-<meta name="keywords" content="网络安全">
+  <meta name="description" content="pwn入门这篇文档是我在入门pwn过程中的一些学习记录。包括工具的安装以及一些背景知识。 0 pwntools0.1 安装https:&#x2F;&#x2F;github.com&#x2F;Gallopsled&#x2F;pwntools https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;fbfce9cf5190 0.2 使用12345678910# p32 p64 编码 # u32 u64 解码&amp;gt;&amp;gt;&amp;gt; p8(0)&amp;apos;">
+<meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SMTP协议的RFC-5321文档阅读记录">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2019&#x2F;03&#x2F;25&#x2F;SMTP%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-5321%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95&#x2F;index.html">
+<meta property="og:title" content="pwn入门">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2019&#x2F;11&#x2F;18&#x2F;pwntools%E5%85%A5%E9%97%A8&#x2F;index.html">
 <meta property="og:site_name" content="王楚涵-个人小站">
-<meta property="og:description" content="这篇文章系统记录了我对于SMTP协议的RFC-5321文档的阅读，记录一些我认为重要的关键点和相关问题。">
+<meta property="og:description" content="pwn入门这篇文档是我在入门pwn过程中的一些学习记录。包括工具的安装以及一些背景知识。 0 pwntools0.1 安装https:&#x2F;&#x2F;github.com&#x2F;Gallopsled&#x2F;pwntools https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;fbfce9cf5190 0.2 使用12345678910# p32 p64 编码 # u32 u64 解码&amp;gt;&amp;gt;&amp;gt; p8(0)&amp;apos;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-30T08:31:53.748Z">
+<meta property="og:updated_time" content="2019-12-02T02:02:39.193Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="王楚涵-个人小站" type="application/atom+xml">
@@ -159,20 +159,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SMTP协议的RFC-5321文档阅读记录" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-pwntools入门" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      SMTP协议的RFC-5321文档阅读记录
+      pwn入门
     </h1>
   
 
         
-        <a href="/2019/03/25/SMTP%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-5321%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2019-03-25T11:33:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
+        <a href="/2019/11/18/pwntools%E5%85%A5%E9%97%A8/" class="archive-article-date">
+  	<time datetime="2019-11-18T03:58:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-18</time>
 </a>
         
         <!-- 添加代码 -->
@@ -186,105 +186,48 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这篇文章系统记录了我对于SMTP协议的RFC-5321文档的阅读，记录一些我认为重要的关键点和相关问题。</p>
-<a id="more"></a> 
+        <h1 id="pwn入门"><a href="#pwn入门" class="headerlink" title="pwn入门"></a>pwn入门</h1><p>这篇文档是我在入门pwn过程中的一些学习记录。包括工具的安装以及一些背景知识。</p>
+<h2 id="0-pwntools"><a href="#0-pwntools" class="headerlink" title="0 pwntools"></a>0 pwntools</h2><h3 id="0-1-安装"><a href="#0-1-安装" class="headerlink" title="0.1 安装"></a>0.1 安装</h3><p><a href="https://github.com/Gallopsled/pwntools" target="_blank" rel="noopener">https://github.com/Gallopsled/pwntools</a></p>
+<p><a href="https://www.jianshu.com/p/fbfce9cf5190" target="_blank" rel="noopener">https://www.jianshu.com/p/fbfce9cf5190</a></p>
+<h3 id="0-2-使用"><a href="#0-2-使用" class="headerlink" title="0.2 使用"></a>0.2 使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># p32 p64 编码 </span></span><br><span class="line"><span class="comment"># u32 u64 解码</span></span><br><span class="line">&gt;&gt;&gt; p8(0)</span><br><span class="line"><span class="string">'\x00'</span></span><br><span class="line">&gt;&gt;&gt; p32(0xdeadbeef)</span><br><span class="line"><span class="string">'\xef\xbe\xad\xde'</span></span><br><span class="line">&gt;&gt;&gt; p32(0xdeadbeef, endian=<span class="string">'big'</span>)</span><br><span class="line"><span class="string">'\xde\xad\xbe\xef'</span></span><br><span class="line">&gt;&gt;&gt; with context.local(endian=<span class="string">'big'</span>): p32(0xdeadbeef)</span><br><span class="line"><span class="string">'\xde\xad\xbe\xef'</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="RFC文档要点"><a href="#RFC文档要点" class="headerlink" title="RFC文档要点"></a>RFC文档要点</h2><ul>
-<li><p>1.2 一个配套的文档RFC 5322讨论了消息头部分和主体，并为它们指定了格式和结构。</p>
-</li>
-<li><p>2.2.2 以“X”开头的动词是可能没有注册或标准化的本地扩展。</p>
-</li>
-<li><p>2.3 SMTP传输一个邮件对象。邮件对象包含信封和内容。SMTP信封是作为一系列SMTP协议单元发送的(在第3节中描述)，它包括一个发起者地址(错误报告应指向该地址)、一个或多个收件人地址和可选协议扩展材料。</p>
-</li>
-<li><p>2.3 SMTP内容在SMTP数据协议单元中发送，它有两部分:头部分和正文。如果内容符合其他当代标准，则标头部分由标头字段集合组成，每个标头字段由标头名称、冒号和数据组成，结构如消息格式规范(RFC 5322 [4]);如果是结构化的，则根据MIME (RFC 2045[21])定义主体。</p>
-</li>
-<li><p>2.3.3 “邮件用户代理”(MUAs或UAs)通常被认为是邮件的源和目标。从源头上说，MUA可以收集要从用户传输的邮件并将其传递给MTA;</p>
-</li>
-<li><p>2.3.5 The domain name given in the EHLO command MUST be either a primary host name (a domain name that resolves to an address RR) or, if the host has no name, an address literal, as described in Section 4.1.3 and discussed further in the EHLO discussion of Section 4.1.4.EHLO命令中给出的域名必须是一个主主机名(一个解析为地址RR的域名)，如果主机没有名称，则必须是一个地址文字，如4.1.3节所述，并将在4.1.4节的EHLO讨论中进一步讨论.</p>
-</li>
-<li><p>2.3.7 会话和应答 RFC 3463[25]，指定应答字符串的进一步结构，包括使用补充的和更具体的完成代码(也请参阅RFC 5248[26])。</p>
-</li>
-<li><p>2.3.9 “bare” “CR” or “LF” characters in text  SMTP client implementations MUST NOT transmit these characters except when they are intended as line terminators and then MUST, as indicated above, transmit them only as a <CRLF> sequence.</p>
-</li>
-<li><p>2.4  SMTP命令和响应具有严格的语法。所有命令都以命令动词开头。所有的回复都以三位数字代码开始。默认状态下谓词和参数值不区分大小写，有SMTP拓展可以支持对大小写的区分。</p>
-</li>
-<li><p>2.4 邮箱的本地部分必须视为区分大小写。邮箱域遵循正常的DNS规则，因此不区分大小写。</p>
-</li>
-<li><p>2.4 当传输服务提供一个8位字节(八位)传输通道时，每个7位字符在一个八位组中(右对齐)被传输，高阶位被清除为零。非扩展SMTP服务只提供7位传输。客户机可以使用扩展的SMTP工具(尤其是“8BITMIME”扩展RFC 1652[22])向服务器请求8位消息内容传输。</p>
-</li>
-<li><p>2.4 如果没有显式允许它的服务器提供的扩展名，则发送SMTP系统不允许以US-ASCII以外的任何字符集发送信封命令。接收系统应拒绝此类命令，通常使用“500语法错误-无效字符”响应。</p>
-</li>
-<li><p>3 本节描述SMTP中使用的过程:会话发起、邮件事务、转发邮件、验证邮箱名称和展开邮件列表，以及打开和关闭交换。</p>
-</li>
-<li><p>3.1 SMTP协议允许服务器正式拒绝邮件会话，同时仍然允许初始连接:初始连接打开消息中可能给出554响应，而不是220响应。采用这种方法的服务器在关闭连接之前必须等待客户机发送QUIT，并且应该响应任何带有”503 bad sequence of commands”.</p>
-</li>
-<li><p>3.2  一旦服务器发送了问候语(欢迎)消息，客户端接收到该消息后，客户端通常向服务器发送EHLO命令，指示客户端身份。除了打开会话之外，EHLO的使用还表明客户机能够处理服务扩展和服务器提供其支持的扩展列表的请求。</p>
-</li>
-<li><p>3.3 SMTP邮件事务有三个步骤。MAIL FROM   RCPT（可以有多个）  DATA</p>
-</li>
-<li><p>3.3 MAILFROM 该命令告诉SMTP-receiver一个新的邮件事务正在启动，并将重置它的所有状态表和缓冲区，包括任何收件人或邮件数据。</p>
-</li>
-<li><p>3.3 MAIL FROM: RCPT TO: 冒号两侧均不能出现空格</p>
-</li>
-<li><p>3.3 发送DATA <CRLF>标识数据传输，服务器如果接受会返回一个354的中间应答，并将所有后续行(直到但不包括邮件数据结束指示器)视为消息文本。当成功接收并存储文本末尾时，SMTP-receiver将发送一个“250 OK”响应。SMTP通过发送只包含 “.” 的行来指示邮件数据的结束。</p>
-</li>
-<li><p>3.3 <font color=red>I don’t know the meaning of this sentense.</font> In particular, they MUST NOT reject messages in which the numbers of Resent-header fields do not match or Resent-to appears without Resent-from and/or Resent-date.</p>
-</li>
-<li><p>3.5.1 Use the EXPN command to verify whether a given mailbox exists on the local host.</p>
-</li>
-<li><p>3.6.2 中继SMTP服务器通常是指定它的DNS MX记录的目标，SMTP服务器如果出于策略原因拒绝将邮件转发到特定地址，则应该返回一个550响应。</p>
-</li>
-<li><p>3.6.3 如果一个SMTP服务器已接受的任务传送邮件,后来发现,目的地是不正确的,或者交付的邮件不能因为一些其他的原因,那么它必须构造一个“无法投递的邮件”通知消息并将其发送到发起人无法投递的邮件(reversepath)所显示的那样。</p>
-</li>
-<li><p>3.6.3  在错误报告中防止循环的一种方法是在通知消息的邮件命令中指定null反向路径。<font color=red>When such a message is transmitted, the reverse-path MUST be set to null (see Section 4.5.5 for additional discussion).</font>&gt;当传输这样的消息时，必须将反向路径设置为null(有关其他讨论，请参见第4.5.5节)。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MAIL FROM:&lt;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3.6.3 a relay SMTP has no need to inspect or act upon the header section or body of the message data and MUST NOT do so except to add its own “Received:” header field.</p>
-</li>
-<li><p>3.7.2 When forwarding a message into or out of the Internet environment, a gateway <font color=red>MUST</font> prepend a Received: line, but it MUST NOT alter in any way a Received: line that is already in the header section. 网关必须预先添加一个Received: line，但是它不能以任何方式更改已经在标题部分中的Received: line。网关应该在它提供的接收报头字段的“via”子句中指出环境和协议。</p>
-</li>
-<li><p>3.7.4 网关必须确保它转发到Internet邮件环境中的消息的所有头字段都满足要求。特别是，“From:”、“To:”、“Cc:”等中的所有地址，头字段必如果须被转换需要符合RFC 5322的标准头语法，<font color=red>必须只引用完全限定的域名</font>，并且必须在发送回复时有效。用于将邮件从Internet协议转换为另一个环境的协议的转换算法应该确保来自外部邮件环境的错误消息从SMTP信封传递到反向路径，而不是传递到“from:”、“Sender:”或类似消息头字段中的地址。</p>
-</li>
-<li><p>3.8 结束回话和连接 服务器应该能够容忍未知的命令，发出500响应并等待客户机的进一步指令。</p>
-</li>
-<li><p>3.9 支持smtp的主机应该同时支持<font color=red>别名和地址扩展的列表模型</font>，以便进行多次交付。当消息传递或转发到扩展列表表单的每个地址时，信封中的返回地址(“MAIL FROM:”)必须更改为管理列表的个人或其他实体的地址。</p>
-</li>
-<li><p>3.9 邮件组功能  一个重要的邮件功能是通过将一个伪邮箱地址转换为一个目标邮箱地址列表来实现单个消息的多目的地交付的机制。当消息被发送到这样一个伪邮箱时，副本被转发或重新分发到扩展列表中的每个邮箱。<font color=red>根据扩展规则，我们将这种伪邮件框分类为“别名”或“列表”。</font></p>
-</li>
-<li><p>4.1 SMTP命令 SMTP命令是由<CRLF>结束的字符串。命令本身是字母字符，如果后面跟着参数，则以<SP>结尾，否则以<CRLF>结尾。可以容忍行末空格。</p>
-</li>
-<li><p>4.1.1 The reverse-path is the argument of the MAIL command, the forward-path is the argument of the RCPT command, and the mail data is the argument of the DATA command.</p>
-</li>
-<li><p>4.1.1.1 HELO/EHLO命令 命令参数包含SMTP客户机的完全限定域名（如果有的话），如果没有有意义的域名，客户端应该发送一个地址文本。</p>
-</li>
-<li><p>4.1.1.2 MAIL</p>
-</li>
-<li><p>4.1.1.3 RCPT TO</p>
-</li>
-<li><p>4.1.1.4 DATA 接收方通常向数据发送一个354响应，然后将命令后面的行(以<CRLF>序列结尾的字符串，如2.3.7节所述)视为来自发送方的邮件数据。<CRLF>.<CRLF>结束。</p>
-</li>
-<li><p>4.1.1.6  VRFY 确认用户是否存在</p>
-</li>
-<li><p>4.1.1.7 EXPN确认mailing list是否存在。</p>
-</li>
-<li><p>4.1.1.11 如果服务器SMTP不能识别或不能实现与特定邮件FROM或RCPT TO命令关联的一个或多个参数，它将返回代码555。</p>
-</li>
-<li><p><font color=red>4.1.2 详细介绍命令的符号表述 格式</font> </p>
-</li>
-<li><p>4.1 2 Systems MUST NOT define mailboxes in such a way as to require the use in SMTP of non-ASCII characters (octets with the high order bit set to one) or ASCII “control characters” (decimal value 0-31 and 127).系统不能以要求在SMTP中使用非ASCII字符(高阶位设置为1的八进制)或ASCII“控制字符”(十进制值0-31和127)的方式定义邮箱。这些字符不能用于邮件或RCPT命令或其他需要邮箱名称的命令。</p>
-</li>
-<li><p>4.1.2 反斜杠“\”是一个引用字符，用于表示下一个字符将按字面意思使用(而不是按其正常解释)。</p>
-</li>
-<li><p>4.1.2 遵循DNS服务器命名一贯规定，字符外的一组字母字符,数字,字符不应出现在SMTP客户端或服务器的域名标签。特别是，下划线字符是不允许的。如果SMTP服务器接收的命令中使用了无效的字符代码，并且没有其他原因拒绝该命令，则必须拒绝响应为501的命令。</p>
-</li>
-<li><p>4.1.4  使用EHLO命令初始化包含邮件事务的会话。</p>
-</li>
-<li><p>4.1.4  如果事务开始命令参数不可接受，则必须返回501故障响应。如果事务中的命令发生故障，以致服务器无法处理它们，则必须返回一个503故障响应。</p>
-</li>
+
+
+<h2 id="1-GCC-编译选项"><a href="#1-GCC-编译选项" class="headerlink" title="1 GCC 编译选项"></a>1 GCC 编译选项</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-fno-stack-protector <span class="comment">#关闭canary 不开启堆栈溢出保护</span></span><br><span class="line">-m32 <span class="comment">#生成 32 位程序</span></span><br><span class="line">-no-pie <span class="comment">#关闭 PIE（Position Independent Executable），避免加载基址被打乱</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>BSS Segment 用来存放程序中未初始化的全局/静态变量的一块内存区域，属于静态内存分配，其全称为 Block Started by Symbol 。</li>
+<li>DATA Segment 保存已经初始化的全局变量，属于静态内存分配。</li>
+<li>TEXT Segment 用来存放真正执行的代码，大小在编译后已经确定，一般是只读。</li>
+<li>HEAP Segment 保存堆的内容，一般是通过 malloc() 动态分配的内存。</li>
+<li>STACK Segment 栈空间，一般是存放程序临时创建的局部变量。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">If no MX records are found, but an A RR is found, the A RR is treated as if it was associated with an implicit MX RR, with a preference of 0, pointing to that host.  If one or more MX RRs are found for a given name, SMTP systems MUST NOT utilize any A RRs associated with that name unless they are located using the MX RRs; the &quot;implicit MX&quot; rule above applies only if there are no MX records present.  If MX records are present, but none of them are usable, this situation MUST be reported as an error.</span><br></pre></td></tr></table></figure>
+<h2 id="2-IDA-使用技巧"><a href="#2-IDA-使用技巧" class="headerlink" title="2 IDA 使用技巧"></a>2 IDA 使用技巧</h2><p>第一次入门IDA也不是很会用，一番摸索才知道可以通过F5查看伪源码，右键查看text view可以看到全部反汇编的代码。</p>
+<h2 id="3-栈溢出基础"><a href="#3-栈溢出基础" class="headerlink" title="3 栈溢出基础"></a>3 栈溢出基础</h2><h3 id="3-1-相关知识"><a href="#3-1-相关知识" class="headerlink" title="3.1 相关知识"></a>3.1 相关知识</h3><p>eax 被称为累加寄存器（<strong>A</strong>ccumulator），用以进行算数运算和返回函数结果等。ebx 被称为基址寄存器（<strong>B</strong>ase），在内存寻址时（比如数组运算）用以存放基地址。ecx 被称为记数寄存器（<strong>C</strong>ounter），用以在循环过程中记数。edx 被称为数据寄存器（<strong>D</strong>ata），常配合 eax 一起存放运算结果等数据。[3]</p>
+<p>现代操作系统内存通常是以分段的形式存放不同类型的信息的。我们在上篇谈及的函数调用栈就是分段的一个部分（Stack Segment）。内存分段还包括堆（Heap Segment）、数据段（Data Segment），BSS段，以及代码段（Code Segment）。代码段存储可执行代码和只读常量（如常量字符串），属性可读可执行，但通常不可写。数据段存储已经初始化且初值不为0的全局变量和静态局部变量，BSS段存储未初始化或初值为0的全局变量和静态局部变量，这两段数据都有可写的属性。堆用于存放程序运行中动态分配的内存，例如C语言中的 malloc() 和 free() 函数就是在堆上分配和释放内存。[3]</p>
+<h3 id="3-2-函数调用流程"><a href="#3-2-函数调用流程" class="headerlink" title="3.2 函数调用流程"></a>3.2 函数调用流程</h3><p>可以按次序简单概括为3点：</p>
+<p>​    参数入栈</p>
+<p>​    返回地址入栈 （Call指令 自动操作</p>
+<p>​    栈桢切换 （保存调用者EBP）</p>
+<h2 id="4-注意事项"><a href="#4-注意事项" class="headerlink" title="4 注意事项"></a>4 注意事项</h2><ol>
+<li><p>在64位的ubuntu上编译32位的程序需要安装对应的32位的GNU C的库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libc6-dev-i386</span><br><span class="line">sudo apt-get install libx32gcc-4.8-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>gdb 命令参数</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb -q <span class="comment"># be quite 不输入介绍和版权信息</span></span><br></pre></td></tr></table></figure>
 
-
+<ol start="3">
+<li><a href="https://www.informatik.htw-dresden.de/~beck/ASM/syscall_list.html" target="_blank" rel="noopener">Linux System Call Table</a></li>
+<li><a href="https://www.cnblogs.com/DismalSnail/p/8743466.html" target="_blank" rel="noopener">gdb-peda调试命令</a></li>
+</ol>
+<h2 id="5-参考链接："><a href="#5-参考链接：" class="headerlink" title="5 参考链接："></a>5 参考链接：</h2><ol>
+<li><a href="https://jin-yang.github.io/post/program-c-gcc-security-options.html" target="_blank" rel="noopener">https://jin-yang.github.io/post/program-c-gcc-security-options.html</a></li>
+<li><a href="https://ctf-wiki.github.io/ctf-wiki/pwn/linux/stackoverflow/stackoverflow-basic-zh/" target="_blank" rel="noopener">https://ctf-wiki.github.io/ctf-wiki/pwn/linux/stackoverflow/stackoverflow-basic-zh/</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25892385" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/25892385</a></li>
+<li><a href="https://introspelliam.github.io/2017/08/03/pwn/gdb的调试与使用/" target="_blank" rel="noopener">gdb调试与使用</a></li>
+</ol>
 
       
 
@@ -319,7 +262,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">网络安全</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">CTF</a>
         		</li>
       		
 		</ul>
@@ -376,7 +319,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2019/03/25/SMTP%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-5321%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2019/11/18/pwntools%E5%85%A5%E9%97%A8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -390,18 +333,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/04/10/DMARC%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-7489%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          DMARC协议的RFC-7489文档阅读记录
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/12/17/SPF%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-7208%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SPF协议的RFC-7208文档阅读记录</div>
+    <a href="/2019/10/26/MacOS-Terminal-climb-over-the-Great-Wall/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MacOS Terminal climb over the Great Wall</div>
       <i class="icon-circle-right"></i>
     </a>
   
