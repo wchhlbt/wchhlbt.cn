@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="wchhlbt-个人小站">
 <meta property="og:description" content="Codeforces GoodBye 2019题解">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-02T08:57:06.977Z">
+<meta property="og:updated_time" content="2020-01-02T09:01:24.252Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="wchhlbt-个人小站" type="application/atom+xml">
@@ -192,7 +192,7 @@
 <h2 id="Problem-D"><a href="#Problem-D" class="headerlink" title="Problem D"></a>Problem D</h2><p>【题目大意】交互题，服务器那边有n个互不相同的整数，你可以提n个问题，每个问题可以包含k个位置，服务器会返回这k个数中第m大的数，让你猜出m的大小。$m&lt;=k&lt;n&lt;=500$</p>
 <p>【解题思路】</p>
 <ol>
-<li><p>首先所有的数都是两两不相同的，并且我们一次只能问出k个数中第m大的数，所以我们每次只需要针对前k+1个数提问k+1次就可以了，这样可以减少不确定性。每次更换一个元素才能分析出对应的情况。</p>
+<li><p>首先所有的数都是两两不相同的，并且我们一次只能问出k个数中第m大的数，所以我们每次只需要针对前k+1个数提问k+1次就可以了，这样可以减少不确定性。每次更换一个元素才能分析出对应的情况，信息集中化。</p>
 </li>
 <li><p>通过举几个例子分析，我们发现这样提问之后我们只能得到两种情况:</p>
 <p>A. 返回的是这k+1个数中第m大的数，这说明去除的是一个大于m的数。</p>
@@ -201,7 +201,7 @@
 <li><p>所以我们只需要统计k+1个返回结果中比较大的那个元素个数就是m的大小</p>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">n = 5; k = 4; m = 3;</span><br><span class="line">	1 0 9 8 2		pos	val</span><br><span class="line">? _ 0 9 8 2		4 	8</span><br><span class="line">? 1 _ 9 8 2		4 	8</span><br><span class="line">? 1 0 _ 8 2		5 	2</span><br><span class="line">? 1 0 9 _ 2		5 	2</span><br><span class="line">? 1 0 9 8 _		4 	8</span><br><span class="line">! 3</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">n = 5; k = 4; m = 3;</span><br><span class="line">  1 0 9 8 2		pos	val</span><br><span class="line">? _ 0 9 8 2		4 	8</span><br><span class="line">? 1 _ 9 8 2		4 	8</span><br><span class="line">? 1 0 _ 8 2		5 	2</span><br><span class="line">? 1 0 9 _ 2		5 	2</span><br><span class="line">? 1 0 9 8 _		4 	8</span><br><span class="line">! 3</span><br></pre></td></tr></table></figure>
 
 
 
