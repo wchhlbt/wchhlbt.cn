@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.wchhlbt.cn">
-  <title>pwn入门 | 王楚涵-个人小站</title>
+  <title>CTF-PWN入门 | wchhlbt-个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="pwn入门这篇文档是我在入门pwn过程中的一些学习记录。包括工具的安装以及一些背景知识。 0 pwntools0.1 安装https:&#x2F;&#x2F;github.com&#x2F;Gallopsled&#x2F;pwntools https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;fbfce9cf5190 0.2 使用12345678910# p32 p64 编码 # u32 u64 解码&amp;gt;&amp;gt;&amp;gt; p8(0)&amp;apos;">
+  <meta name="description" content="这篇文档是我在入门pwn过程中的一些学习记录。包括工具的安装以及一些背景知识。">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pwn入门">
+<meta property="og:title" content="CTF-PWN入门">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2019&#x2F;11&#x2F;18&#x2F;pwntools%E5%85%A5%E9%97%A8&#x2F;index.html">
-<meta property="og:site_name" content="王楚涵-个人小站">
-<meta property="og:description" content="pwn入门这篇文档是我在入门pwn过程中的一些学习记录。包括工具的安装以及一些背景知识。 0 pwntools0.1 安装https:&#x2F;&#x2F;github.com&#x2F;Gallopsled&#x2F;pwntools https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;fbfce9cf5190 0.2 使用12345678910# p32 p64 编码 # u32 u64 解码&amp;gt;&amp;gt;&amp;gt; p8(0)&amp;apos;">
+<meta property="og:site_name" content="wchhlbt-个人小站">
+<meta property="og:description" content="这篇文档是我在入门pwn过程中的一些学习记录。包括工具的安装以及一些背景知识。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-02T02:02:39.193Z">
+<meta property="og:updated_time" content="2020-01-02T08:06:30.442Z">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="王楚涵-个人小站" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="wchhlbt-个人小站" type="application/atom+xml">
   
 
   
@@ -51,7 +51,7 @@
 			<img src="/img/whiteback.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">王楚涵</a></h1>
+		  <h1 class="header-author"><a href="/">wchhlbt</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">走最远的路 看最美的风景</p>
@@ -111,7 +111,7 @@
 				<img src="/img/whiteback.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">王楚涵</h1>
+			  <h1 class="header-author js-header-author">wchhlbt</h1>
 			</hgroup>
 			
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>走最远的路 看最美的风景<i class="icon icon-quo-right"></i></p>
@@ -166,7 +166,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      pwn入门
+      CTF-PWN入门
     </h1>
   
 
@@ -186,7 +186,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="pwn入门"><a href="#pwn入门" class="headerlink" title="pwn入门"></a>pwn入门</h1><p>这篇文档是我在入门pwn过程中的一些学习记录。包括工具的安装以及一些背景知识。</p>
+        <p>这篇文档是我在入门pwn过程中的一些学习记录。包括工具的安装以及一些背景知识。</p>
+<a id="more"></a> 
+
 <h2 id="0-pwntools"><a href="#0-pwntools" class="headerlink" title="0 pwntools"></a>0 pwntools</h2><h3 id="0-1-安装"><a href="#0-1-安装" class="headerlink" title="0.1 安装"></a>0.1 安装</h3><p><a href="https://github.com/Gallopsled/pwntools" target="_blank" rel="noopener">https://github.com/Gallopsled/pwntools</a></p>
 <p><a href="https://www.jianshu.com/p/fbfce9cf5190" target="_blank" rel="noopener">https://www.jianshu.com/p/fbfce9cf5190</a></p>
 <h3 id="0-2-使用"><a href="#0-2-使用" class="headerlink" title="0.2 使用"></a>0.2 使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># p32 p64 编码 </span></span><br><span class="line"><span class="comment"># u32 u64 解码</span></span><br><span class="line">&gt;&gt;&gt; p8(0)</span><br><span class="line"><span class="string">'\x00'</span></span><br><span class="line">&gt;&gt;&gt; p32(0xdeadbeef)</span><br><span class="line"><span class="string">'\xef\xbe\xad\xde'</span></span><br><span class="line">&gt;&gt;&gt; p32(0xdeadbeef, endian=<span class="string">'big'</span>)</span><br><span class="line"><span class="string">'\xde\xad\xbe\xef'</span></span><br><span class="line">&gt;&gt;&gt; with context.local(endian=<span class="string">'big'</span>): p32(0xdeadbeef)</span><br><span class="line"><span class="string">'\xde\xad\xbe\xef'</span></span><br></pre></td></tr></table></figure>
@@ -333,6 +335,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/01/02/Codeforces-GoodBye-2019/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Codeforces GoodBye 2019
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/10/26/MacOS-Terminal-climb-over-the-Great-Wall/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">MacOS Terminal climb over the Great Wall</div>
@@ -378,7 +389,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 王楚涵
+    		&copy; 2020 wchhlbt
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -474,6 +485,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">algorithm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">网络安全</a>
               </li>
              
@@ -482,19 +497,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">ACM-ICPC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">CTF</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">ACM-ICPC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">CTF</a>
               </li>
             
             <div class="clearfix"></div>

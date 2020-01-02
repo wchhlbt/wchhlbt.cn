@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.wchhlbt.cn">
-  <title>codeforces 785D Anton and School - 2（组合恒等式） | wchhlbt-个人小站</title>
+  <title>Codeforces GoodBye 2019 | wchhlbt-个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目大意：http:&#x2F;&#x2F;codeforces.com&#x2F;problemset&#x2F;problem&#x2F;785&#x2F;DAs you probably know, Anton goes to school. One of the school subjects that Anton studies is Bracketology. On the Bracketology lessons students usual">
-<meta name="keywords" content="ACM-ICPC">
+  <meta name="description" content="Codeforces GoodBye 2019题解">
+<meta name="keywords" content="algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="codeforces 785D Anton and School - 2（组合恒等式）">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2018&#x2F;11&#x2F;19&#x2F;codeforces%20785D%20Anton%20and%20School%20-%202%EF%BC%88%E7%BB%84%E5%90%88%E6%81%92%E7%AD%89%E5%BC%8F%EF%BC%89&#x2F;index.html">
+<meta property="og:title" content="Codeforces GoodBye 2019">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2020&#x2F;01&#x2F;02&#x2F;Codeforces-GoodBye-2019&#x2F;index.html">
 <meta property="og:site_name" content="wchhlbt-个人小站">
-<meta property="og:description" content="题目大意：http:&#x2F;&#x2F;codeforces.com&#x2F;problemset&#x2F;problem&#x2F;785&#x2F;DAs you probably know, Anton goes to school. One of the school subjects that Anton studies is Bracketology. On the Bracketology lessons students usual">
+<meta property="og:description" content="Codeforces GoodBye 2019题解">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-19T05:34:21.030Z">
+<meta property="og:updated_time" content="2020-01-02T08:57:06.977Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="wchhlbt-个人小站" type="application/atom+xml">
@@ -159,20 +159,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-codeforces 785D Anton and School - 2（组合恒等式）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Codeforces-GoodBye-2019" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      codeforces 785D Anton and School - 2（组合恒等式）
+      Codeforces GoodBye 2019
     </h1>
   
 
         
-        <a href="/2018/11/19/codeforces%20785D%20Anton%20and%20School%20-%202%EF%BC%88%E7%BB%84%E5%90%88%E6%81%92%E7%AD%89%E5%BC%8F%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2018-11-19T05:30:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-19</time>
+        <a href="/2020/01/02/Codeforces-GoodBye-2019/" class="archive-article-date">
+  	<time datetime="2020-01-02T08:03:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-02</time>
 </a>
         
         <!-- 添加代码 -->
@@ -186,19 +186,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>题目大意：</strong><a href="http://codeforces.com/problemset/problem/785/D" target="_blank" rel="noopener">http://codeforces.com/problemset/problem/785/D</a><br>As you probably know, Anton goes to school. One of the school subjects that Anton studies is Bracketology. On the Bracketology lessons students usually learn different sequences that consist of round brackets (characters “(“ and “)” (without quotes)).<br>On the last lesson Anton learned about the regular simple bracket sequences (RSBS). A bracket sequence s of length n is an RSBS if the following conditions are met:<br>It is not empty (that is n ≠ 0). </p>
+        <p>Codeforces GoodBye 2019题解</p>
 <a id="more"></a> 
 
-<p>The length of the sequence is even.<br>First  charactes of the sequence are equal to “(“.<br>Last  charactes of the sequence are equal to “)”.<br>For example, the sequence “((()))” is an RSBS but the sequences “((())” and “(()())” are not RSBS.<br>Elena Ivanovna, Anton’s teacher, gave him the following task as a homework. Given a bracket sequence s. Find the number of its distinct subsequences such that they are RSBS. Note that a subsequence of s is a string that can be obtained from s by deleting some of its elements. Two subsequences are considered distinct if distinct sets of positions are deleted.<br>Because the answer can be very big and Anton’s teacher doesn’t like big numbers, she asks Anton to find the answer modulo 109 + 7.<br>Anton thought of this task for a very long time, but he still doesn’t know how to solve it. Help Anton to solve this task and write a program that finds the answer for it!<br>Input<br>The only line of the input contains a string s — the bracket sequence given in Anton’s homework. The string consists only of characters “(“ and “)” (without quotes). It’s guaranteed that the string is not empty and its length doesn’t exceed 200 000.<br>Output<br>Output one number — the answer for the task modulo 109 + 7</p>
-<p><strong>解题思路：</strong></p>
-<ul>
-<li>O( n )的预处理。很显然需要统计一下每个位置前面的（有多少个，后面的）有多少个，才可以方便计数。</li>
-<li>算出对每一个位置前后的（）有多少种匹配，为了保证不重复，所以我们要求一定要使用当前位置的（，设当前位置前面有n个（包括本身，后面有m个）。所以对于每一个（出现的位置，可能有的总的组合数为 $ \sum_{i=1}^{n}(C_{n-1}^{i-1} * C_m^i) $ 如果 n&gt;m ，对应位置组合数为0，结论不变。</li>
-<li>$ \sum_{i=1}^{n}(C_{n-1}^{i-1} * C_m^i) $ = $ \sum_{i=1}^{n}(C_{n-1}^{n-i} * C_m^i) $ = $ C_{n+m-1}^{n} $ (最后一步由范德蒙恒等式证) 并且由最后的结果可以看出</li>
-<li>本题还有一个关键就是求逆元，求解逆元有多种方式费马小定理、拓展欧几里得。这里提供一种O（n）求出1-n阶乘逆元的方法<br>先用任意一种方式求出 n! 的逆元<br>然后$ i !^{-1} \equiv  (i+1)!^{-1}* (i+1) \pmod{p}$<br>证明如下<br>$(i+1)!^{-1} \equiv  i !^{-1} * (i+1)^{-1} \pmod{p}$<br>$ i !^{-1} \equiv  (i+1)!^{-1}* (i+1)^{-1^{-1}}\pmod{p}$</li>
-</ul>
-<p>这里还有两篇讲解逆元的文章大家感兴趣可以看下<a href="http://blog.csdn.net/daniel_csdn/article/details/50783734" target="_blank" rel="noopener">http://blog.csdn.net/daniel_csdn/article/details/50783734</a><br><a href="http://blog.miskcoo.com/2014/09/linear-find-all-invert" target="_blank" rel="noopener">http://blog.miskcoo.com/2014/09/linear-find-all-invert</a><br>不过第一篇文章的方法三似乎是错的。<br><strong>AC代码</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    @Author: wchhlbt</span></span><br><span class="line"><span class="comment">    @Date:   2017/3/18</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Fori(x) for(int i=0;i&lt;x;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Forj(x) for(int j=0;j&lt;x;j++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxn 200000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inf 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ONES(x) __builtin_popcount(x)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll ;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps =<span class="number">1e-8</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; P;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> dy[<span class="number">4</span>] = &#123;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">ll fac[maxn+<span class="number">7</span>],inv[maxn+<span class="number">7</span>];</span><br><span class="line"><span class="keyword">int</span> l[maxn+<span class="number">7</span>],r[maxn+<span class="number">7</span>];</span><br><span class="line"><span class="keyword">char</span> s[maxn+<span class="number">7</span>];</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">quickpow</span><span class="params">(ll m,ll n,ll k)</span>     <span class="comment">// return m^n % k</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll b = <span class="number">1</span>;</span><br><span class="line">    m = m%k;</span><br><span class="line">    <span class="keyword">while</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">          <span class="keyword">if</span> (n &amp; <span class="number">1</span>)</span><br><span class="line">             b = (b*m)%k;</span><br><span class="line">          n = n &gt;&gt; <span class="number">1</span> ;</span><br><span class="line">          m = (m*m)%k;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">cal</span><span class="params">(ll n, ll m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//cout &lt;&lt; inv[n] &lt;&lt; " " &lt;&lt; inv[m-1] &lt;&lt; endl;</span></span><br><span class="line">    <span class="keyword">return</span> fac[n+m<span class="number">-1</span>] * inv[n] % mod * inv[m<span class="number">-1</span>] % mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//freopen("test.txt","r",stdin);</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,s+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">int</span> len = <span class="built_in">strlen</span>(s+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=len; i++)</span><br><span class="line">        l[i] = l[i<span class="number">-1</span>] + (s[i]==<span class="string">'('</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = len; i&gt;=<span class="number">1</span>; i--)</span><br><span class="line">        r[i] = r[i+<span class="number">1</span>] + (s[i]==<span class="string">')'</span>);</span><br><span class="line">    fac[<span class="number">0</span>] = <span class="number">1</span>; inv[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=maxn+<span class="number">5</span>; i++)&#123;</span><br><span class="line">        fac[i] = i*fac[i<span class="number">-1</span>]%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    inv[maxn+<span class="number">5</span>] = quickpow(fac[maxn+<span class="number">5</span>], mod<span class="number">-2</span>, mod);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = maxn+<span class="number">4</span>; i&gt;=<span class="number">0</span>; i--)</span><br><span class="line">        inv[i] = inv[i+<span class="number">1</span>] * (i+<span class="number">1</span>) % mod;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=len; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]==<span class="string">'('</span>)</span><br><span class="line">            ans = (ans + cal(l[i], r[i]) ) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Problem-D"><a href="#Problem-D" class="headerlink" title="Problem D"></a>Problem D</h2><p>【题目大意】交互题，服务器那边有n个互不相同的整数，你可以提n个问题，每个问题可以包含k个位置，服务器会返回这k个数中第m大的数，让你猜出m的大小。$m&lt;=k&lt;n&lt;=500$</p>
+<p>【解题思路】</p>
+<ol>
+<li><p>首先所有的数都是两两不相同的，并且我们一次只能问出k个数中第m大的数，所以我们每次只需要针对前k+1个数提问k+1次就可以了，这样可以减少不确定性。每次更换一个元素才能分析出对应的情况。</p>
+</li>
+<li><p>通过举几个例子分析，我们发现这样提问之后我们只能得到两种情况:</p>
+<p>A. 返回的是这k+1个数中第m大的数，这说明去除的是一个大于m的数。</p>
+<p>B. 返回的是这k+1个数中第m+1大的数，这说明去除的是一个小于等于m的数。</p>
+</li>
+<li><p>所以我们只需要统计k+1个返回结果中比较大的那个元素个数就是m的大小</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">n = 5; k = 4; m = 3;</span><br><span class="line">	1 0 9 8 2		pos	val</span><br><span class="line">? _ 0 9 8 2		4 	8</span><br><span class="line">? 1 _ 9 8 2		4 	8</span><br><span class="line">? 1 0 _ 8 2		5 	2</span><br><span class="line">? 1 0 9 _ 2		5 	2</span><br><span class="line">? 1 0 9 8 _		4 	8</span><br><span class="line">! 3</span><br></pre></td></tr></table></figure>
+
+
+
+<p>【代码】</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">1007</span>];</span><br><span class="line"><span class="comment">// vector&lt;int&gt; b;</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123; <span class="keyword">return</span> x&lt;y; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> n = read(); <span class="keyword">int</span> k = read();</span><br><span class="line">    <span class="keyword">int</span> pos;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=k+<span class="number">1</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"?"</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j&lt;=k+<span class="number">1</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(j==i)    <span class="keyword">continue</span>;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" %d"</span>, j);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">        fflush(<span class="built_in">stdout</span>);</span><br><span class="line">        pos = read();</span><br><span class="line">        a[i] = read();</span><br><span class="line">        <span class="comment">// b.push_back(a[i]);</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// for(int i = 1; i&lt;=k+1; i++)&#123;</span></span><br><span class="line">    <span class="comment">//     cout &lt;&lt; a[i] &lt;&lt; " ";</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; endl;</span></span><br><span class="line">    sort(a+<span class="number">1</span>,a+k+<span class="number">2</span>,cmp);</span><br><span class="line">    <span class="comment">// sort(b.begin(),b.end());</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=k+<span class="number">1</span>; i++)&#123;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; a[i] &lt;&lt; " ";</span></span><br><span class="line">        <span class="keyword">if</span>(a[i]!=a[<span class="number">1</span>])</span><br><span class="line">            cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"! %d\n"</span>,cnt);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -234,7 +242,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">ACM-ICPC</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">algorithm</a>
         		</li>
       		
 		</ul>
@@ -291,7 +299,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2018/11/19/codeforces%20785D%20Anton%20and%20School%20-%202%EF%BC%88%E7%BB%84%E5%90%88%E6%81%92%E7%AD%89%E5%BC%8F%EF%BC%89/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2020/01/02/Codeforces-GoodBye-2019/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -305,18 +313,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/11/27/%E5%88%A9%E7%94%A8postfix%E6%90%AD%E5%BB%BA%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          利用postfix搭建邮件服务器
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/11/19/hexo-%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo 配置</div>
+    <a href="/2019/11/18/pwntools%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CTF-PWN入门</div>
       <i class="icon-circle-right"></i>
     </a>
   
