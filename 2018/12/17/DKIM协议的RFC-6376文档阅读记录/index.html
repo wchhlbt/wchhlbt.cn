@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.wchhlbt.cn">
-  <title>Archives: 2019 | wchhlbt-个人小站</title>
+  <title>DKIM协议的RFC-6376文档阅读记录 | wchhlbt-个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="wchhlbt-个人小站">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;archives&#x2F;2019&#x2F;index.html">
+  <meta name="description" content="这篇文章系统记录了我对于DKIM协议的RFC-6376文档阅读，记录一些我认为重要的关键点和相关问题。">
+<meta name="keywords" content="网络安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DKIM协议的RFC-6376文档阅读记录">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2018&#x2F;12&#x2F;17&#x2F;DKIM%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-6376%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95&#x2F;index.html">
 <meta property="og:site_name" content="wchhlbt-个人小站">
+<meta property="og:description" content="这篇文章系统记录了我对于DKIM协议的RFC-6376文档阅读，记录一些我认为重要的关键点和相关问题。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-12T14:44:47.879Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="wchhlbt-个人小站" type="application/atom+xml">
@@ -155,150 +159,104 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-DKIM协议的RFC-6376文档阅读记录" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DKIM协议的RFC-6376文档阅读记录
+    </h1>
+  
+
+        
+        <a href="/2018/12/17/DKIM%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-6376%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" class="archive-article-date">
+  	<time datetime="2018-12-17T02:50:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-17</time>
+</a>
+        
+        <!-- 添加代码 -->
+        
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这篇文章系统记录了我对于DKIM协议的RFC-6376文档阅读，记录一些我认为重要的关键点和相关问题。</p>
+<a id="more"></a> 
+
+
+
+<h2 id="rfc文档要点"><a href="#rfc文档要点" class="headerlink" title="rfc文档要点"></a>rfc文档要点</h2><ul>
+<li>0 签名验证失败不强制拒绝消息</li>
+<li>1.2 信息性原理:DKIM签名指定的签名标识不需要匹配任何特定头字段中的地址，因为收件人邮件系统(包括MUAs)有广泛的解释方法。</li>
+<li>3.2 不能在标记值中出现未编码的分号(“;”)字符，因为这会分隔标记规范。</li>
+<li>3.2 标签必须以区分大小写的方式解释。值必须作为区分大小写的处理，除非语义的特定标记描述指定区分大小写。</li>
+<li>3.5 电子邮件的签名存储在DKIM-Signature头字段中。DKIM-Signature值是一个标记列表，如第3.2节所述。所创建或验证的DKIM-Signature头字段总是包含在签名计算中，在其余头字段被签名之后;但是，在计算或验证签名时，必须将DKIMSignature头字段的“b=”标记(签名值)的值视为空字符串。签名中包含的其他DKIM-Signature头字段应视为普通头字段;</li>
+<li>3.5 v -&gt; 版本号 当前版本一定具有值”1”. REQUIRED</li>
+<li>3.5 a -&gt; 签名计算使用的加密算法 验证器必须支持“rsa-sha1”和“rsa-sha256”;签名者应使用“rsa-sha256”进行签名。REQUIRED</li>
+<li>3.5 c-&gt;通知验证者用于准备消息签名的规范化类型  </li>
+<li>3.5 d - 签名者的域名。此部分与DMARC一起使用，以检查签名域是否与邮件客户端中可见的发件人域匹配 REQUIRED</li>
+<li>3.5 h - 签名中需要包含的邮件头部的字段列表 标题字段名称必须以不区分大小写的方式与实际的标题字段名称进行比较。这个列表不能为空。REQUIRED</li>
+<li>3.5 bh body hash 邮件正文部分的哈希值 REQUIRED</li>
+<li>3.5 s selector 选择器名称 REQUIRED</li>
+<li>3.5 b 整体hash值 包含用’h’给出的头字段，以及DKIM-Signature头本身，因此也对正文进行签名，因为bh包含正文散列。 REQUIRED</li>
+<li>3.5 l 用于计算哈希值的邮件正文的长度。这是可选的，如果没有默认为全部正文。</li>
+<li>3.5 q 用于检索公钥</li>
+<li>3.6 键查找算法的参数包括查找的类型(“q=”标记)、签名者的域(DKIM Signature头字段的“d=”标记)和选择器(“s=”标记)。</li>
+<li>3.6.2.2 TXT RRs MUST be unique for a particular selector name.一个选择器下只能有一条记录。</li>
+<li>3.7 签名者/验证者必须计算两个哈希值:一个在消息体上，另一个在消息选定的头字段上。</li>
+<li>3.7 当计算将使用base64或引用打印编码传输的消息的散列时，签名者必须在编码之后计算散列。</li>
+<li>5.4 强烈建议在消息中显示签名字段，如日期、主题、回复、发送方和所有MIME头字段。Date, Subject, Reply-To, Sender, and all MIME header fields</li>
+<li>DKIM-Signature头字段始终是隐式签名的，并且必须不包含在“h=”标记中，除非指示其他预先存在的签名也被签名。签名者可能声称拥有不存在的已签名头字段(也就是说，即使消息中不存在头字段，签名者也可能在“h=”标记中包含头字段名)。在计算签名时，必须将不存在的头字段视为空字符串(包括头字段名称、头字段值、所有标点符号和后面的CRLF)。</li>
+<li>5.4 在消息签名时，头字段名只需要比消息中该头字段的实际数量多列出一次，以防止任何进一步的添加。</li>
+<li>5.4 尽管本规范不要求，但所有终端用户可见的头字段都应该签名，以避免可能的“间接垃圾邮件”。例如，如果主题标题字段没有签名，垃圾邮件发送者可以重新发送之前签名的邮件，用一行垃圾邮件替换合法的主题。</li>
+<li>5.4.1 DKIM密码算法的目的是为消息添加一个标识符，该标识符既能抵抗正常的传输相关更改，又能抵抗各种重播攻击。满足这些要求的一个基本方面是选择要在散列中包含哪些头字段，以及要排除哪些字段。选择要包含的字段的基本规则是选择那些构成消息内容“核心”的字段。因此，任何重播攻击都必须包含这些攻击，以便签名成功;但是，包含了这些之后，即使将消息发送给新的收件人，消息的核心也是有效的。</li>
+<li></li>
+</ul>
+<p><strong>ADSP（Author Domain Signing Policies）</strong></p>
+<p>当邮件接收者收到一个没有签名的邮件时，应该怎么办呢。这个时候就要看ADSP的设置了。</p>
+<p>我们可以在DNS中添加一个新的TXT记录，名称是“_adsp._domainkey”，值是“dkim=all”。</p>
+<p>“dkim=”后可有三个可选值：</p>
+<p>unknow: 意思是从这个域发出的邮件可带DKIM证书，也可不带。</p>
+<p>all: 意思是从这个域名发出的证书都应该带DKIM证书的。</p>
+<p>discardable： 意思是强烈建议接收邮件的对端把没有DKIM证书或DKIM验证失败的邮件丢弃掉。</p>
+<h2 id="相关思考"><a href="#相关思考" class="headerlink" title="相关思考"></a>相关思考</h2><ol>
+<li><del>记录更新是否会带来旧邮件丢失的问题  是否只增不删</del></li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/18/pwntools%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2019-11-18T03:58:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/18/pwntools%E5%85%A5%E9%97%A8/">CTF-PWN入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/26/MacOS-Terminal-climb-over-the-Great-Wall/" class="archive-article-date">
-  	<time datetime="2019-10-26T10:39:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/26/MacOS-Terminal-climb-over-the-Great-Wall/">MacOS Terminal climb over the Great Wall</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">折腾</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/26/VMware-fusion-on-MacOS-%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2019-10-25T16:38:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/26/VMware-fusion-on-MacOS-%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/">VMware fusion on MacOS 相关配置</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">折腾</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/10/DMARC%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-7489%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2019-04-10T03:27:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/10/DMARC%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-7489%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/">DMARC协议的RFC-7489文档阅读记录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -310,57 +268,116 @@
 		</ul>
 	</div>
 
-          
 
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2018/12/17/DKIM%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-6376%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/25/SMTP%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-5321%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2019-03-25T11:33:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/03/25/SMTP%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-5321%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          SMTP协议的RFC-5321文档阅读记录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/17/SPF%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-7208%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SPF协议的RFC-7208文档阅读记录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/25/SMTP%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-5321%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/">SMTP协议的RFC-5321文档阅读记录</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">网络安全</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -396,8 +413,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
