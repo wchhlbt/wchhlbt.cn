@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.wchhlbt.cn">
-  <title>hexo 配置 | wchhlbt-个人小站</title>
+  <title>Use Git to update Overleaf Project | wchhlbt-个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这里简要记录一下配置这个博客的过程，和这个过程中遇到的一些问题。">
-<meta name="keywords" content="blog">
+  <meta name="description" content="这篇blog简单记录，如何使用git命令，来将本地修改同步到Overleaf上。">
+<meta name="keywords" content="折腾">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo 配置">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2018&#x2F;11&#x2F;19&#x2F;hexo-%E9%85%8D%E7%BD%AE&#x2F;index.html">
+<meta property="og:title" content="Use Git to update Overleaf Project">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2020&#x2F;04&#x2F;03&#x2F;Use-Git-to-update-Overleaf-Project&#x2F;index.html">
 <meta property="og:site_name" content="wchhlbt-个人小站">
-<meta property="og:description" content="这里简要记录一下配置这个博客的过程，和这个过程中遇到的一些问题。">
+<meta property="og:description" content="这篇blog简单记录，如何使用git命令，来将本地修改同步到Overleaf上。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-26T10:34:44.850Z">
+<meta property="og:updated_time" content="2020-04-03T04:24:05.518Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="wchhlbt-个人小站" type="application/atom+xml">
@@ -159,20 +159,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hexo-配置" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Use-Git-to-update-Overleaf-Project" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      hexo 配置
+      Use Git to update Overleaf Project
     </h1>
   
 
         
-        <a href="/2018/11/19/hexo-%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2018-11-19T05:19:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-19</time>
+        <a href="/2020/04/03/Use-Git-to-update-Overleaf-Project/" class="archive-article-date">
+  	<time datetime="2020-04-03T04:14:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
 </a>
         
         <!-- 添加代码 -->
@@ -186,28 +186,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这里简要记录一下配置这个博客的过程，和这个过程中遇到的一些问题。</p>
+        <p>这篇blog简单记录，如何使用git命令，来将本地修改同步到Overleaf上。</p>
 <a id="more"></a> 
 
-<p>1、如何绑定CNAME</p>
-<ul>
-<li><p>在根目录下的_config.yml 文件中修改url项</p>
-</li>
-<li><p>然后安装对应插件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-cname --save</span><br><span class="line">npm install hexo-generator-json-content --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在_config.yml 文件中修改</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Plugins:</span><br><span class="line">- hexo-generator-cname</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://git.overleaf.com/5e785e*******018ebba2 <span class="comment"># 将Overleaf project clone到本地</span></span><br><span class="line">git pull overleaf master --allow-unrelated-histories <span class="comment">#Pull the latest content from the Overleaf project and merge it into your master branch.</span></span><br><span class="line">git remote add overleaf https://git.overleaf.com/5e785e*******018ebba2  <span class="comment"># 将本地仓库和远程Overleaf仓库建立联系</span></span><br><span class="line">git add 1_intro.tex <span class="comment"># 添加修改的文件</span></span><br><span class="line">git commit -m <span class="string">"modify introduction"</span> <span class="comment"># 提交到本地仓库</span></span><br><span class="line">git push overleaf master <span class="comment"># 将本地仓库的内容push到Overleaf上</span></span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<p>2、markdown标题#后面要有空格</p>
-<p>3、博客迁移过程</p>
-<ul>
-<li>在新环境中重新配置git、node.js、hexo环境</li>
-<li>将必要的文件拷贝到当前环境下 scaffolds source themes文件夹 以及 _config.yml配置文件</li>
-<li>安装对应的插件</li>
-</ul>
+
+
+<p>For more details, you can see <a href="https://www.overleaf.com/learn/how-to/How_do_I_push_a_new_project_to_Overleaf_via_git%3F" target="_blank" rel="noopener">this page</a>.</p>
+<p>That’s all.</p>
 
       
 
@@ -242,7 +229,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">blog</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">折腾</a>
         		</li>
       		
 		</ul>
@@ -299,7 +286,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2018/11/19/hexo-%E9%85%8D%E7%BD%AE/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2020/04/03/Use-Git-to-update-Overleaf-Project/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -313,18 +300,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/11/19/codeforces%20785D%20Anton%20and%20School%20-%202%EF%BC%88%E7%BB%84%E5%90%88%E6%81%92%E7%AD%89%E5%BC%8F%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          codeforces 785D Anton and School - 2（组合恒等式）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/11/19/Welcome/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Welcome</div>
+    <a href="/2020/01/27/Graphiz-%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%94%BB%E5%9B%BE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Graphviz 配置与画图</div>
       <i class="icon-circle-right"></i>
     </a>
   
