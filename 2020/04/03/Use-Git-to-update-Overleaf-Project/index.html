@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="wchhlbt-个人小站">
 <meta property="og:description" content="这篇blog简单记录，如何使用git命令，来将本地修改同步到Overleaf上。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-03T04:24:05.518Z">
+<meta property="og:updated_time" content="2020-05-03T03:36:29.599Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="wchhlbt-个人小站" type="application/atom+xml">
@@ -189,7 +189,7 @@
         <p>这篇blog简单记录，如何使用git命令，来将本地修改同步到Overleaf上。</p>
 <a id="more"></a> 
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://git.overleaf.com/5e785e*******018ebba2 <span class="comment"># 将Overleaf project clone到本地</span></span><br><span class="line">git pull overleaf master --allow-unrelated-histories <span class="comment">#Pull the latest content from the Overleaf project and merge it into your master branch.</span></span><br><span class="line">git remote add overleaf https://git.overleaf.com/5e785e*******018ebba2  <span class="comment"># 将本地仓库和远程Overleaf仓库建立联系</span></span><br><span class="line">git add 1_intro.tex <span class="comment"># 添加修改的文件</span></span><br><span class="line">git commit -m <span class="string">"modify introduction"</span> <span class="comment"># 提交到本地仓库</span></span><br><span class="line">git push overleaf master <span class="comment"># 将本地仓库的内容push到Overleaf上</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://git.overleaf.com/5e785e*******018ebba2 <span class="comment"># 将Overleaf project clone到本地</span></span><br><span class="line">git pull overleaf master --allow-unrelated-histories <span class="comment">#Pull the latest content from the Overleaf project and merge it into your master branch.</span></span><br><span class="line">git remote add overleaf https://git.overleaf.com/5e785e*******018ebba2  <span class="comment"># 将本地仓库和远程Overleaf仓库建立联系</span></span><br><span class="line">git add 1_intro.tex <span class="comment"># 添加修改的文件</span></span><br><span class="line">git commit -m <span class="string">"modify introduction"</span> <span class="comment"># 提交到本地仓库</span></span><br><span class="line">git push overleaf master <span class="comment"># 将本地仓库的内容push到Overleaf上</span></span><br><span class="line"></span><br><span class="line">git add . <span class="comment"># 他会监控工作区的状态树，使用它会把工作时的所有变化提交到暂存区，包括文件内容修改(modified)以及新文件(new)，但不包括被删除的文件。</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -299,6 +299,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/04/26/%E7%AE%97%E6%B3%95%E8%AF%BE%E4%BD%9C%E4%B8%9A-%E5%88%A0%E6%95%B0%EF%BC%88%E6%95%B0%E7%BB%84%E6%A8%A1%E6%8B%9F%E9%93%BE%E8%A1%A8%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          算法课作业 删数（数组模拟链表）
+        
+      </div>
+    </a>
   
   
     <a href="/2020/01/27/Graphiz-%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%94%BB%E5%9B%BE/" id="article-nav-older" class="article-nav-link-wrap">
@@ -457,10 +466,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">algorithm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">网络安全</a>
               </li>
              
@@ -473,7 +478,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">algorithm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">ACM-ICPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">CTF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,7 +494,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">CTF</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">python</a>
               </li>
             
             <div class="clearfix"></div>
