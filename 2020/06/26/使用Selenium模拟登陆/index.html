@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.wchhlbt.cn">
-  <title>算法课作业 删数（数组模拟链表） | wchhlbt-个人小站</title>
+  <title>使用Selenium模拟登陆 | wchhlbt-个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="算法课上机作业题目">
-<meta name="keywords" content="algorithm">
+  <meta name="description" content="使用selenium自动化测试框架 实现自动填写每日健康与出行系统">
+<meta name="keywords" content="折腾">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法课作业 删数（数组模拟链表）">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2020&#x2F;04&#x2F;26&#x2F;%E7%AE%97%E6%B3%95%E8%AF%BE%E4%BD%9C%E4%B8%9A-%E5%88%A0%E6%95%B0%EF%BC%88%E6%95%B0%E7%BB%84%E6%A8%A1%E6%8B%9F%E9%93%BE%E8%A1%A8%EF%BC%89&#x2F;index.html">
+<meta property="og:title" content="使用Selenium模拟登陆">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2020&#x2F;06&#x2F;26&#x2F;%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86&#x2F;index.html">
 <meta property="og:site_name" content="wchhlbt-个人小站">
-<meta property="og:description" content="算法课上机作业题目">
+<meta property="og:description" content="使用selenium自动化测试框架 实现自动填写每日健康与出行系统">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-15T08:23:54.317Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;tsinghua_id.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;thos.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;daily_report.png">
+<meta property="og:updated_time" content="2020-06-26T13:23:38.219Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;tsinghua_id.png">
   
     <link rel="alternative" href="/atom.xml" title="wchhlbt-个人小站" type="application/atom+xml">
   
@@ -159,20 +163,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-算法课作业-删数（数组模拟链表）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-使用Selenium模拟登陆" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      算法课作业 删数（数组模拟链表）
+      使用Selenium模拟登陆
     </h1>
   
 
         
-        <a href="/2020/04/26/%E7%AE%97%E6%B3%95%E8%AF%BE%E4%BD%9C%E4%B8%9A-%E5%88%A0%E6%95%B0%EF%BC%88%E6%95%B0%E7%BB%84%E6%A8%A1%E6%8B%9F%E9%93%BE%E8%A1%A8%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-04-26T12:49:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-26</time>
+        <a href="/2020/06/26/%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/" class="archive-article-date">
+  	<time datetime="2020-06-26T13:02:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-26</time>
 </a>
         
         <!-- 添加代码 -->
@@ -186,34 +190,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>算法课上机作业题目</p>
+        <p>使用selenium自动化测试框架 实现自动填写每日健康与出行系统</p>
 <a id="more"></a> 
 
-<h2 id="D17106-删数"><a href="#D17106-删数" class="headerlink" title="D17106. 删数"></a>D17106. 删数</h2><blockquote>
-<p><strong>时间限制</strong>：3.0s  <strong>内存限制</strong>：256.0MB</p>
-</blockquote>
-<p><strong>问题描述</strong></p>
-<p>　　现有一个n位数，你需要删除其中的k位，请问如何删除才能使得剩下的数最大？<br>　　比如当数为2319274 k=1时，删去2变成319274后是可能的最大值。</p>
-<p><strong>输入格式</strong></p>
-<p>　　输入的第一行包含一个整数T，表示数据的组数。<br>　　接下来T组数据中：每组输入的仅有一行包含1个n位数以及数k，内容如前所述。</p>
-<p><strong>输出格式</strong></p>
-<p>　　对于每组测试数据，输出将n删除k位数后的最大数，数据保证最大数&gt;0。</p>
-<p><strong>样例输入</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">8800932422 1</span><br><span class="line">4736167090 2</span><br></pre></td></tr></table></figure>
+<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1 安装"></a>1 安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda install selenium <span class="comment"># 安装selenium库</span></span><br><span class="line"><span class="comment"># 下载chrome对应版本的driver https://sites.google.com/a/chromium.org/chromedriver/home</span></span><br><span class="line">vim /etc/paths <span class="comment"># 查看系统路径</span></span><br><span class="line"><span class="comment"># 将driver放在上面查到的系统路径下</span></span><br><span class="line"><span class="comment"># 安装完成！</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>样例输出</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">880932422</span><br><span class="line">76167090</span><br></pre></td></tr></table></figure>
+<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2 使用"></a>2 使用</h2><p>关于selenium使用方式参考这篇文章 <a href="https://zhuanlan.zhihu.com/p/111859925" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/111859925</a></p>
+<h2 id="3-任务实现"><a href="#3-任务实现" class="headerlink" title="3 任务实现"></a>3 任务实现</h2><p><strong>目标</strong> ： 实现自动化填报每日健康和出行报告</p>
+<p><strong>方法</strong> ：采用模拟的方式</p>
+<p><img src="https://raw.githubusercontent.com/wchhlbt/MyPostImg/master/tsinghua_id.png" alt="身份信息认证界面"></p>
+<p><img src="https://raw.githubusercontent.com/wchhlbt/MyPostImg/master/thos.png" alt="清华大学在线服务系统"></p>
+<p><img src="https://raw.githubusercontent.com/wchhlbt/MyPostImg/master/daily_report.png" alt=""></p>
+<ol>
+<li>从上图可以看出我们首先需要填写user和password来登陆</li>
+<li>其次进入到日报填写界面</li>
+<li>点击提交按钮</li>
+</ol>
+<p>「注意⚠️ 因为页面加载需要一定的时间，所以需要添加适当的停顿供页面加载完成。」</p>
+<h2 id="4-Code"><a href="#4-Code" class="headerlink" title="4 Code"></a>4 Code</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions <span class="keyword">as</span> EC</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># options = webdriver.ChromeOptions()</span></span><br><span class="line"><span class="comment"># options.add_argument('blink-settings=imagesEnabled=false') # 不加载图片</span></span><br><span class="line"><span class="comment"># driver = webdriver.Chrome(chrome_options=chrome_options)    # Chrome浏览器</span></span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line"></span><br><span class="line">driver.get(<span class="string">"https://thos.tsinghua.edu.cn/"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># add your username and password</span></span><br><span class="line">usr = <span class="string">'username'</span></span><br><span class="line">pwd = <span class="string">'password'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># input the </span></span><br><span class="line">usr_input = driver.find_element_by_id(<span class="string">'i_user'</span>)</span><br><span class="line">pwd_input = driver.find_element_by_id(<span class="string">'i_pass'</span>)</span><br><span class="line">usr_input.send_keys(usr)</span><br><span class="line">pwd_input.send_keys(pwd)</span><br><span class="line"></span><br><span class="line">driver.find_element_by_xpath(<span class="string">'//*[@id="theform"]/div[4]/a'</span>).click()</span><br><span class="line"></span><br><span class="line"><span class="comment"># WebDriverWait(driver,1).until(EC.visibility_of_element_located(locator))</span></span><br><span class="line"><span class="comment"># driver.implicitly_wait(5) # seconds    </span></span><br><span class="line">report = WebDriverWait(driver, <span class="number">5</span>, <span class="number">0.5</span>).until(</span><br><span class="line">                      <span class="keyword">lambda</span> driver:driver.find_element_by_name(<span class="string">'【日报】学生健康和出行情况报告'</span>)</span><br><span class="line">                      ) <span class="comment"># 等待元素加载</span></span><br><span class="line">                      </span><br><span class="line">report.click()</span><br><span class="line">commit = WebDriverWait(driver, <span class="number">5</span>, <span class="number">0.5</span>).until(</span><br><span class="line">                      <span class="keyword">lambda</span> driver:driver.find_element_by_id(<span class="string">'commit'</span>)</span><br><span class="line">                      )</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line">commit.click()</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line">driver.quit()</span><br><span class="line"><span class="comment"># driver.find_element_by_id('commit').click()</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>数据规模和约定</strong></p>
-<p>　　对于80%的数据，满足 0&lt;n&lt;=2000, k&lt;=min(1000,n-1)。<br>　　所有的数据满足 T=40 0&lt;n&lt;=100000, k&lt;=min(1000,n-1)。</p>
-<hr>
-<p><strong>「解题思路」</strong></p>
-<p>通过分析样例可以分析一个简单的思路，每次从前向后遍历数字，当一个数字小于它后面的数字时可以将它删掉。如果要删除k个数字，那么需要从头到尾遍历 k 次，这样算法复杂度为$O(k*n)$的。对于大数据很明显会超时，所以我们需要对这个算法进行优化，让算法只需要遍历一次字符串就可以删除 k 个数字。</p>
-<p>怎么达到这个效果呢？我们需要在删除一个数字后，直接将它之前的一个数字和它后面的数字连在一起，同时对这两个数字进行比较。例如88009，我们需要删除3个数字，我们第一次会删掉第四位的0，880<del>0</del>9，这时我们需要将第三位的0和9比较，再将0删除变为88<del>00</del>9，再将8和9比较删除8，得到8<del>800</del>9。</p>
-<p>可以发现我们需要的是链表这种数据结构。所以我们用数组模拟链表，得到算法如下。</p>
-<p>需要注意的一个细节就是，如果遍历一遍删除的元素不足 k 个。这个时候字符串已经是降序排列的，所以我们只需要从后向前删除数字，补齐 k 个即可。算法整体复杂度为$O(n+k)$。</p>
-<p><strong>AC code</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//using namespace std;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> str[<span class="number">100007</span>];</span><br><span class="line"><span class="keyword">int</span> left[<span class="number">100007</span>];</span><br><span class="line"><span class="keyword">int</span> right[<span class="number">100007</span>];</span><br><span class="line"><span class="keyword">int</span> k;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> t = read();</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s %d"</span>,str+<span class="number">1</span>,&amp;k);</span><br><span class="line">        <span class="keyword">int</span> n = <span class="built_in">strlen</span>(str+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;=n; i++)&#123;</span><br><span class="line">            left[i] = i<span class="number">-1</span>;</span><br><span class="line">            right[i] = i+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;<span class="comment">//维护删除数字的个数</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; cnt&lt;k &amp;&amp; i&lt;=n; i = right[i])&#123;</span><br><span class="line">          	<span class="comment">//当前数字删除 继续向前比较 删除</span></span><br><span class="line">            <span class="keyword">while</span>(cnt&lt;k &amp;&amp; left[i]!=<span class="number">-1</span> &amp;&amp; str[i]&lt;str[right[i]])&#123;</span><br><span class="line">                <span class="keyword">int</span> l = left[i]; <span class="keyword">int</span> r = right[i];</span><br><span class="line">                cnt += <span class="number">1</span>;</span><br><span class="line">                left[r] = l;</span><br><span class="line">                right[l] = r;</span><br><span class="line">                i = left[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">// 补足k个数字</span></span><br><span class="line">        <span class="keyword">if</span>(cnt&lt;k)&#123;</span><br><span class="line">            <span class="keyword">int</span> i = n;</span><br><span class="line">            <span class="keyword">while</span>(cnt&lt;k)&#123;</span><br><span class="line">                <span class="keyword">int</span> l = left[i]; <span class="keyword">int</span> r = right[i];</span><br><span class="line">                cnt += <span class="number">1</span>;</span><br><span class="line">                left[r] = l;</span><br><span class="line">                right[l] = r;</span><br><span class="line">                i = left[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(right[x]&lt;=n)&#123;</span><br><span class="line">            <span class="built_in">putchar</span>(str[right[x]]);</span><br><span class="line">            x = right[x];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
 
       
@@ -249,7 +245,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">algorithm</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">折腾</a>
         		</li>
       		
 		</ul>
@@ -306,7 +302,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2020/04/26/%E7%AE%97%E6%B3%95%E8%AF%BE%E4%BD%9C%E4%B8%9A-%E5%88%A0%E6%95%B0%EF%BC%88%E6%95%B0%E7%BB%84%E6%A8%A1%E6%8B%9F%E9%93%BE%E8%A1%A8%EF%BC%89/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2020/06/26/%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -320,18 +316,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/07/Latex-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Latex 学习笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/03/Use-Git-to-update-Overleaf-Project/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Use Git to update Overleaf Project</div>
+    <a href="/2020/05/09/numpy-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">numpy 学习笔记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -359,7 +346,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="算法课作业-删数（数组模拟链表）" data-title="算法课作业 删数（数组模拟链表）" data-url="https://www.wchhlbt.cn/2020/04/26/%E7%AE%97%E6%B3%95%E8%AF%BE%E4%BD%9C%E4%B8%9A-%E5%88%A0%E6%95%B0%EF%BC%88%E6%95%B0%E7%BB%84%E6%A8%A1%E6%8B%9F%E9%93%BE%E8%A1%A8%EF%BC%89/"></div>
+	<div class="ds-thread" data-thread-key="使用Selenium模拟登陆" data-title="使用Selenium模拟登陆" data-url="https://www.wchhlbt.cn/2020/06/26/%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

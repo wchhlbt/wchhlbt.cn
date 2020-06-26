@@ -6,17 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.wchhlbt.cn">
-  <title>算法课作业 删数（数组模拟链表） | wchhlbt-个人小站</title>
+  <title>Archives: 2020/6 | wchhlbt-个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="算法课上机作业题目">
-<meta name="keywords" content="algorithm">
-<meta property="og:type" content="article">
-<meta property="og:title" content="算法课作业 删数（数组模拟链表）">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2020&#x2F;04&#x2F;26&#x2F;%E7%AE%97%E6%B3%95%E8%AF%BE%E4%BD%9C%E4%B8%9A-%E5%88%A0%E6%95%B0%EF%BC%88%E6%95%B0%E7%BB%84%E6%A8%A1%E6%8B%9F%E9%93%BE%E8%A1%A8%EF%BC%89&#x2F;index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="wchhlbt-个人小站">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;archives&#x2F;2020&#x2F;06&#x2F;index.html">
 <meta property="og:site_name" content="wchhlbt-个人小站">
-<meta property="og:description" content="算法课上机作业题目">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-15T08:23:54.317Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="wchhlbt-个人小站" type="application/atom+xml">
@@ -159,232 +155,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-算法课作业-删数（数组模拟链表）" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      算法课作业 删数（数组模拟链表）
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/06/26/%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/" class="archive-article-date">
+  	<time datetime="2020-06-26T13:02:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-26</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/06/26/%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/">使用Selenium模拟登陆</a>
     </h1>
   
 
-        
-        <a href="/2020/04/26/%E7%AE%97%E6%B3%95%E8%AF%BE%E4%BD%9C%E4%B8%9A-%E5%88%A0%E6%95%B0%EF%BC%88%E6%95%B0%E7%BB%84%E6%A8%A1%E6%8B%9F%E9%93%BE%E8%A1%A8%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-04-26T12:49:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-26</time>
-</a>
-        
-        <!-- 添加代码 -->
-        
-          <span class="archive-article-date">
-              阅读量 <span id="busuanzi_value_page_pv"></span>
-          </span>
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>算法课上机作业题目</p>
-<a id="more"></a> 
-
-<h2 id="D17106-删数"><a href="#D17106-删数" class="headerlink" title="D17106. 删数"></a>D17106. 删数</h2><blockquote>
-<p><strong>时间限制</strong>：3.0s  <strong>内存限制</strong>：256.0MB</p>
-</blockquote>
-<p><strong>问题描述</strong></p>
-<p>　　现有一个n位数，你需要删除其中的k位，请问如何删除才能使得剩下的数最大？<br>　　比如当数为2319274 k=1时，删去2变成319274后是可能的最大值。</p>
-<p><strong>输入格式</strong></p>
-<p>　　输入的第一行包含一个整数T，表示数据的组数。<br>　　接下来T组数据中：每组输入的仅有一行包含1个n位数以及数k，内容如前所述。</p>
-<p><strong>输出格式</strong></p>
-<p>　　对于每组测试数据，输出将n删除k位数后的最大数，数据保证最大数&gt;0。</p>
-<p><strong>样例输入</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">8800932422 1</span><br><span class="line">4736167090 2</span><br></pre></td></tr></table></figure>
-
-<p><strong>样例输出</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">880932422</span><br><span class="line">76167090</span><br></pre></td></tr></table></figure>
-
-<p><strong>数据规模和约定</strong></p>
-<p>　　对于80%的数据，满足 0&lt;n&lt;=2000, k&lt;=min(1000,n-1)。<br>　　所有的数据满足 T=40 0&lt;n&lt;=100000, k&lt;=min(1000,n-1)。</p>
-<hr>
-<p><strong>「解题思路」</strong></p>
-<p>通过分析样例可以分析一个简单的思路，每次从前向后遍历数字，当一个数字小于它后面的数字时可以将它删掉。如果要删除k个数字，那么需要从头到尾遍历 k 次，这样算法复杂度为$O(k*n)$的。对于大数据很明显会超时，所以我们需要对这个算法进行优化，让算法只需要遍历一次字符串就可以删除 k 个数字。</p>
-<p>怎么达到这个效果呢？我们需要在删除一个数字后，直接将它之前的一个数字和它后面的数字连在一起，同时对这两个数字进行比较。例如88009，我们需要删除3个数字，我们第一次会删掉第四位的0，880<del>0</del>9，这时我们需要将第三位的0和9比较，再将0删除变为88<del>00</del>9，再将8和9比较删除8，得到8<del>800</del>9。</p>
-<p>可以发现我们需要的是链表这种数据结构。所以我们用数组模拟链表，得到算法如下。</p>
-<p>需要注意的一个细节就是，如果遍历一遍删除的元素不足 k 个。这个时候字符串已经是降序排列的，所以我们只需要从后向前删除数字，补齐 k 个即可。算法整体复杂度为$O(n+k)$。</p>
-<p><strong>AC code</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//using namespace std;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> str[<span class="number">100007</span>];</span><br><span class="line"><span class="keyword">int</span> left[<span class="number">100007</span>];</span><br><span class="line"><span class="keyword">int</span> right[<span class="number">100007</span>];</span><br><span class="line"><span class="keyword">int</span> k;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> t = read();</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s %d"</span>,str+<span class="number">1</span>,&amp;k);</span><br><span class="line">        <span class="keyword">int</span> n = <span class="built_in">strlen</span>(str+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;=n; i++)&#123;</span><br><span class="line">            left[i] = i<span class="number">-1</span>;</span><br><span class="line">            right[i] = i+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;<span class="comment">//维护删除数字的个数</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; cnt&lt;k &amp;&amp; i&lt;=n; i = right[i])&#123;</span><br><span class="line">          	<span class="comment">//当前数字删除 继续向前比较 删除</span></span><br><span class="line">            <span class="keyword">while</span>(cnt&lt;k &amp;&amp; left[i]!=<span class="number">-1</span> &amp;&amp; str[i]&lt;str[right[i]])&#123;</span><br><span class="line">                <span class="keyword">int</span> l = left[i]; <span class="keyword">int</span> r = right[i];</span><br><span class="line">                cnt += <span class="number">1</span>;</span><br><span class="line">                left[r] = l;</span><br><span class="line">                right[l] = r;</span><br><span class="line">                i = left[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">// 补足k个数字</span></span><br><span class="line">        <span class="keyword">if</span>(cnt&lt;k)&#123;</span><br><span class="line">            <span class="keyword">int</span> i = n;</span><br><span class="line">            <span class="keyword">while</span>(cnt&lt;k)&#123;</span><br><span class="line">                <span class="keyword">int</span> l = left[i]; <span class="keyword">int</span> r = right[i];</span><br><span class="line">                cnt += <span class="number">1</span>;</span><br><span class="line">                left[r] = l;</span><br><span class="line">                right[l] = r;</span><br><span class="line">                i = left[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(right[x]&lt;=n)&#123;</span><br><span class="line">            <span class="built_in">putchar</span>(str[right[x]]);</span><br><span class="line">            x = right[x];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">algorithm</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">折腾</a>
         		</li>
       		
 		</ul>
 	</div>
 
+          
 
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2020/04/26/%E7%AE%97%E6%B3%95%E8%AF%BE%E4%BD%9C%E4%B8%9A-%E5%88%A0%E6%95%B0%EF%BC%88%E6%95%B0%E7%BB%84%E6%A8%A1%E6%8B%9F%E9%93%BE%E8%A1%A8%EF%BC%89/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/05/07/Latex-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Latex 学习笔记
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/04/03/Use-Git-to-update-Overleaf-Project/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Use Git to update Overleaf Project</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="算法课作业-删数（数组模拟链表）" data-title="算法课作业 删数（数组模拟链表）" data-url="https://www.wchhlbt.cn/2020/04/26/%E7%AE%97%E6%B3%95%E8%AF%BE%E4%BD%9C%E4%B8%9A-%E5%88%A0%E6%95%B0%EF%BC%88%E6%95%B0%E7%BB%84%E6%A8%A1%E6%8B%9F%E9%93%BE%E8%A1%A8%EF%BC%89/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -420,8 +244,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
