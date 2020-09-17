@@ -17,7 +17,7 @@
 <meta property="og:description" content="记录一下在CTFHUB上面刷题和学习过程。欢迎大家分享交流～">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;ctfhub_authentication.png">
-<meta property="og:updated_time" content="2020-09-17T14:47:17.047Z">
+<meta property="og:updated_time" content="2020-09-17T14:54:49.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;ctfhub_authentication.png">
   
@@ -199,6 +199,9 @@
 
 <h2 id="1-3-Cookie"><a href="#1-3-Cookie" class="headerlink" title="1.3 Cookie"></a>1.3 Cookie</h2><p>只需要打开F12看一下，有一个set-Cookie admin=0，结合页面上的提示，我们把cookie修改成admin=1，重新发送就成功了。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> requests <span class="keyword">import</span> Request, Session</span><br><span class="line">cookies=&#123;&#125;</span><br><span class="line">cookies[<span class="string">'admin'</span>] = <span class="string">'1'</span></span><br><span class="line"><span class="comment"># r  = requests.get('http://challenge-5afc155f1d93f32a.sandbox.ctfhub.com:10080/index.php')</span></span><br><span class="line">r = requests.get(<span class="string">"http://challenge-8d84b618dcd65729.sandbox.ctfhub.com:10080/"</span>,cookies=cookies)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>
+
+<p>当然也可以用curl命令来做</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -b <span class="string">'admin=1'</span> http://challenge-b16d8484fbfff410.sandbox.ctfhub.com:10080/</span><br><span class="line">ctfhub&#123;90ac954c1525617c85b285b2d73ce51f1968311c&#125;%                               </span><br><span class="line">curl -b <span class="string">'admin=0'</span> http://challenge-b16d8484fbfff410.sandbox.ctfhub.com:10080/</span><br><span class="line">hello guest. only admin can get flag.%</span><br></pre></td></tr></table></figure>
 
 <h2 id="1-4-身份验证"><a href="#1-4-身份验证" class="headerlink" title="1.4 身份验证"></a>1.4 身份验证</h2><p><a href="https://zh.wikipedia.org/wiki/HTTP%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%81" target="_blank" rel="noopener">基础认证</a></p>
 <p>从题目中给的链接可以嘘唏到HTTP基本认证的相关知识，然后通过查看服务器发过来的response头，其中有很明显的提示用户名为admin，接下来就很简单了，下载题目附件，用burpsuite爆破。但是要注意把字典编码成base64的。</p>
