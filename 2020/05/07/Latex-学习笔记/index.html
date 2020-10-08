@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="wchhlbt-个人小站">
 <meta property="og:description" content="因为平时写论文、写作业都需要用到Latex，Latex确实对于新手不太友好，所以这里记录一下踩过的坑。。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-09-06T12:17:05.607Z">
+<meta property="og:updated_time" content="2020-10-05T13:45:21.564Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="wchhlbt-个人小站" type="application/atom+xml">
@@ -211,6 +211,9 @@
 <h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\notice&#123;*&#125; % 表示引入全部参考文献 注释掉这一行 表示只引入文章引用的文献</span><br></pre></td></tr></table></figure>
 
 <h1 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;algorithm&#125;[!htbp]</span><br><span class="line">  \caption&#123;Iterative Scan for Exploitable Servers&#125;</span><br><span class="line">  \label&#123;code:iterative-scan&#125;</span><br><span class="line">  \footnotesize</span><br><span class="line">  \begin&#123;algorithmic&#125;[1]</span><br><span class="line">    \Require $DomainSeeds$</span><br><span class="line">    \Ensure $ResponseList$</span><br><span class="line">    \State Initialize $TaskQueue$ as an empty list;</span><br><span class="line">    \For&#123;each $domain \in DomainSeeds$&#125;</span><br><span class="line">        \State $IPSet \gets $ \Call&#123;DNSResolve&#125;&#123;$domain$&#125;</span><br><span class="line">        \For&#123;each $ip \in IPSet$&#125;</span><br><span class="line">            \State Append $(domain, ip)$ to $TaskQueue$</span><br><span class="line">        \EndFor</span><br><span class="line">    \EndFor</span><br><span class="line">    \For&#123;each $(domain, ip) \in TaskQueue$&#125;</span><br><span class="line">        \State Initialize $ExtendTaskQueue$ as an empty list;</span><br><span class="line">        \State Send HTTPS request to $ip$ with the hostname $domain$;</span><br><span class="line">        \State Retrieve the $certificate$ and HTTP $response$;</span><br><span class="line">        \State Append $ (domain, ip, certificate, response) $ to $ ResponseList$; </span><br><span class="line">        \State $CN, SAN \gets$ \Call&#123;ParseCertificate&#125;&#123;$certificate$&#125;</span><br><span class="line">        \For&#123;each $PrevDomain, PrevIP \in ResponseList$&#125;</span><br><span class="line">            \If &#123;$PrevDomain \in [CN, SAN]$&#125;</span><br><span class="line">                \State Append $(PrevDomain, PrevIP) $ to $ ExtendTaskQueue$;</span><br><span class="line">            \EndIf</span><br><span class="line">        \EndFor        </span><br><span class="line">        \For&#123;each $PrevIP, PrevCert \in ResponseList$&#125;</span><br><span class="line">            \State $PrevCN, PrevSAN \gets$ \Call&#123;ParseCertificate&#125;&#123;$PrevCert$&#125;</span><br><span class="line">            \If&#123;$domain \in [PrevCN, PrevSAN]$&#125;</span><br><span class="line">                \State Append $(domain, PrevIP) $ to $ ExtendTaskQueue$;</span><br><span class="line">            \EndIf</span><br><span class="line">        \EndFor</span><br><span class="line">        \State Append $ExtentedTaskQueue $ to $ TaskQueue$; </span><br><span class="line">    \EndFor</span><br><span class="line">  \end&#123;algorithmic&#125;</span><br><span class="line">\end&#123;algorithm&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加作者"><a href="#添加作者" class="headerlink" title="添加作者"></a>添加作者</h2><p><a href="https://tex.stackexchange.com/questions/435084/how-to-set-the-first-author-together" target="_blank" rel="noopener">https://tex.stackexchange.com/questions/435084/how-to-set-the-first-author-together</a></p>
+<h2 id="去掉章节编号"><a href="#去掉章节编号" class="headerlink" title="去掉章节编号"></a>去掉章节编号</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\section*&#123;Acknowlegments&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -508,11 +511,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">CTF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">折腾</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">网络安全</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,7 +519,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">网络安全</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">折腾</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,6 +532,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">CTF</a>
               </li>
              
               <li class="article-tag-list-item">

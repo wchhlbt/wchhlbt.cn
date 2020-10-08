@@ -17,7 +17,7 @@
 <meta property="og:description" content="记录一下在CTFHUB上面刷题和学习过程。欢迎大家分享交流～">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;ctfhub_authentication.png">
-<meta property="og:updated_time" content="2020-09-17T14:54:49.898Z">
+<meta property="og:updated_time" content="2020-09-25T15:45:28.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;ctfhub_authentication.png">
   
@@ -191,8 +191,12 @@
         <p>记录一下在CTFHUB上面刷题和学习过程。欢迎大家分享交流～</p>
 <a id="more"></a> 
 
-<h1 id="1-HTTP协议"><a href="#1-HTTP协议" class="headerlink" title="1 HTTP协议"></a>1 HTTP协议</h1><h2 id="1-1-请求方式"><a href="#1-1-请求方式" class="headerlink" title="1.1 请求方式"></a>1.1 请求方式</h2><p>本题主要是考察用自定义的请求方法，发起请求。可以使用requests库或者用burpsuite构造请求发送都可以。</p>
+<h1 id="1-HTTP协议"><a href="#1-HTTP协议" class="headerlink" title="1 HTTP协议"></a>1 HTTP协议</h1><p>这部分内容主要是学习发送基本HTTP协议数据包的方法，还可以学习一下curl命令的使用，参考<a href="https://www.ruanyifeng.com/blog/2019/09/curl-reference.html" target="_blank" rel="noopener">这个链接</a>。</p>
+<h2 id="1-1-请求方式"><a href="#1-1-请求方式" class="headerlink" title="1.1 请求方式"></a>1.1 请求方式</h2><p>本题主要是考察用自定义的请求方法，发起请求。可以使用requests库或者用burpsuite构造请求发送都可以。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> requests <span class="keyword">import</span> Request, Session</span><br><span class="line"></span><br><span class="line"><span class="comment"># r  = requests.get('http://challenge-5afc155f1d93f32a.sandbox.ctfhub.com:10080/index.php')</span></span><br><span class="line">s = Session()</span><br><span class="line">request = Request(<span class="string">'CTFHUB'</span>, <span class="string">'http://challenge-5afc155f1d93f32a.sandbox.ctfhub.com:10080/index.php'</span>)</span><br><span class="line">prepped = request.prepare()</span><br><span class="line">response = s.send(prepped, timeout=<span class="number">5</span>)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+
+<p>用curl命令来做</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">curl -X CTFHUB http://challenge-6caccbf431e3c435.sandbox.ctfhub.com:10080/index.php</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>/&gt;</span><br><span class="line">    &lt;title&gt;CTFHub HTTP Method&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">good job! ctfhub&#123;0e9fa8b6e95864c4392010cd78a089386ed8c630&#125;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="1-2-302跳转"><a href="#1-2-302跳转" class="headerlink" title="1.2 302跳转"></a>1.2 302跳转</h2><p>打开F12，可以看到有一个302跳转从index.php跳转到index.html。猜测可能答案与index.php有关。用curl命令看一下http response.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">curl -v http://challenge-b8a4ac0891aac6dd.sandbox.ctfhub.com:10080/index.php</span><br><span class="line">*   Trying 47.98.148.7...</span><br><span class="line">* TCP_NODELAY <span class="built_in">set</span></span><br><span class="line">* Connected to challenge-b8a4ac0891aac6dd.sandbox.ctfhub.com (47.98.148.7) port 10080 (<span class="comment">#0)</span></span><br><span class="line">&gt; GET /index.php HTTP/1.1</span><br><span class="line">&gt; Host: challenge-b8a4ac0891aac6dd.sandbox.ctfhub.com:10080</span><br><span class="line">&gt; User-Agent: curl/7.54.0</span><br><span class="line">&gt; Accept: */*</span><br><span class="line">&gt; </span><br><span class="line">&lt; HTTP/1.1 302 Moved Temporarily</span><br><span class="line">&lt; Server: openresty/1.15.8.2</span><br><span class="line">&lt; Date: Thu, 17 Sep 2020 07:22:59 GMT</span><br><span class="line">&lt; Content-Type: text/html; charset=UTF-8</span><br><span class="line">&lt; Transfer-Encoding: chunked</span><br><span class="line">&lt; Connection: keep-alive</span><br><span class="line">&lt; X-Powered-By: PHP/5.6.40</span><br><span class="line">&lt; Location: /index.html</span><br><span class="line">&lt; Access-Control-Allow-Origin: *</span><br><span class="line">&lt; Access-Control-Allow-Headers: X-Requested-With</span><br><span class="line">&lt; Access-Control-Allow-Methods: *</span><br><span class="line">&lt; </span><br><span class="line">ctfhub&#123;046c99983389062b35ff89563c35b74118ab2c68&#125;</span><br><span class="line">* Connection <span class="comment">#0 to host challenge-b8a4ac0891aac6dd.sandbox.ctfhub.com left intact</span></span><br></pre></td></tr></table></figure>
@@ -213,10 +217,51 @@
 
 
 
-<h1 id="2-密码口令"><a href="#2-密码口令" class="headerlink" title="2 密码口令"></a>2 密码口令</h1><h2 id="2-1-弱口令"><a href="#2-1-弱口令" class="headerlink" title="2.1 弱口令"></a>2.1 弱口令</h2><p>这个就是一个基本的弱口令爆破，但是需要一点小技巧，用户名不要暴力尝试，那样成功率太低，默认为admin或者root，枚举一下密码就可以了。最后我拿到口令的用户名和密码是「user=admin」「password=admin123」</p>
+<h1 id="2-密码口令"><a href="#2-密码口令" class="headerlink" title="2 密码口令"></a>2 密码口令</h1><h2 id="2-1-弱口令"><a href="#2-1-弱口令" class="headerlink" title="2.1 弱口令"></a>2.1 弱口令</h2><p>这个就是一个基本的弱口令爆破，但是需要一点小技巧，用户名不要暴力尝试，那样成功率太低，默认为admin或者root，枚举一下密码就可以了。</p>
+<p>Attack type 选择pitchfork</p>
+<p>最后我拿到口令的用户名和密码是「user=admin」「password=admin123」</p>
 <h2 id="2-2-默认口令"><a href="#2-2-默认口令" class="headerlink" title="2.2 默认口令"></a>2.2 默认口令</h2><p>这个居然真的直接搜一下默认口令就能找到23333</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">eyouuser	eyou_admin</span><br><span class="line">eyougw	admin@(eyou)</span><br><span class="line">admin	+-ccccc</span><br><span class="line">admin	cyouadmin</span><br></pre></td></tr></table></figure>
 
+<h1 id="3-信息泄漏"><a href="#3-信息泄漏" class="headerlink" title="3 信息泄漏"></a>3 信息泄漏</h1><h2 id="3-1-目录遍历"><a href="#3-1-目录遍历" class="headerlink" title="3.1 目录遍历"></a>3.1 目录遍历</h2><p>这道题目直接提供了目录，我们只需要逐级遍历，找到flag所在的位置就可以，虽然目录很少，可以手动查找，但还是写了一个脚本扫描。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> requests <span class="keyword">import</span> Request, Session</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">geturl</span><span class="params">(url, depth)</span>:</span></span><br><span class="line">    print(<span class="string">'\t'</span>*depth + url)</span><br><span class="line">    r = requests.get(url)</span><br><span class="line">    soup = BeautifulSoup(r.text,<span class="string">'html.parser'</span>)</span><br><span class="line">    a_list = soup.find_all(<span class="string">'a'</span>)</span><br><span class="line">    <span class="keyword">for</span> a <span class="keyword">in</span> a_list:</span><br><span class="line">        <span class="keyword">if</span>(a[<span class="string">'href'</span>].startswith(<span class="string">'?C'</span>) <span class="keyword">or</span> a[<span class="string">'href'</span>].startswith(<span class="string">'/'</span>)):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        geturl(url+a[<span class="string">'href'</span>],depth+<span class="number">1</span>)</span><br><span class="line">        <span class="comment"># print()</span></span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/'</span></span><br><span class="line">geturl(url,<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>结果如下所示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/</span><br><span class="line">	http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/1/</span><br><span class="line">		http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/1/1/</span><br><span class="line">		http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/1/2/</span><br><span class="line">		http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/1/3/</span><br><span class="line">		http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/1/4/</span><br><span class="line">	http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/2/</span><br><span class="line">		http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/2/1/</span><br><span class="line">		http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/2/2/</span><br><span class="line">		http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/2/3/</span><br><span class="line">		http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/2/4/</span><br><span class="line">			http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/2/4/flag.txt</span><br><span class="line">	http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/3/</span><br><span class="line">		http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/3/1/</span><br><span class="line">		http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/3/2/</span><br><span class="line">		http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/3/3/</span><br><span class="line">		http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/3/4/</span><br><span class="line">	http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/4/</span><br><span class="line">		http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/4/1/</span><br><span class="line">		http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/4/2/</span><br><span class="line">		http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/4/3/</span><br><span class="line">		http://challenge-9fa7c1783d8e762f.sandbox.ctfhub.com:10080/flag_in_here/4/4/</span><br></pre></td></tr></table></figure>
+
+<p>可以很清晰的看到flag.txt的位置，去打开它就可以了～</p>
+<h2 id="3-2-phpinfo"><a href="#3-2-phpinfo" class="headerlink" title="3.2 phpinfo"></a>3.2 phpinfo</h2><p>直接访问这个phpinfo的界面，就可以看到flag。</p>
+<h1 id="4-备份文件下载"><a href="#4-备份文件下载" class="headerlink" title="4 备份文件下载"></a>4 备份文件下载</h1><h2 id="4-1-网站源码"><a href="#4-1-网站源码" class="headerlink" title="4.1 网站源码"></a>4.1 网站源码</h2><p>题目中给了一些提示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">常见的网站源码备份文件后缀</span><br><span class="line">  tar</span><br><span class="line">  tar.gz</span><br><span class="line">  zip</span><br><span class="line">  rar</span><br><span class="line">常见的网站源码备份文件名</span><br><span class="line">  web</span><br><span class="line">  website</span><br><span class="line">  backup</span><br><span class="line">  back</span><br><span class="line">  www</span><br><span class="line">  wwwroot</span><br><span class="line">  temp</span><br></pre></td></tr></table></figure>
+
+<p>于是写了个程序暴力枚举了所有的情况，然后根据返回的数据的不同，判断源码可能在哪里。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">prefix = [<span class="string">'web'</span>,<span class="string">'website'</span>,<span class="string">'backup'</span>,<span class="string">'back'</span>,<span class="string">'www'</span>,<span class="string">'wwwroot'</span>,<span class="string">'temp'</span>]</span><br><span class="line">suffix = [<span class="string">'tar'</span>,<span class="string">'tar.gz'</span>,<span class="string">'zip'</span>,<span class="string">'rar'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> p <span class="keyword">in</span> prefix:</span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> suffix:</span><br><span class="line">        name = p + <span class="string">'.'</span> + s</span><br><span class="line">        url = <span class="string">'http://challenge-38fd16adf08c240f.sandbox.ctfhub.com:10080/'</span> + name</span><br><span class="line">        print()</span><br><span class="line">        print(url)</span><br><span class="line">        r = requests.get(url)</span><br><span class="line">        print(len(r.text))</span><br></pre></td></tr></table></figure>
+
+<p>运行程序后可以发现<a href="http://www.zip这个文件的应答明显异常，下载这个文件后，可以看到一个flag_146559650.txt的文件，但是里面没有flag，一开始没想到，后来才意识到，可能在这个网站下就有这个文件，直接去打开就拿到了flag" target="_blank" rel="noopener">www.zip这个文件的应答明显异常，下载这个文件后，可以看到一个flag_146559650.txt的文件，但是里面没有flag，一开始没想到，后来才意识到，可能在这个网站下就有这个文件，直接去打开就拿到了flag</a>.</p>
+<h2 id="4-2-bak文件"><a href="#4-2-bak文件" class="headerlink" title="4.2 bak文件"></a>4.2 bak文件</h2><p>题目中说的很清楚flag在index.php文件中，我们只需要尝试访问index.php.bak就可以拿到flag了。</p>
+<h2 id="4-3-vim缓存"><a href="#4-3-vim缓存" class="headerlink" title="4.3 vim缓存"></a>4.3 vim缓存</h2><p>vim编辑器的意外退出文件格式一般为 $’.文件名.swp’$</p>
+<p>所以只需要根据提示在网站上访问.index.php.swp，就可以下载到一个二进制文件，我们在本地打开这个二进制文件，就可以看到flag。</p>
+<h2 id="4-4-DS-Store"><a href="#4-4-DS-Store" class="headerlink" title="4.4 DS_Store"></a>4.4 DS_Store</h2><p>DS_Store是一种常见的macos缓存格式，里买呢会有一些mac文件目录的信息，所以我们尝试访问这个文件，然后同样得到一个二进制文件，里面可以看到一个txt的文件名。我这里是</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e59a5c7af1264ba2c5f4457e77cc09aa.txt</span><br></pre></td></tr></table></figure>
+
+<p>访问这个文件就可以拿到flag了。</p>
+<h1 id="5-Git泄漏"><a href="#5-Git泄漏" class="headerlink" title="5 Git泄漏"></a>5 Git泄漏</h1><h2 id="5-1-Log泄漏"><a href="#5-1-Log泄漏" class="headerlink" title="5.1 Log泄漏"></a>5.1 Log泄漏</h2><p><a href="https://github.com/wangyihang/githacker" target="_blank" rel="noopener">https://github.com/wangyihang/githacker</a></p>
+<p>使用这个脚本拿到.git全部的文件并且恢复到当前的head，然后可以用git log –reflog命令查看git更新记录。可以很清晰的看到添加flag的步骤，然后硬重置到那一个版本就可以看到flag了。</p>
+<h2 id="5-2-Stash泄漏"><a href="#5-2-Stash泄漏" class="headerlink" title="5.2 Stash泄漏"></a>5.2 Stash泄漏</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git stash list</span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
+
+<h1 id="6-SVN-泄漏"><a href="#6-SVN-泄漏" class="headerlink" title="6 SVN 泄漏"></a>6 SVN 泄漏</h1><h1 id="7-HG泄漏"><a href="#7-HG泄漏" class="headerlink" title="7 HG泄漏"></a>7 HG泄漏</h1><p><a href="https://mercurial.selenic.com/wiki/fncacheRepoFormat#Hashing_of_long_paths" target="_blank" rel="noopener">https://mercurial.selenic.com/wiki/fncacheRepoFormat#Hashing_of_long_paths</a></p>
+<p>在这个页面下可以看到fncache file的描述，存储所有的filelog文件，因此通过这个文件可以看出这个网站都有哪些文件。</p>
+<blockquote>
+<h2 id="5-The-fncache-file"><a href="#5-The-fncache-file" class="headerlink" title="5. The fncache file"></a>5. The fncache file</h2><p>For the fncache repository format Mercurial maintains a new file <code>&#39;fncache&#39;</code> (thus the name of the format) inside <code>&#39;.hg/store&#39;</code>. The fncache file contains the paths of all filelog files in the store as encoded by <code>mercurial.filelog.encodedir</code>. The paths are separated by <code>&#39;\n&#39;</code> (LF).</p>
+<p>The fncache file is used to enumerate all filelog files in the store, for example when doing a <code>clone --uncompressed</code>. The fncache file may contain duplicates or inexistent entries (this can happen when using the <code>strip</code> or <code>rollback</code> commmands).</p>
+<p>During a <code>clone --uncompressed</code> or a <code>hg verify</code> the fncache file is read and rewritten <strong>if</strong> duplicates or entries with missing filelog files are detected, so even operations that don’t modify the history of the repository may lead to modifying the fncache file (this was a deliberate design decision as discussed with mpm).</p>
+<p>The fncache file is not read by a <code>hg clone --pull</code>, so that command may be used to resurrect a damaged fncache file, since <code>hg clone --pull</code> rewrites the fncache file from the information found in all manifest revisions. That’s also the reason why it is basically cached information.</p>
+<p>The <code>verify</code> command checks the fncache file and removes non-existent or duplicate entries. If a filelog file referenced in a manifest revision is not found in the fncache file, <code>hg verify</code> reports an error.</p>
+</blockquote>
+<p>所以我们访问./hg/store/fncache 就可以看到一个filelist</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data/index.html.i</span><br><span class="line">data/50x.html.i</span><br><span class="line">data/flag_2277621920.txt.i</span><br></pre></td></tr></table></figure>
+
+<p>因此我们我们猜测flag就在flag_2277621920.txt这个文件里，直接访问就可以拿到flag。</p>
 
       
 
@@ -321,6 +366,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/10/07/docker-tutorial/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Docker入门及CodiMD搭建
+        
+      </div>
+    </a>
   
   
     <a href="/2020/06/28/requests%E5%BA%93%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
@@ -504,11 +558,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">CTF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">折腾</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">网络安全</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,7 +566,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">网络安全</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">折腾</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,6 +579,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">CTF</a>
               </li>
              
               <li class="article-tag-list-item">
