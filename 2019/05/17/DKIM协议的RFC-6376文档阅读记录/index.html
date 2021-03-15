@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="wchhlbt-个人小站">
 <meta property="og:description" content="这篇文章系统记录了我对于DKIM协议的RFC-6376文档阅读，记录一些我认为重要的关键点和相关问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-13T07:42:05.314Z">
+<meta property="og:updated_time" content="2020-11-23T03:09:14.089Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="wchhlbt-个人小站" type="application/atom+xml">
@@ -189,8 +189,9 @@
         <p>这篇文章系统记录了我对于DKIM协议的RFC-6376文档阅读，记录一些我认为重要的关键点和相关问题。</p>
 <a id="more"></a> 
 
-
-
+<blockquote>
+<p>关注RFC文档中的MUST SHOULD</p>
+</blockquote>
 <h2 id="rfc文档要点"><a href="#rfc文档要点" class="headerlink" title="rfc文档要点"></a>rfc文档要点</h2><ul>
 <li>0 签名验证失败不强制拒绝消息</li>
 <li>1.2 信息性原理:DKIM签名指定的签名标识不需要匹配任何特定头字段中的地址，因为收件人邮件系统(包括MUAs)有广泛的解释方法。</li>
@@ -216,7 +217,7 @@
 <li>5.4 在消息签名时，头字段名只需要比消息中该头字段的实际数量多列出一次，以防止任何进一步的添加。</li>
 <li>5.4 尽管本规范不要求，但所有终端用户可见的头字段都应该签名，以避免可能的“间接垃圾邮件”。例如，如果主题标题字段没有签名，垃圾邮件发送者可以重新发送之前签名的邮件，用一行垃圾邮件替换合法的主题。</li>
 <li>5.4.1 DKIM密码算法的目的是为消息添加一个标识符，该标识符既能抵抗正常的传输相关更改，又能抵抗各种重播攻击。满足这些要求的一个基本方面是选择要在散列中包含哪些头字段，以及要排除哪些字段。选择要包含的字段的基本规则是选择那些构成消息内容“核心”的字段。因此，任何重播攻击都必须包含这些攻击，以便签名成功;但是，包含了这些之后，即使将消息发送给新的收件人，消息的核心也是有效的。</li>
-<li></li>
+<li>5.4 The DKIM-Signature header field is always implicitly signed and MUST NOT be included in the “h=” tag except to indicate that other preexisting signatures are also signed.</li>
 </ul>
 <p><strong>ADSP（Author Domain Signing Policies）</strong></p>
 <p>当邮件接收者收到一个没有签名的邮件时，应该怎么办呢。这个时候就要看ADSP的设置了。</p>
@@ -407,7 +408,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 wchhlbt
+    		&copy; 2021 wchhlbt
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -524,11 +525,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">网络安全</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">CTF</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">algorithm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">网络安全</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,15 +545,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">ACM-ICPC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">CTF</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">ACM-ICPC</a>
               </li>
              
               <li class="article-tag-list-item">
