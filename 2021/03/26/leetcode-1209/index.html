@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.wchhlbt.cn">
-  <title>wchhlbt-个人小站</title>
+  <title>leetcode 1209 | wchhlbt-个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="wchhlbt-个人小站">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;index.html">
+  <meta name="description" content="给你一个字符串 s，「k 倍重复项删除操作」将会从 s 中选择 k 个相邻且相等的字母，并删除它们，使被删去的字符串的左侧和右侧连在一起。 你需要对 s 重复进行无限次这样的删除操作，直到无法继续为止。 在执行完所有删除操作后，返回最终得到的字符串。 https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;remove-all-adjacent-duplicates-in-string-">
+<meta name="keywords" content="algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode 1209">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2021&#x2F;03&#x2F;26&#x2F;leetcode-1209&#x2F;index.html">
 <meta property="og:site_name" content="wchhlbt-个人小站">
+<meta property="og:description" content="给你一个字符串 s，「k 倍重复项删除操作」将会从 s 中选择 k 个相邻且相等的字母，并删除它们，使被删去的字符串的左侧和右侧连在一起。 你需要对 s 重复进行无限次这样的删除操作，直到无法继续为止。 在执行完所有删除操作后，返回最终得到的字符串。 https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;remove-all-adjacent-duplicates-in-string-">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-03-26T04:10:51.714Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="wchhlbt-个人小站" type="application/atom+xml">
@@ -155,16 +159,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-leetcode-1209" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-leetcode-1209" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/26/leetcode-1209/">leetcode 1209</a>
+    <h1 class="article-title" itemprop="name">
+      leetcode 1209
     </h1>
   
 
@@ -175,6 +177,10 @@
         
         <!-- 添加代码 -->
         
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
 
       </header>
     
@@ -184,11 +190,35 @@
 <p>你需要对 s 重复进行无限次这样的删除操作，直到无法继续为止。</p>
 <p>在执行完所有删除操作后，返回最终得到的字符串。</p>
 <p><a href="https://leetcode-cn.com/problems/remove-all-adjacent-duplicates-in-string-ii" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-all-adjacent-duplicates-in-string-ii</a></p>
-        
-          <a class="article-more-a" href="/2021/03/26/leetcode-1209/#more">more >></a>
-        
+<a id="more"></a>
+
+<p>可以采用数组模拟链表的方法来实现。每个元素最多只会被遍历一次删除一次，复杂度为<code>O(n)</code>。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">100007</span>];<span class="comment">// 记录当前字符重复出现的次数</span></span><br><span class="line">    <span class="keyword">int</span> l[<span class="number">100007</span>];<span class="comment">// 记录当前元素的左边的元素编号</span></span><br><span class="line">    <span class="keyword">int</span> r[<span class="number">100007</span>];<span class="comment">// 记录当前元素的右边的元素编号</span></span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">removeDuplicates</span><span class="params">(<span class="built_in">string</span> s, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="comment">// cout &lt;&lt; len &lt;&lt; endl;</span></span><br><span class="line">        s = <span class="string">'A'</span> + s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;=len; i++)&#123;</span><br><span class="line">            l[i] = i - <span class="number">1</span>;</span><br><span class="line">            r[i] = i + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=len; i++)&#123;</span><br><span class="line">            <span class="comment">// cout &lt;&lt; i &lt;&lt; " " &lt;&lt; s[i] &lt;&lt; " " &lt;&lt; l[i] &lt;&lt; " " &lt;&lt; r[i] &lt;&lt; " " &lt;&lt; a[l[i]] &lt;&lt; endl;</span></span><br><span class="line">            <span class="keyword">if</span>(s[i]==s[l[i]])&#123;</span><br><span class="line">                <span class="comment">// cout &lt;&lt; "yes" &lt;&lt; endl;</span></span><br><span class="line">                a[i] = a[l[i]] + <span class="number">1</span>;</span><br><span class="line">                <span class="comment">// cout &lt;&lt; a[i] &lt;&lt; endl;</span></span><br><span class="line">                <span class="keyword">if</span>(a[i]==k)&#123;</span><br><span class="line">                    <span class="keyword">int</span> tmp = i;</span><br><span class="line">                    <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">                  	<span class="comment">// 递归消除</span></span><br><span class="line">                    <span class="keyword">while</span>(j&lt;k)&#123;</span><br><span class="line">                        tmp = l[tmp];</span><br><span class="line">                        j += <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    r[tmp] = i+<span class="number">1</span>;</span><br><span class="line">                    l[i+<span class="number">1</span>] = tmp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                a[i] = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(r[x]&lt;=len)&#123;</span><br><span class="line">            ans += s[r[x]];</span><br><span class="line">            <span class="comment">//putchar(s[r[x]]);</span></span><br><span class="line">            x = r[x];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//puts(""); </span></span><br><span class="line">        <span class="keyword">return</span> ans;       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -209,16 +239,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/26/leetcode-1209/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2021/03/26/leetcode-1209/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/10/09/XSS-study/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">XSS 学习</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -238,738 +327,34 @@
 
 
 
-
   
-    <article id="post-XSS-study" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/09/XSS-study/">XSS 学习</a>
-    </h1>
-  
-
-        
-        <a href="/2020/10/09/XSS-study/" class="archive-article-date">
-  	<time datetime="2020-10-09T03:04:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-09</time>
-</a>
-        
-        <!-- 添加代码 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记录和总结XSS攻击学习过程。</p>
-        
-          <a class="article-more-a" href="/2020/10/09/XSS-study/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/09/XSS-study/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker-tutorial" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/07/docker-tutorial/">Docker入门及CodiMD搭建</a>
-    </h1>
-  
-
-        
-        <a href="/2020/10/07/docker-tutorial/" class="archive-article-date">
-  	<time datetime="2020-10-07T09:54:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-07</time>
-</a>
-        
-        <!-- 添加代码 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这篇文章记录了docker的一些常用指令备忘以及利用镜像搭建一个Markdown协作平台的实例。</p>
-        
-          <a class="article-more-a" href="/2020/10/07/docker-tutorial/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">折腾</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/07/docker-tutorial/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CTFHUB-Web方向题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/17/CTFHUB-Web%E6%96%B9%E5%90%91%E9%A2%98%E8%A7%A3/">CTFHUB Web方向题解</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/17/CTFHUB-Web%E6%96%B9%E5%90%91%E9%A2%98%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-09-17T03:41:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-17</time>
-</a>
-        
-        <!-- 添加代码 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记录一下在CTFHUB上面刷题和学习过程。欢迎大家分享交流～</p>
-        
-          <a class="article-more-a" href="/2020/09/17/CTFHUB-Web%E6%96%B9%E5%90%91%E9%A2%98%E8%A7%A3/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">CTF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/17/CTFHUB-Web%E6%96%B9%E5%90%91%E9%A2%98%E8%A7%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-requests库学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/28/requests%E5%BA%93%E5%AD%A6%E4%B9%A0/">requests库学习</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/28/requests%E5%BA%93%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-06-28T13:07:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-28</time>
-</a>
-        
-        <!-- 添加代码 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当requests库get方法得到的网页乱码时，可以修改文本编码进行显示。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">r = s.get(<span class="string">'https://thos.tsinghua.edu.cn'</span>)</span><br><span class="line">r.encoding = <span class="string">'gbk'</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>如何拦截requests发的包？</p>
-<p>我们可以配置代理，让Burpsuite拦截我们发出的报文。需要注意的是这里因为采用了Burpsuite的代理，这个证书是不被信任的，所以我们需要采用verify=False这个参数，来忽略证书验证这个环节。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">proxies = &#123;</span><br><span class="line"><span class="string">"https"</span>: <span class="string">"http://127.0.0.1:8080"</span></span><br><span class="line">&#125;</span><br><span class="line">r = s.post(url, data = login_data, proxies = proxies, verify=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">折腾</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/28/requests%E5%BA%93%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-自动化填写每日健康和出行报告" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/26/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%A1%AB%E5%86%99%E6%AF%8F%E6%97%A5%E5%81%A5%E5%BA%B7%E5%92%8C%E5%87%BA%E8%A1%8C%E6%8A%A5%E5%91%8A/">自动化填写每日健康和出行报告</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/26/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%A1%AB%E5%86%99%E6%AF%8F%E6%97%A5%E5%81%A5%E5%BA%B7%E5%92%8C%E5%87%BA%E8%A1%8C%E6%8A%A5%E5%91%8A/" class="archive-article-date">
-  	<time datetime="2020-06-26T13:29:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-26</time>
-</a>
-        
-        <!-- 添加代码 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今年因为众所周知的原因，一整个学期都在家，但是学校要求每天都需要填报健康和出行报告… 坚持了一个学期，真的坚持不下去= =，趁这两天有空写一个自动化工具解放自己～</p>
-        
-          <a class="article-more-a" href="/2020/06/26/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%A1%AB%E5%86%99%E6%AF%8F%E6%97%A5%E5%81%A5%E5%BA%B7%E5%92%8C%E5%87%BA%E8%A1%8C%E6%8A%A5%E5%91%8A/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">折腾</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/26/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%A1%AB%E5%86%99%E6%AF%8F%E6%97%A5%E5%81%A5%E5%BA%B7%E5%92%8C%E5%87%BA%E8%A1%8C%E6%8A%A5%E5%91%8A/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-使用Selenium模拟登陆" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/26/%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/">使用Selenium模拟登陆</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/26/%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/" class="archive-article-date">
-  	<time datetime="2020-06-26T13:02:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-26</time>
-</a>
-        
-        <!-- 添加代码 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用selenium自动化测试框架 实现自动填写每日健康与出行系统</p>
-        
-          <a class="article-more-a" href="/2020/06/26/%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">折腾</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/26/%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-numpy-学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/09/numpy-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">numpy 学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/09/numpy-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-05-09T04:07:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        
-        <!-- 添加代码 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>因为平时的课程和实验经常需要用到数据分析技术，这里记录零散的学习笔记，方便查找。</p>
-        
-          <a class="article-more-a" href="/2020/05/09/numpy-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/09/numpy-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Latex-学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/07/Latex-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Latex 学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/07/Latex-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-05-07T15:07:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
-</a>
-        
-        <!-- 添加代码 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>因为平时写论文、写作业都需要用到Latex，Latex确实对于新手不太友好，所以这里记录一下踩过的坑。。</p>
-        
-          <a class="article-more-a" href="/2020/05/07/Latex-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">折腾</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/07/Latex-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-算法课作业-删数（数组模拟链表）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/26/%E7%AE%97%E6%B3%95%E8%AF%BE%E4%BD%9C%E4%B8%9A-%E5%88%A0%E6%95%B0%EF%BC%88%E6%95%B0%E7%BB%84%E6%A8%A1%E6%8B%9F%E9%93%BE%E8%A1%A8%EF%BC%89/">算法课作业 删数（数组模拟链表）</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/26/%E7%AE%97%E6%B3%95%E8%AF%BE%E4%BD%9C%E4%B8%9A-%E5%88%A0%E6%95%B0%EF%BC%88%E6%95%B0%E7%BB%84%E6%A8%A1%E6%8B%9F%E9%93%BE%E8%A1%A8%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-04-26T12:49:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-26</time>
-</a>
-        
-        <!-- 添加代码 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>算法课上机作业题目</p>
-        
-          <a class="article-more-a" href="/2020/04/26/%E7%AE%97%E6%B3%95%E8%AF%BE%E4%BD%9C%E4%B8%9A-%E5%88%A0%E6%95%B0%EF%BC%88%E6%95%B0%E7%BB%84%E6%A8%A1%E6%8B%9F%E9%93%BE%E8%A1%A8%EF%BC%89/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/26/%E7%AE%97%E6%B3%95%E8%AF%BE%E4%BD%9C%E4%B8%9A-%E5%88%A0%E6%95%B0%EF%BC%88%E6%95%B0%E7%BB%84%E6%A8%A1%E6%8B%9F%E9%93%BE%E8%A1%A8%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="leetcode-1209" data-title="leetcode 1209" data-url="https://www.wchhlbt.cn/2021/03/26/leetcode-1209/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1005,8 +390,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
