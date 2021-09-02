@@ -6,22 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.wchhlbt.cn">
-  <title>使用Selenium模拟登陆 | wchhlbt-个人小站</title>
+  <title>pandas基础语法整理 | wchhlbt-个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用selenium自动化测试框架 实现自动填写每日健康与出行系统">
-<meta name="keywords" content="折腾">
+  <meta name="description" content="平时的数据分析的时候经常需要用到pandas，简单整理一下pandas基础语法，方便查找。">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Selenium模拟登陆">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2020&#x2F;06&#x2F;26&#x2F;%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86&#x2F;index.html">
+<meta property="og:title" content="pandas基础语法整理">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2021&#x2F;09&#x2F;02&#x2F;pandas&#x2F;index.html">
 <meta property="og:site_name" content="wchhlbt-个人小站">
-<meta property="og:description" content="使用selenium自动化测试框架 实现自动填写每日健康与出行系统">
+<meta property="og:description" content="平时的数据分析的时候经常需要用到pandas，简单整理一下pandas基础语法，方便查找。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;tsinghua_id.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;thos.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;daily_report.png">
-<meta property="og:updated_time" content="2020-06-26T13:23:38.219Z">
+<meta property="og:updated_time" content="2021-09-02T09:29:59.462Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;tsinghua_id.png">
   
     <link rel="alternative" href="/atom.xml" title="wchhlbt-个人小站" type="application/atom+xml">
   
@@ -163,20 +159,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-使用Selenium模拟登陆" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-pandas" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      使用Selenium模拟登陆
+      pandas基础语法整理
     </h1>
   
 
         
-        <a href="/2020/06/26/%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/" class="archive-article-date">
-  	<time datetime="2020-06-26T13:02:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-26</time>
+        <a href="/2021/09/02/pandas/" class="archive-article-date">
+  	<time datetime="2021-09-02T08:26:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-02</time>
 </a>
         
         <!-- 添加代码 -->
@@ -190,27 +186,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用selenium自动化测试框架 实现自动填写每日健康与出行系统</p>
-<a id="more"></a> 
+        <p>平时的数据分析的时候经常需要用到pandas，简单整理一下pandas基础语法，方便查找。</p>
+<a id="more"></a>
 
-<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1 安装"></a>1 安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda install selenium <span class="comment"># 安装selenium库</span></span><br><span class="line"><span class="comment"># 下载chrome对应版本的driver https://sites.google.com/a/chromium.org/chromedriver/home</span></span><br><span class="line">vim /etc/paths <span class="comment"># 查看系统路径</span></span><br><span class="line"><span class="comment"># 将driver放在上面查到的系统路径下</span></span><br><span class="line"><span class="comment"># 安装完成！</span></span><br></pre></td></tr></table></figure>
+<p><code>pandas</code>作为一个<code>python</code>语言中常用的数据处理库，主要提供了两种数据结构，分别是<code>dataframe</code>和<code>series</code>。</p>
+<p><code>dataframe</code>可以简单理解为一个二维数组，或者是excel表格。每个元素都有自己的行坐标和列坐标。</p>
+<p><code>series</code>可以简单理解为一个一维数组，或者是list（两者可以实现互相转化）。此外，<code>dataframe</code>的每一行和每一列都可以视为一个<code>series</code>。</p>
+<h2 id="1-输入输出数据"><a href="#1-输入输出数据" class="headerlink" title="1 输入输出数据"></a>1 输入输出数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 引入pandas库</span></span><br><span class="line"><span class="keyword">import</span>  pandas  <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 实际工作中，我们往往需要从excel和csv文件中读取数据。</span></span><br><span class="line"><span class="comment"># 其实pandas已经帮我们实现好了读入函数，我们可以很方便的把数据读取进来</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取excel</span></span><br><span class="line"><span class="comment"># 这个会直接默认读取到这个Excel的第一个表单</span></span><br><span class="line">data = pd.read_excel(<span class="string">'bills.xlsx'</span>)</span><br><span class="line"><span class="comment"># 读取csv</span></span><br><span class="line">data = pd.read_csv(<span class="string">"TOP100000DFS.csv"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将文件输出为excel文件存储</span></span><br><span class="line"><span class="comment"># 将dataframe转为excel进行存储 index = False 不显示行索引</span></span><br><span class="line">df.to_excel(<span class="string">"result_BWdata.xlsx"</span>, index = <span class="literal">False</span>) </span><br><span class="line"><span class="comment"># 输出csv</span></span><br><span class="line">df.to_csv(<span class="string">"result_BWdata.csv"</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 手动初始化DataFrame</span></span><br><span class="line">df = pd.DataFrame([[<span class="number">4</span>, <span class="number">9</span>]] * <span class="number">3</span>, columns=[<span class="string">'A'</span>, <span class="string">'B'</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df</span><br><span class="line">   A  B</span><br><span class="line"><span class="number">0</span>  <span class="number">4</span>  <span class="number">9</span></span><br><span class="line"><span class="number">1</span>  <span class="number">4</span>  <span class="number">9</span></span><br><span class="line"><span class="number">2</span>  <span class="number">4</span>  <span class="number">9</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2 使用"></a>2 使用</h2><p>关于selenium使用方式参考这篇文章 <a href="https://zhuanlan.zhihu.com/p/111859925" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/111859925</a></p>
-<h2 id="3-任务实现"><a href="#3-任务实现" class="headerlink" title="3 任务实现"></a>3 任务实现</h2><p><strong>目标</strong> ： 实现自动化填报每日健康和出行报告</p>
-<p><strong>方法</strong> ：采用模拟的方式</p>
-<p><img src="https://raw.githubusercontent.com/wchhlbt/MyPostImg/master/tsinghua_id.png" alt="身份信息认证界面"></p>
-<p><img src="https://raw.githubusercontent.com/wchhlbt/MyPostImg/master/thos.png" alt="清华大学在线服务系统"></p>
-<p><img src="https://raw.githubusercontent.com/wchhlbt/MyPostImg/master/daily_report.png" alt=""></p>
-<ol>
-<li>从上图可以看出我们首先需要填写user和password来登陆</li>
-<li>其次进入到日报填写界面</li>
-<li>点击提交按钮</li>
+<h2 id="2-遍历数据"><a href="#2-遍历数据" class="headerlink" title="2 遍历数据"></a>2 遍历数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读入数据我们往往需要遍历我们获取的data，下面列举了集中遍历数据的方式</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 按行号获取数据</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(data)):</span><br><span class="line">    print(data.iloc[i,<span class="number">0</span>], <span class="string">' '</span>, data.iloc[i,<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过迭代器的方式</span></span><br><span class="line"><span class="comment"># 按行获取数据</span></span><br><span class="line"><span class="keyword">for</span> index, row <span class="keyword">in</span> df.iterrows():</span><br><span class="line">    print(index) <span class="comment"># 输出每行的索引值</span></span><br><span class="line">    print(row) <span class="comment"># 将每行的值作为Series输出</span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># 按列遍历</span></span><br><span class="line"><span class="keyword">for</span> index, col <span class="keyword">in</span> data.iteritems():</span><br><span class="line">    print(index) <span class="comment"># 输出列名</span></span><br><span class="line">    print(row)   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历series</span></span><br><span class="line">test = pd.Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line"><span class="keyword">for</span> i, v <span class="keyword">in</span> test.iteritems():</span><br><span class="line">    print(<span class="string">'index: '</span>, i, <span class="string">'value: '</span>, v)</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-对数据排序"><a href="#3-对数据排序" class="headerlink" title="3 对数据排序"></a>3 对数据排序</h2><p><code>pandas</code>库也提供了很方便的对数据排序处理的函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 表示按照xxx这个字段排序，inplace默认为False,如果该值为False，那么原来的pd顺序没变，只是返回的是排序的</span></span><br><span class="line">df.sort_values(<span class="string">"xxx"</span>,inplace=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 'series通过索引进行排序：'</span></span><br><span class="line">series.sort_index()</span><br><span class="line"><span class="comment"># 'series通过值进行排序:'</span></span><br><span class="line">series.sort_values()</span><br><span class="line"><span class="comment"># 'dataframe根据行索引进行降序排序（排序时默认升序，调节ascending参数）：'</span></span><br><span class="line">df.sort_index(ascending=<span class="literal">False</span>)</span><br><span class="line"><span class="comment"># 'dataframe根据列索引进行排序：'</span></span><br><span class="line">df.sort_index(axis=<span class="number">1</span>)</span><br><span class="line"><span class="comment"># 对某一列的值进行排序：</span></span><br><span class="line">df.sort_values(by=<span class="string">'a'</span>)</span><br><span class="line"><span class="comment"># 根据多个列的值进行排序：</span></span><br><span class="line">df.sort_values(by=[<span class="string">'a'</span>,<span class="string">'c'</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-根据已有的列添加新的列"><a href="#4-根据已有的列添加新的列" class="headerlink" title="4 根据已有的列添加新的列"></a>4 根据已有的列添加新的列</h2><p>这是我们平时在使用<code>pandas</code>中经常会用到的一些小功能，我们可能会基于已有列的数据做一些运算，将得到的结果写到新的列中。我们可以借助<code>pandas</code>中给<code>dataframe</code>实现的<code>apply</code>函数。<code>apply</code>函数的作用是对<code>dataframe</code>某一列或是某一行执行相同的函数操作。我们借助<code>lambda</code>表达式传递了我们的参数，x也就是这一列的值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_rank</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> (max_rank[x] + min_rank[x]) / <span class="number">2.</span></span><br><span class="line">newdata[index+<span class="string">'_rank'</span>] = newdata[index].apply(<span class="keyword">lambda</span> x : get_rank(x))</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="0xff-其他"><a href="#0xff-其他" class="headerlink" title="0xff 其他"></a>0xff 其他</h2><p>这里记录一些尚不足以归类的方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data.describe() <span class="comment">#对每一列数据进行统计，包括计数，均值，std，各个分位数等。</span></span><br><span class="line">data[<span class="string">'x'</span>].value_counts()    <span class="comment">#统计某一列x中各个值出现的次数：</span></span><br><span class="line"></span><br><span class="line">df.columns = [<span class="string">'A'</span>,<span class="string">'B'</span>] 				<span class="comment">#修改列名a，b为A、B。</span></span><br><span class="line">df.rename(columns=&#123;<span class="string">'a'</span>:<span class="string">'A'</span>&#125;) 	<span class="comment">#只修改列名a为A</span></span><br><span class="line"><span class="comment"># 重新定义列名</span></span><br><span class="line">df = pd.DataFrame (df, columns=[<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+<p>其实pandas库实现了非常多强大的功能，日常会用到的数据处理函数（平均值、中位数、方差等等）早就已经实现好了。所以在实际应用中要多查询资料。上面列举的很多函数参数也不止上面这些，可以查询官方文档深入学习。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html" target="_blank" rel="noopener">10 minutes to pandas</a> 是一个很好的上手pandas的材料，建议阅读。</li>
+<li><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html" target="_blank" rel="noopener">pandas.DataFrame.apply</a> apply函数的文档</li>
 </ol>
-<p>「注意⚠️ 因为页面加载需要一定的时间，所以需要添加适当的停顿供页面加载完成。」</p>
-<h2 id="4-Code"><a href="#4-Code" class="headerlink" title="4 Code"></a>4 Code</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions <span class="keyword">as</span> EC</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># options = webdriver.ChromeOptions()</span></span><br><span class="line"><span class="comment"># options.add_argument('blink-settings=imagesEnabled=false') # 不加载图片</span></span><br><span class="line"><span class="comment"># driver = webdriver.Chrome(chrome_options=chrome_options)    # Chrome浏览器</span></span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line"></span><br><span class="line">driver.get(<span class="string">"https://thos.tsinghua.edu.cn/"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># add your username and password</span></span><br><span class="line">usr = <span class="string">'username'</span></span><br><span class="line">pwd = <span class="string">'password'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># input the </span></span><br><span class="line">usr_input = driver.find_element_by_id(<span class="string">'i_user'</span>)</span><br><span class="line">pwd_input = driver.find_element_by_id(<span class="string">'i_pass'</span>)</span><br><span class="line">usr_input.send_keys(usr)</span><br><span class="line">pwd_input.send_keys(pwd)</span><br><span class="line"></span><br><span class="line">driver.find_element_by_xpath(<span class="string">'//*[@id="theform"]/div[4]/a'</span>).click()</span><br><span class="line"></span><br><span class="line"><span class="comment"># WebDriverWait(driver,1).until(EC.visibility_of_element_located(locator))</span></span><br><span class="line"><span class="comment"># driver.implicitly_wait(5) # seconds    </span></span><br><span class="line">report = WebDriverWait(driver, <span class="number">5</span>, <span class="number">0.5</span>).until(</span><br><span class="line">                      <span class="keyword">lambda</span> driver:driver.find_element_by_name(<span class="string">'【日报】学生健康和出行情况报告'</span>)</span><br><span class="line">                      ) <span class="comment"># 等待元素加载</span></span><br><span class="line">                      </span><br><span class="line">report.click()</span><br><span class="line">commit = WebDriverWait(driver, <span class="number">5</span>, <span class="number">0.5</span>).until(</span><br><span class="line">                      <span class="keyword">lambda</span> driver:driver.find_element_by_id(<span class="string">'commit'</span>)</span><br><span class="line">                      )</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line">commit.click()</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line">driver.quit()</span><br><span class="line"><span class="comment"># driver.find_element_by_id('commit').click()</span></span><br></pre></td></tr></table></figure>
-
-
-
 
       
 
@@ -245,7 +248,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">折腾</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
@@ -302,7 +305,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2020/06/26/%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2021/09/02/pandas/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -316,18 +319,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/06/26/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%A1%AB%E5%86%99%E6%AF%8F%E6%97%A5%E5%81%A5%E5%BA%B7%E5%92%8C%E5%87%BA%E8%A1%8C%E6%8A%A5%E5%91%8A/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          自动化填写每日健康和出行报告
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/09/numpy-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">numpy 学习笔记</div>
+    <a href="/2021/07/05/easyflask/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2021虎符CTF决赛 EasyFlask Writeup</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -355,7 +349,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="使用Selenium模拟登陆" data-title="使用Selenium模拟登陆" data-url="https://www.wchhlbt.cn/2020/06/26/%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/"></div>
+	<div class="ds-thread" data-thread-key="pandas" data-title="pandas基础语法整理" data-url="https://www.wchhlbt.cn/2021/09/02/pandas/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

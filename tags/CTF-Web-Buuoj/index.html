@@ -6,22 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.wchhlbt.cn">
-  <title>使用Selenium模拟登陆 | wchhlbt-个人小站</title>
+  <title>Tag: CTF, Web, Buuoj | wchhlbt-个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用selenium自动化测试框架 实现自动填写每日健康与出行系统">
-<meta name="keywords" content="折腾">
-<meta property="og:type" content="article">
-<meta property="og:title" content="使用Selenium模拟登陆">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2020&#x2F;06&#x2F;26&#x2F;%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86&#x2F;index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="wchhlbt-个人小站">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;tags&#x2F;CTF-Web-Buuoj&#x2F;index.html">
 <meta property="og:site_name" content="wchhlbt-个人小站">
-<meta property="og:description" content="使用selenium自动化测试框架 实现自动填写每日健康与出行系统">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;tsinghua_id.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;thos.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;daily_report.png">
-<meta property="og:updated_time" content="2020-06-26T13:23:38.219Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wchhlbt&#x2F;MyPostImg&#x2F;master&#x2F;tsinghua_id.png">
   
     <link rel="alternative" href="/atom.xml" title="wchhlbt-个人小站" type="application/atom+xml">
   
@@ -163,224 +155,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-使用Selenium模拟登陆" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      使用Selenium模拟登陆
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/07/05/easyflask/" class="archive-article-date">
+  	<time datetime="2021-07-05T13:20:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-05</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/07/05/easyflask/">2021虎符CTF决赛 EasyFlask Writeup</a>
     </h1>
   
 
-        
-        <a href="/2020/06/26/%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/" class="archive-article-date">
-  	<time datetime="2020-06-26T13:02:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-26</time>
-</a>
-        
-        <!-- 添加代码 -->
-        
-          <span class="archive-article-date">
-              阅读量 <span id="busuanzi_value_page_pv"></span>
-          </span>
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用selenium自动化测试框架 实现自动填写每日健康与出行系统</p>
-<a id="more"></a> 
-
-<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1 安装"></a>1 安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda install selenium <span class="comment"># 安装selenium库</span></span><br><span class="line"><span class="comment"># 下载chrome对应版本的driver https://sites.google.com/a/chromium.org/chromedriver/home</span></span><br><span class="line">vim /etc/paths <span class="comment"># 查看系统路径</span></span><br><span class="line"><span class="comment"># 将driver放在上面查到的系统路径下</span></span><br><span class="line"><span class="comment"># 安装完成！</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2 使用"></a>2 使用</h2><p>关于selenium使用方式参考这篇文章 <a href="https://zhuanlan.zhihu.com/p/111859925" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/111859925</a></p>
-<h2 id="3-任务实现"><a href="#3-任务实现" class="headerlink" title="3 任务实现"></a>3 任务实现</h2><p><strong>目标</strong> ： 实现自动化填报每日健康和出行报告</p>
-<p><strong>方法</strong> ：采用模拟的方式</p>
-<p><img src="https://raw.githubusercontent.com/wchhlbt/MyPostImg/master/tsinghua_id.png" alt="身份信息认证界面"></p>
-<p><img src="https://raw.githubusercontent.com/wchhlbt/MyPostImg/master/thos.png" alt="清华大学在线服务系统"></p>
-<p><img src="https://raw.githubusercontent.com/wchhlbt/MyPostImg/master/daily_report.png" alt=""></p>
-<ol>
-<li>从上图可以看出我们首先需要填写user和password来登陆</li>
-<li>其次进入到日报填写界面</li>
-<li>点击提交按钮</li>
-</ol>
-<p>「注意⚠️ 因为页面加载需要一定的时间，所以需要添加适当的停顿供页面加载完成。」</p>
-<h2 id="4-Code"><a href="#4-Code" class="headerlink" title="4 Code"></a>4 Code</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions <span class="keyword">as</span> EC</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># options = webdriver.ChromeOptions()</span></span><br><span class="line"><span class="comment"># options.add_argument('blink-settings=imagesEnabled=false') # 不加载图片</span></span><br><span class="line"><span class="comment"># driver = webdriver.Chrome(chrome_options=chrome_options)    # Chrome浏览器</span></span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line"></span><br><span class="line">driver.get(<span class="string">"https://thos.tsinghua.edu.cn/"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># add your username and password</span></span><br><span class="line">usr = <span class="string">'username'</span></span><br><span class="line">pwd = <span class="string">'password'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># input the </span></span><br><span class="line">usr_input = driver.find_element_by_id(<span class="string">'i_user'</span>)</span><br><span class="line">pwd_input = driver.find_element_by_id(<span class="string">'i_pass'</span>)</span><br><span class="line">usr_input.send_keys(usr)</span><br><span class="line">pwd_input.send_keys(pwd)</span><br><span class="line"></span><br><span class="line">driver.find_element_by_xpath(<span class="string">'//*[@id="theform"]/div[4]/a'</span>).click()</span><br><span class="line"></span><br><span class="line"><span class="comment"># WebDriverWait(driver,1).until(EC.visibility_of_element_located(locator))</span></span><br><span class="line"><span class="comment"># driver.implicitly_wait(5) # seconds    </span></span><br><span class="line">report = WebDriverWait(driver, <span class="number">5</span>, <span class="number">0.5</span>).until(</span><br><span class="line">                      <span class="keyword">lambda</span> driver:driver.find_element_by_name(<span class="string">'【日报】学生健康和出行情况报告'</span>)</span><br><span class="line">                      ) <span class="comment"># 等待元素加载</span></span><br><span class="line">                      </span><br><span class="line">report.click()</span><br><span class="line">commit = WebDriverWait(driver, <span class="number">5</span>, <span class="number">0.5</span>).until(</span><br><span class="line">                      <span class="keyword">lambda</span> driver:driver.find_element_by_id(<span class="string">'commit'</span>)</span><br><span class="line">                      )</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line">commit.click()</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line">driver.quit()</span><br><span class="line"><span class="comment"># driver.find_element_by_id('commit').click()</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">折腾</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">CTF, Web, Buuoj</a>
         		</li>
       		
 		</ul>
 	</div>
 
+          
 
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2020/06/26/%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/06/26/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%A1%AB%E5%86%99%E6%AF%8F%E6%97%A5%E5%81%A5%E5%BA%B7%E5%92%8C%E5%87%BA%E8%A1%8C%E6%8A%A5%E5%91%8A/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          自动化填写每日健康和出行报告
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/05/09/numpy-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">numpy 学习笔记</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="使用Selenium模拟登陆" data-title="使用Selenium模拟登陆" data-url="https://www.wchhlbt.cn/2020/06/26/%E4%BD%BF%E7%94%A8Selenium%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -416,9 +244,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
