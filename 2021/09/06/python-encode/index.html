@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.wchhlbt.cn">
-  <title>Archives: 2019 | wchhlbt-个人小站</title>
+  <title>python实现CTF中的编码转换 | wchhlbt-个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="wchhlbt-个人小站">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;archives&#x2F;2019&#x2F;index.html">
+  <meta name="description" content="梳理python语言中的字符串编码与解码问题，包括字符串与其二进制、十六进制的转化方法。">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python实现CTF中的编码转换">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.wchhlbt.cn&#x2F;2021&#x2F;09&#x2F;06&#x2F;python-encode&#x2F;index.html">
 <meta property="og:site_name" content="wchhlbt-个人小站">
+<meta property="og:description" content="梳理python语言中的字符串编码与解码问题，包括字符串与其二进制、十六进制的转化方法。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-09-06T08:28:25.878Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="wchhlbt-个人小站" type="application/atom+xml">
@@ -155,250 +159,247 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-python-encode" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python实现CTF中的编码转换
+    </h1>
+  
+
+        
+        <a href="/2021/09/06/python-encode/" class="archive-article-date">
+  	<time datetime="2021-09-06T03:22:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-06</time>
+</a>
+        
+        <!-- 添加代码 -->
+        
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>梳理python语言中的字符串编码与解码问题，包括字符串与其二进制、十六进制的转化方法。</p>
+<a id="more"></a>
+
+<h2 id="0x00-概述"><a href="#0x00-概述" class="headerlink" title="0x00 概述"></a>0x00 概述</h2><p>使用过多版本python（2. / 3.）的朋友一定会遇到关于字符串编码类型的问题。这是因为python3中新引入了一种数据类型<code>bytes</code>。<code>bytes</code>类型的含义是字节字符串，也就是以字节形式（<code>8 bits</code>）存储的字符串，通常以16进制显示。<code>str</code>类型需要通过编码变成<code>bytes</code>类型，<code>bytes</code>类型需要通过解码变成<code>str</code>。而具体的编码形式，取决于字符串想采用哪种编码方法，例如<code>UTF-8</code>、<code>GBK</code>、<code>ASCII</code>。python3中的默认编码格式是<code>UTF-8</code>。</p>
+<p>下面这个图表示了这种转换关系</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># string encode to bytes </span></span><br><span class="line"><span class="comment"># bytes decode to string</span></span><br><span class="line"></span><br><span class="line">      <span class="string">""</span>.encode()                 <span class="string">b""</span>.hex()</span><br><span class="line">  +----------------+     +- ------------------------+</span><br><span class="line">  |                |     |                          |</span><br><span class="line">  |                |     |                          |</span><br><span class="line">+-+--+           +-v-----+-+                  +-----v-----+</span><br><span class="line">| <span class="string">""</span> |           |  bytes  |                  |  hex str  |</span><br><span class="line">+-^--+           +-+-----^-+                  +-----+-----+</span><br><span class="line">  |                |     |                          |</span><br><span class="line">  |                |     |                          |</span><br><span class="line">  +----------------+     +--------------------------+</span><br><span class="line">     <span class="string">b""</span>.decode()               bytes.fromhex(<span class="string">""</span>)</span><br></pre></td></tr></table></figure>
+
+<p>From <a href="https://blingblingxuanxuan.github.io/2021/01/23/study-python3/" target="_blank" rel="noopener">https://blingblingxuanxuan.github.io/2021/01/23/study-python3/</a></p>
+<h2 id="0x01-字符串二进制表示转换"><a href="#0x01-字符串二进制表示转换" class="headerlink" title="0x01 字符串二进制表示转换"></a>0x01 字符串二进制表示转换</h2><h3 id="二进制字符串转ASCII"><a href="#二进制字符串转ASCII" class="headerlink" title="二进制字符串转ASCII"></a>二进制字符串转ASCII</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 字符串长度应该是8的倍数  256个ASCII字符 把字符串按照8位的长度切割</span></span><br><span class="line"><span class="comment"># python按照固定长度分割字符串</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="comment"># python按照固定长度分割字符串</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cut_text</span><span class="params">(text,lenth)</span>:</span> </span><br><span class="line">    textArr = re.findall(<span class="string">'.&#123;'</span>+str(lenth)+<span class="string">'&#125;'</span>, text) </span><br><span class="line">    textArr.append(text[(len(textArr)*lenth):]) </span><br><span class="line">    <span class="keyword">return</span> textArr</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encode</span><span class="params">(s)</span>:</span>	<span class="comment"># 去除0b</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">' '</span>.join([bin(ord(c))[<span class="number">2</span>:].zfill(<span class="number">8</span>) <span class="keyword">for</span> c <span class="keyword">in</span> s])</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decode</span><span class="params">(s)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join([chr(i) <span class="keyword">for</span> i <span class="keyword">in</span> [int(b, <span class="number">2</span>) <span class="keyword">for</span> b <span class="keyword">in</span> s.split(<span class="string">' '</span>)]])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decode</span><span class="params">(arr)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join([chr(i) <span class="keyword">for</span> i <span class="keyword">in</span> [int(b, <span class="number">2</span>) <span class="keyword">for</span> b <span class="keyword">in</span> arr]])</span><br><span class="line"></span><br><span class="line">str2 = <span class="string">"0101010001001000010101010100001101010100010001100111101101111000011011110011001101011111001100010111001101011111"</span> </span><br><span class="line">result = list(filter(<span class="literal">None</span>,cut_text(str2,<span class="number">8</span>))) <span class="comment"># 过滤空字符串</span></span><br><span class="line">print(decode(result))</span><br><span class="line"><span class="comment"># print(decode(cut_text(str2,8)))</span></span><br><span class="line">print(encode(<span class="string">'THUCTF&#123;xo3_1s_'</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="二进制字符串转化为bytes"><a href="#二进制字符串转化为bytes" class="headerlink" title="二进制字符串转化为bytes"></a>二进制字符串转化为bytes</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bin_str = <span class="string">'1011001110110111'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>int(bin_str,<span class="number">2</span>).to_bytes(<span class="number">2</span>,byteorder=<span class="string">'big'</span>).decode(<span class="string">'GBK'</span>)</span><br><span class="line"><span class="string">'撤'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bytes.fromhex(hex(int(bin_str,<span class="number">2</span>))[<span class="number">2</span>:]).decode(<span class="string">'GBK'</span>)</span><br><span class="line"><span class="string">'撤'</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="0x02-十六进制表示转换"><a href="#0x02-十六进制表示转换" class="headerlink" title="0x02 十六进制表示转换"></a>0x02 十六进制表示转换</h2><p>在CTF比赛中，我们经常需要将字符串转化为16进制表示或者将16进制表示转化为字符串。</p>
+<p>下面介绍几种常用的方法：</p>
+<p><strong>方式一：</strong>通过<code>bytes.hex()</code>函数和<code>bytes.fromhex()</code>函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>__import__(<span class="string">'os'</span>).popen(<span class="string">'cat flag.txt'</span>).read()                           <span class="comment"># str</span></span><br><span class="line"><span class="string">'THUCTF&#123;123jkljljfkj322k3jJLIJIHih&#125;\n'</span>                                      <span class="comment">#  |</span></span><br><span class="line">                                                                            <span class="comment">#  v</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>__import__(<span class="string">'os'</span>).popen(<span class="string">'cat flag.txt'</span>).read().encode()                  <span class="comment"># bytes</span></span><br><span class="line"><span class="string">b'THUCTF&#123;123jkljljfkj322k3jJLIJIHih&#125;\n'</span>                                     <span class="comment">#  |</span></span><br><span class="line">																																						<span class="comment">#  v</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>__import__(<span class="string">'os'</span>).popen(<span class="string">'cat flag.txt'</span>).read().encode().hex()            <span class="comment"># hex</span></span><br><span class="line"><span class="string">'5448554354467b3132336a6b6c6a6c6a666b6a3332326b336a4a4c494a494869687d0a'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据python文档，fromhex这个函数是可以忽略空格的</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bytes.fromhex(<span class="string">'5448554354467b3132336a6b6c6a6c6a666b6a3332326b336a4a4c494a494869687d0a'</span>)</span><br><span class="line"><span class="string">b'THUCTF&#123;123jkljljfkj322k3jJLIJIHih&#125;\n'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bytes.fromhex(<span class="string">"666c61 67 7b"</span>)</span><br><span class="line"><span class="string">b'flag&#123;'</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>方式二</strong>：借助<code>binascii</code>库中提供的转换函数<code>b2a_hex</code>、<code>a2b_hex</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>text = <span class="string">"flag&#123;123&#125;"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>text_to_hex = binascii.b2a_hex(text.encode(<span class="string">'ascii'</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>binascii.b2a_hex(text.encode(<span class="string">'ascii'</span>))</span><br><span class="line"><span class="string">b'666c61677b3132337d'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>binascii.a2b_hex(text_to_hex)</span><br><span class="line"><span class="string">b'flag&#123;123&#125;'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>binascii.a2b_hex(text_to_hex).decode()</span><br><span class="line"><span class="string">'flag&#123;123&#125;'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>binascii.hexlify(text.encode())</span><br><span class="line"><span class="string">b'666c61677b3132337d'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>binascii.unhexlify(<span class="string">b'666c61677b3132337d'</span>)</span><br><span class="line"><span class="string">b'flag&#123;123&#125;'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="0x03-进制转换"><a href="#0x03-进制转换" class="headerlink" title="0x03 进制转换"></a>0x03 进制转换</h2><p>在CTF中有些场景，我们需要实现字符串和整数之间的转换</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 首先我们可以借助int()函数实现进制转换</span></span><br><span class="line"><span class="comment"># int()函数可以帮我们快速实现各个进制表示的数字向10进制的转换，</span></span><br><span class="line"><span class="comment"># 有两个参数，第一个参数是数字或是字符串</span></span><br><span class="line"><span class="comment"># 第二个参数是当前进制， 默认为10进制</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="string">'5448554354467b3132336a6b6c6a6c6a666b6a3332326b336a4a4c494a494869687d0a'</span>, <span class="number">16</span>)</span><br><span class="line"><span class="number">639582382831837187405008126370278826828342429603666616964524353865713521244697558282</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="string">'1011001110110111'</span>, <span class="number">2</span>)</span><br><span class="line"><span class="number">46007</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="string">'0b100111000000000'</span>,<span class="number">2</span>)</span><br><span class="line"><span class="number">19968</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="string">'0x66637b7d'</span>,<span class="number">16</span>)</span><br><span class="line"><span class="number">1717795709</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 10进制转换为16进制</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hex(<span class="number">639582382831837187405008126370278826828342429603666616964524353865713521244697558282</span>)</span><br><span class="line"><span class="string">'0x5448554354467b3132336a6b6c6a6c6a666b6a3332326b336a4a4c494a494869687d0a'</span></span><br><span class="line"><span class="comment"># 10进制转换为2进制</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bin(<span class="number">19968</span>)</span><br><span class="line"><span class="string">'0b100111000000000'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="0x04-Bytes-lt-–-gt-Integer"><a href="#0x04-Bytes-lt-–-gt-Integer" class="headerlink" title="0x04 Bytes&lt;–&gt;Integer"></a>0x04 Bytes&lt;–&gt;Integer</h2><p>方式一：借助<code>bytes_to_long</code>和<code>long_to_bytes</code>函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bytes_to_long</span></span><br><span class="line"><span class="comment"># long_to_bytes</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> bytes_to_long,long_to_bytes </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bytes_to_long(<span class="string">b'THUCTF&#123;123jkljljfkj322k3jJLIJIHih&#125;\n'</span>)</span><br><span class="line"><span class="number">639582382831837187405008126370278826828342429603666616964524353865713521244697558282</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>long_to_bytes(<span class="number">639582382831837187405008126370278826828342429603666616964524353865713521244697558282</span>)</span><br><span class="line"><span class="string">b'THUCTF&#123;123jkljljfkj322k3jJLIJIHih&#125;\n'</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>方式二：进制转换</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="string">'THUCTF&#123;123jkljljfkj322k3jJLIJIHih&#125;\n'</span>.encode().hex() , <span class="number">16</span>)</span><br><span class="line"><span class="number">639582382831837187405008126370278826828342429603666616964524353865713521244697558282</span></span><br><span class="line"><span class="comment"># 其实对比这个函数的运行结果和上面的运行结果，</span></span><br><span class="line"><span class="comment"># 我们可以知道，其实bytes_to_long这个函数就是把字符串先编码成16进制形式，然后再把16进制数转化为整数</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;bytes.fromhex(hex(<span class="number">639582382831837187405008126370278826828342429603666616964524353865713521244697558282</span>)[<span class="number">2</span>:])</span><br><span class="line"><span class="string">b'THUCTF&#123;123jkljljfkj322k3jJLIJIHih&#125;\n'</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>方式三：借助<code>Integer</code>类型的库函数<code>to_bytes</code>和<code>from_bytes</code></p>
+<p><a href="https://docs.python.org/3/library/stdtypes.html?highlight=to_bytes#int.to_bytes" target="_blank" rel="noopener">https://docs.python.org/3/library/stdtypes.html?highlight=to_bytes#int.to_bytes</a></p>
+<p><code>to_bytes</code>函数第一个参数是想转换成的字节长度，如果太小会出现overflow。第二个参数是字节序，可以填写大端或者小端。</p>
+<p><code>from_bytes</code>可以直接将<code>bytes</code>转换为整数，和<code>bytes_to_long</code>的功能基本一致。目前暂不确定两者的区别。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>int.from_bytes(<span class="string">b'THUCTF&#123;123jkljljfkj322k3jJLIJIHih&#125;\n'</span>, <span class="string">'big'</span>)</span><br><span class="line"><span class="number">639582382831837187405008126370278826828342429603666616964524353865713521244697558282</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>(<span class="number">639582382831837187405008126370278826828342429603666616964524353865713521244697558282</span>).to_bytes(<span class="number">40</span>, byteorder=<span class="string">'big'</span>)</span><br><span class="line"><span class="string">b'\x00\x00\x00\x00\x00THUCTF&#123;123jkljljfkj322k3jJLIJIHih&#125;\n'</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="0x00-输出格式"><a href="#0x00-输出格式" class="headerlink" title="0x00 输出格式"></a>0x00 输出格式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 把bytes打印成0x格式</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_hex</span><span class="params">(bytes)</span>:</span></span><br><span class="line">    l = [hex(int(i)) <span class="keyword">for</span> i <span class="keyword">in</span> bytes]</span><br><span class="line">    print(<span class="string">" "</span>.join(l))</span><br><span class="line">    </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print_hex(<span class="string">b'flag&#123;123&#125;'</span>)</span><br><span class="line"><span class="number">0x66</span> <span class="number">0x6c</span> <span class="number">0x61</span> <span class="number">0x67</span> <span class="number">0x7b</span> <span class="number">0x31</span> <span class="number">0x32</span> <span class="number">0x33</span> <span class="number">0x7d</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#str.encode" target="_blank" rel="noopener">https://docs.python.org/3/library/stdtypes.html#str.encode</a></li>
+<li><a href="https://blingblingxuanxuan.github.io/2021/01/23/study-python3/" target="_blank" rel="noopener">https://blingblingxuanxuan.github.io/2021/01/23/study-python3/</a></li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/18/pwntools%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2019-11-18T03:58:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/18/pwntools%E5%85%A5%E9%97%A8/">CTF-PWN入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">CTF</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
 
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.wchhlbt.cn/2021/09/06/python-encode/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/26/MacOS-Terminal-climb-over-the-Great-Wall/" class="archive-article-date">
-  	<time datetime="2019-10-26T10:39:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/09/02/pandas/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pandas基础语法整理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/26/MacOS-Terminal-climb-over-the-Great-Wall/">MacOS Terminal climb over the Great Wall</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="python-encode" data-title="python实现CTF中的编码转换" data-url="https://www.wchhlbt.cn/2021/09/06/python-encode/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">折腾</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/26/VMware-fusion-on-MacOS-%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2019-10-25T16:38:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/26/VMware-fusion-on-MacOS-%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/">VMware fusion on MacOS 相关配置</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">折腾</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/17/DKIM%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-6376%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2019-05-17T02:50:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/17/DKIM%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-6376%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/">DKIM协议的RFC-6376文档阅读记录</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">网络安全</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/10/DMARC%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-7489%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2019-04-10T03:27:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/10/DMARC%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-7489%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/">DMARC协议的RFC-7489文档阅读记录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">网络安全</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/25/SMTP%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-5321%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2019-03-25T11:33:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/25/SMTP%E5%8D%8F%E8%AE%AE%E7%9A%84RFC-5321%E6%96%87%E6%A1%A3%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/">SMTP协议的RFC-5321文档阅读记录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">网络安全</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -434,8 +435,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
