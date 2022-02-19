@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="wchhlbt-个人小站">
 <meta property="og:description" content="这篇文章系统记录了我对于DKIM协议的RFC-6376文档阅读，记录一些我认为重要的关键点和相关问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-11-23T03:09:14.089Z">
+<meta property="og:updated_time" content="2021-10-05T03:47:10.100Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="wchhlbt-个人小站" type="application/atom+xml">
@@ -210,7 +210,7 @@
 <li>3.5 q 用于检索公钥</li>
 <li>3.6 键查找算法的参数包括查找的类型(“q=”标记)、签名者的域(DKIM Signature头字段的“d=”标记)和选择器(“s=”标记)。</li>
 <li>3.6.2.2 TXT RRs MUST be unique for a particular selector name.一个选择器下只能有一条记录。</li>
-<li>3.7 签名者/验证者必须计算两个哈希值:一个在消息体上，另一个在消息选定的头字段上。</li>
+<li>3.7 签名者/验证者必须计算两个哈希值:一个是邮件正文，另一个是被发信人选择的头部字段。</li>
 <li>3.7 当计算将使用base64或引用打印编码传输的消息的散列时，签名者必须在编码之后计算散列。</li>
 <li>5.4 强烈建议在消息中显示签名字段，如日期、主题、回复、发送方和所有MIME头字段。Date, Subject, Reply-To, Sender, and all MIME header fields</li>
 <li>DKIM-Signature头字段始终是隐式签名的，并且必须不包含在“h=”标记中，除非指示其他预先存在的签名也被签名。签名者可能声称拥有不存在的已签名头字段(也就是说，即使消息中不存在头字段，签名者也可能在“h=”标记中包含头字段名)。在计算签名时，必须将不存在的头字段视为空字符串(包括头字段名称、头字段值、所有标点符号和后面的CRLF)。</li>
@@ -408,7 +408,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 wchhlbt
+    		&copy; 2022 wchhlbt
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -525,15 +525,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">algorithm</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">CTF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">Misc</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">网络安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">CTF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,6 +542,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,11 +561,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">algorithm</a>
               </li>
             
             <div class="clearfix"></div>
